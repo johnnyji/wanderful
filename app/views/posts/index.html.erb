@@ -1,1 +1,7 @@
-<h1>Yo</h1>
+<%= @posts.each do |post| %>
+	<h1><%= link_to post.title, post %></h1>
+<% end %>
+
+<br>
+
+<%= link_to "Add another site", new_post_path %>
