@@ -5,13 +5,15 @@
 <p><%= @post.description %></p>
 
 <h2><%= pluralize(@post.comments.count, "Comment") %></h2>
-	<%= @comments.each do |comment| %>
+	<% @comments.each do |comment| %>
 		<%= comment.user.name %>
 		<%= comment.content %>
 	<% end %>
 
 	<%= render "comments/form" %>
+<% if user_signed_in? %>
+	<%= link_to "Edit", edit_post_path(@post) %>
+	<%= link_to "Delete", post_path(@post), method: :delete, data: {confirm: "Are you sure??"} %>
+<% end %>
 
-<%= link_to "Edit", edit_post_path(@post) %>
-<%= link_to "Delete", post_path(@post), method: :delete, data: {confirm: "Are you sure??"} %>
 <%= link_to "Go Home", posts_path %>
