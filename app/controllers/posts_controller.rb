@@ -7,6 +7,7 @@ class PostsController < ApplicationController
 	end
 
 	def show
+		@comments = Comment.where(post_id: @post) #finds comments where the post_id is the same as current post
 	end
 
 	def new
