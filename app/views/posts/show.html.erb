@@ -1,5 +1,7 @@
+<%= image_tag @post.image.url(:medium) %>
 <h1><%= @post.title %></h1>
 <p><%= @post.link %></p>
+<p><%= @post.user.name %></p>
 <p><%= @post.description %></p>
 
 <%= link_to "Edit", edit_post_path(@post) %>
