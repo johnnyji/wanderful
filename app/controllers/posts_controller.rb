@@ -1,5 +1,6 @@
 class PostsController < ApplicationController
-	before_filter :find_post, only: [:show, :edit, :update, :delete, :destroy]
+	before_action :find_post, only: [:show, :edit, :update, :delete, :destroy]
+	before_action :authenticate_user!, except: [:index, :show] #authenticates user for new/edit/destroy
 
 	def index
 		@posts = Post.all.order("created_at DESC")
@@ -9,11 +10,11 @@ class PostsController < ApplicationController
 	end
 
 	def new
-		@post = Post.new
+		@post = current_user.posts.build #makes sure user_id is present when creating a post
 	end
 
 	def create
-		@post = Post.new(post_params)
+		@post = current_user.posts.build(post_params)
 		if @post.save
 			redirect_to @post
 		else
