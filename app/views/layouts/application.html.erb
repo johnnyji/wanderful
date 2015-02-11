@@ -4,6 +4,8 @@
   <title>Wanderful</title>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= stylesheet_link_tag    'normalize', media: 'all', 'data-turbolinks-track' => true %>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+  <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
 </head>
@@ -16,7 +18,7 @@
     <p class="alert"><%= alert %></p>
   </div>
   
-  <div class="right-tabs">
+  <div class="nav">
     <% if user_signed_in? %>
       <%= link_to "Profile", root_path %>
       <%= link_to "Sign Out", destroy_user_session_path, method: :delete %>
