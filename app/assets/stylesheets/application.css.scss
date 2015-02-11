@@ -13,3 +13,26 @@
  *= require_tree .
  *= require_self
  */
+
+@mixin position-center {
+	-webkit-transform: translate(-50%, -50%);
+	-moz-transform: translate(-50%, -50%);
+	-o-transform: translate(-50%, -50%);
+	transform: translate(-50%, -50%);
+}
+
+body, html {
+	a {
+		text-decoration: none;
+		color: inherit;
+	}
+}
+
+.main-header {
+	display: inline-block;
+	position: relative;
+	width: 100%;
+	height: auto;
+	background-color: yellow;
+	margin-bottom: 10vh;
+}

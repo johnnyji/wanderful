@@ -1,6 +1,7 @@
 <% @posts.each do |post| %>
 	<%= link_to (image_tag post.image.url(:thumb)), post %>
 	<h1><%= link_to post.title, post %></h1>
+	<p><%= post.comments.count %> Comments</p>
 <% end %>
 
 <br>
