@@ -1,4 +1,5 @@
 class Post < ActiveRecord::Base
+	acts_as_votable #gem for voting
 	belongs_to :user
 	has_many :comments
 	has_attached_file :image, styles: { medium: "750x500#", thumb: "250x250#" }
