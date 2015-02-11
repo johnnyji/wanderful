@@ -28,6 +28,15 @@
 	<%= link_to "Delete", post_path(@post), method: :delete, data: {confirm: "Are you sure?"} %>
 <% end %>
 
+<h3>Check out other posts!</h3>
+<%= link_to (image_tag @random_post.image.url(:thumb)), post_path(@random_post) %>
+<h2><%= link_to @random_post.title, post_path(@random_post) %></h2>
+<p>
+	Shared by <%= @random_post.user.name %>
+	<i class="fa fa-comments-o"><%= @random_post.comments.count %> Comments</i>
+	<i class="fa fa-thumbs-o-up"><%= @random_post.get_likes.size %> Likes</i>
+</p>
+
 <h2><%= pluralize(@post.comments.count, "Comment") %></h2>
 	<% @comments.each do |comment| %>
 		<%= comment.user.name %>
