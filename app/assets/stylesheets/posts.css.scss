@@ -94,7 +94,7 @@ $text-color: #333;
 
 .post-wrapper {
 	border-bottom: 1px solid #dbdbdb;
-	margin-bottom: 8vh;
+	margin-bottom: 12vh;
 	padding-bottom: 4vh;
 
 	.image-wrapper {
@@ -133,8 +133,35 @@ $text-color: #333;
 	width: 60vw;
 
 	h1 {
-		font-size: 2.5em;
+		font-size: 3em;
 		letter-spacing: 1px;
+	}
+
+	span {
+		font-size: 0.5em;
+		margin-left: 1em;
+		color: $link;
+
+		.link {
+			@include transition;
+			background-color: $link-hover;
+			width: auto;
+			display: inline-block;
+			padding: 0.5em 0.5em 0.5em 0.5em;
+			font-size: 0.8em;
+
+			&:hover {
+				background-color: #3498db;
+			}
+
+			a {
+				color: #fff;
+
+				&:hover {
+					border-bottom: none;
+				}
+			}
+		}
 	}
 
 	h5 {

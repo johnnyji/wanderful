@@ -1,7 +1,20 @@
 
 <!-- MAIN CONTENT -->
 <div class="show-post-wrapper">
-	<h1><%= @post.title %></h1>
+	<h1>
+		<%= @post.title %>
+		<span>
+			<div class="link">
+				<%= link_to "Visit Link", @post.link %>
+			</div>
+
+			<% if @post.user == current_user %>
+				<%= link_to "Edit", edit_post_path(@post) %> | 
+				<%= link_to "Delete", post_path(@post), method: :delete, data: {confirm: "Are you sure?"} %>
+			<% end %>
+		</span>
+	</h1>
+
 	<h5>Post created by <%= @post.user.name %> around <%= time_ago_in_words(@post.created_at) %></h5>
 	<%= image_tag @post.image.url(:medium) %>
 	
@@ -25,11 +38,6 @@
 <!-- SIDEBAR -->
 <div class="show-sidebar">
 
-	<% if @post.user == current_user %>
-		<%= link_to "Edit", edit_post_path(@post) %>
-		<%= link_to "Delete", post_path(@post), method: :delete, data: {confirm: "Are you sure?"} %>
-	<% end %>
-
 	<h3>Check out other posts!</h3>
 	<%= link_to (image_tag @random_post.image.url(:thumb)), post_path(@random_post) %>
 	<h2><%= link_to @random_post.title, post_path(@random_post) %></h2>
@@ -40,15 +48,12 @@
 	</p>
 
 </div>
-
-<%= link_to "Visit Link", @post.link %>
-<%= link_to "Go Home", root_path %>
-
+<!-- 
 
 <p>
 	<i class="fa fa-comment-o"></i>
 	<%= pluralize(@post.comments.count, "Comment") %>
-</p>
+</p> -->
 
 
 <h2><%= pluralize(@post.comments.count, "Comment") %></h2>
