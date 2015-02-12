@@ -2,35 +2,43 @@
 <html>
 <head>
   <title>Wanderful</title>
-  <%= stylesheet_link_tag    'application', media: 'all' %>
   <%= stylesheet_link_tag    'normalize', media: 'all' %>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
   <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+  <%= stylesheet_link_tag    'application', media: 'all' %>
   <%= javascript_include_tag 'application' %>
   <%= csrf_meta_tags %>
+  <link href='http://fonts.googleapis.com/css?family=Open+Sans+Condensed:300,700,300italic' rel='stylesheet' type='text/css'>
 </head>
 <body>
 <div class="main-header">
   
-  <div class="left-tabs">
-    <%= link_to "Home", root_path %>
+  <div class="left">
+    <p><%= link_to "Home", root_path %><p>
+    <% if user_signed_in? %>
+      <p><%= link_to "Profile", edit_user_registration_path %></p>
+    <% end %>
+  </div>
+  
+  <div class="flash">
     <p class="notice"><%= notice %></p>
     <p class="alert"><%= alert %></p>
   </div>
-  
-  <div class="nav">
+
+  <div class="right">
     <% if user_signed_in? %>
-      <%= link_to "Profile", root_path %>
-      <%= link_to "Sign Out", destroy_user_session_path, method: :delete %>
+      <p><%= link_to "New Post", new_post_path %></p>
+      <p><%= link_to "Sign Out", destroy_user_session_path, method: :delete %></p>
     <% else %>
-      <%= link_to "Log In", new_user_session_path %>
-      <%= link_to "Sign Up", new_user_registration_path %>
+      <p><%= link_to "Log In", new_user_session_path %></p>
+      <p><%= link_to "Sign Up", new_user_registration_path %></p>
     <% end %>
   </div>
-
 </div>
 
 <%= yield %>
+
+<!-- <p class="page-footer">&copy; 2015 | Website by Johnny Ji</p> -->
 
 </body>
 </html>

@@ -1,16 +1,29 @@
 <% if user_signed_in? %>
-	<p>Hello <%= current_user.name %>, find anything cool online today?</p>
+	<h1 class="welcome">
+		Hello <%= current_user.name %>, what did you find online today?
+		<p><%= link_to "Share your link!", new_post_path %></p>
+	</h1>
 <% else %>
-	<p>Share what you find online, sign up today.</p>
+	<h1 class="welcome">
+		Share what you find online, sign up today.
+	</h1>
 <% end %>
 
 <% @posts.each do |post| %>
-	<%= link_to (image_tag post.image.url(:thumb)), post %>
-	<h1><%= link_to post.title, post %></h1>
-	<i class="fa fa-comments-o"><%= post.comments.count %> Comments</i>
-	<i class="fa fa-thumbs-o-up"><%= post.get_likes.size %> Likes</i>
+	<div class="col-md-4">
+		<div class="post-wrapper">
+			<div class="image-wrapper">
+				<%= link_to (image_tag post.image.url(:thumb)), post %>
+			</div>
+		
+			<h1><%= link_to post.title, post %></h1>
+
+			<div class="likes-comments">
+				<i class="fa fa-comment-o">&nbsp;<%= post.comments.count %> Comments</i>&nbsp;&nbsp;&nbsp;&nbsp;
+				<i class="fa fa-thumbs-o-up">&nbsp;<%= post.get_likes.size %> Likes</i>
+			</div>
+		</div>
+	</div>
 <% end %>
 
 <br>
-
-<%= link_to "Add another site", new_post_path %>
