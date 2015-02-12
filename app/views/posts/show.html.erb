@@ -3,15 +3,17 @@
 <div class="show-post-wrapper">
 	<h1>
 		<%= @post.title %>
-		<span>
-			<div class="link">
+		<span class="show-subtitle">
+			<div class="visit-link">
 				<%= link_to "Visit Link", @post.link %>
 			</div>
-
-			<% if @post.user == current_user %>
-				<%= link_to "Edit", edit_post_path(@post) %> | 
-				<%= link_to "Delete", post_path(@post), method: :delete, data: {confirm: "Are you sure?"} %>
-			<% end %>
+			
+			<span class="show-edit-delete">
+				<% if @post.user == current_user %>
+					<%= link_to "Edit", edit_post_path(@post) %> | 
+					<%= link_to "Delete", post_path(@post), method: :delete, data: {confirm: "Are you sure?"} %>
+				<% end %>
+			</span>
 		</span>
 	</h1>
 
@@ -48,19 +50,15 @@
 	</p>
 
 </div>
-<!-- 
 
-<p>
-	<i class="fa fa-comment-o"></i>
-	<%= pluralize(@post.comments.count, "Comment") %>
-</p> -->
-
-
-<h2><%= pluralize(@post.comments.count, "Comment") %></h2>
+<!-- COMMENTS -->
+<div class="comments">
+	<h2><%= pluralize(@post.comments.count, "Comment") %></h2>
 	
 	<% @comments.each do |comment| %>
 		<%= comment.user.name %>
 		<%= comment.content %>
 	<% end %>
+</div>
 
  <%= render "comments/form" %>

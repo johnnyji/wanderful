@@ -47,6 +47,7 @@ html, body {
 		text-decoration: none;
 		padding-bottom: 1vh;
 		color: $link;
+		
 		&:hover {
 			color: $link-hover;
 			border-bottom: 3px solid;
@@ -115,3 +116,9 @@ html, body {
 		}
 	}
 }
+
+/*.page-footer {
+	position: relative;
+	bottom: 0;
+	background-color: red;
+}*/

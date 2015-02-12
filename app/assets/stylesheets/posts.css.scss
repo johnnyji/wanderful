@@ -114,6 +114,11 @@ $text-color: #333;
 	h1 {
 		text-align: center;
 		font-weight: normal;
+		a {
+			&:hover {
+			border-bottom: none;
+			}
+		}
 	}
 
 	.likes-comments {
@@ -129,7 +134,9 @@ $text-color: #333;
 	position: relative;
 	display: inline-block;
 	left: 5%;
-	margin: 0 0 0 0;
+	margin: 0 0 5vh 0;
+	padding-bottom: 5vh;
+	border-bottom: 1px solid #dbdbdb;
 	width: 60vw;
 
 	h1 {
@@ -137,18 +144,23 @@ $text-color: #333;
 		letter-spacing: 1px;
 	}
 
-	span {
+	.show-subtitle {
 		font-size: 0.5em;
 		margin-left: 1em;
 		color: $link;
 
-		.link {
+		.show-edit-delete {
+			font-size: 0.7em;
+		}
+
+		.visit-link {
 			@include transition;
 			background-color: $link-hover;
 			width: auto;
 			display: inline-block;
 			padding: 0.5em 0.5em 0.5em 0.5em;
 			font-size: 0.8em;
+			margin-right: 1em;
 
 			&:hover {
 				background-color: #3498db;
