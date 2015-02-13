@@ -17,7 +17,7 @@
 		</span>
 	</h1>
 
-	<h5>Post created by <%= @post.user.name %> <%= time_ago_in_words(@post.created_at) %> ago</h5>
+	<h5>Post created by <%= @post.user.name %> <%= time_ago_in_words(@post.created_at) %></h5>
 	<%= image_tag @post.image.url(:medium) %>
 	
 	<div class="show-likes-comments">

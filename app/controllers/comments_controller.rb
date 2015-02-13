@@ -1,16 +1,23 @@
 class CommentsController < ApplicationController
 	before_action :authenticate_user!
 
+	def new
+		@post = Post.find(params[:post_id])
+		@comment = @post.comments.new comment_params
+	end
+
 	def create
 		@post = Post.find(params[:post_id])
-		@comment = Comment.create(comment_params)
+		@comment = @post.comments.new comment_params
 		@comment.user_id = current_user.id
 		@comment.post_id = @post.id
 
 		if @comment.save
+			flash[:notice] = "Comment created successfully."
 			redirect_to post_path(@post)
 		else
-			render "new"
+			redirect_to post_path(@post)
+			flash.notice = "Comments can't be blank!"
 		end
 	end
 
