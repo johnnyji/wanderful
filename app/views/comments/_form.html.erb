@@ -1,4 +1,8 @@
-<%= simple_form_for ([@post, @post.comments.build]) do |f| %>
-	<%= f.input :content, label: "Comment here:" %>
-	<%= f.button :submit %>
-<% end %>
+<div class="comment-form">
+	<%= simple_form_for ([@post, @post.comments.build]) do |f| %>
+		<div class="comment-area">
+			<%= f.input :content, label: "Comment here:", placeholder: "Blah blah blah..." %>
+		</div>
+		<%= f.button :submit %>
+	<% end %>
+</div>
