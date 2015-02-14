@@ -117,14 +117,13 @@ $text-color: #333;
 	textarea {
 		border: none;
 		height: 30vh;
-		width: 30vw;
+		width: 35vw;
+		resize: none;
 		margin-bottom: 2em;
 		border-bottom: 1px solid #dbdbdb;
+		background-color: #ecf0f1;
+		outline: none;
 		@include transition;
-		&:focus {
-			background-color: #ecf0f1;
-			outline: none;
-		}
 	}
 
 	input[type="submit"] {

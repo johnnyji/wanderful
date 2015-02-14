@@ -167,6 +167,10 @@ html, body {
 		letter-spacing: 1px;
 	}
 
+	.image {
+		border-bottom: none;
+	}
+
 	input {
 		float: right;
 		outline: none;
@@ -175,9 +179,26 @@ html, body {
 		padding-bottom: 0.3em;
 		width: 60%;
 		@include transition;
+
 		&:focus {
 			border-bottom: 2px solid $link-hover;
 		}
+
+		&:active, &:visited {
+			outline: none;
+		}
+	}
+
+	textarea {
+		position: relative;
+		left: 0;
+		width: 100%;
+		height: 30vh;
+		border: none;
+		border-bottom: 1px solid #dbdbdb;
+		outline: none;
+		background-color: #ecf0f1;
+		resize: none;
 	}
 
 	.remember-me {
@@ -193,6 +214,10 @@ html, body {
 		}
 	}
 
+	span {
+		border-bottom: none;
+	}
+
 	.btn {
 		@include position-x;
 		position: absolute;
@@ -201,7 +226,7 @@ html, body {
 		font-size: 1.1em;
 		font-weight: normal;
 		width: 50%;
-		margin-top: 0.5em;
+		margin: 0.5em 0 15vh 0;
 		background-color: $link-hover;
 		border-bottom: none;
 		color: #fff;
