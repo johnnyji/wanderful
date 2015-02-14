@@ -17,9 +17,11 @@ class PostsController < ApplicationController
 
 	def create
 		@post = current_user.posts.build(post_params)
+		binding.pry
 		if @post.save
 			redirect_to @post
 		else
+			flash.alert = "Something went wrong! Double check please"
 			render "new"
 		end
 	end
@@ -31,6 +33,7 @@ class PostsController < ApplicationController
 		if @post.update(post_params)
 			redirect_to @post
 		else
+			flash.alert = "Something went wrong! Double check please"
 			render "edit"
 		end
 	end 
