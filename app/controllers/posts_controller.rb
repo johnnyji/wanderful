@@ -17,9 +17,9 @@ class PostsController < ApplicationController
 
 	def create
 		@post = current_user.posts.build(post_params)
-		binding.pry
 		if @post.save
 			redirect_to @post
+			flash.notice = "Succesfully posted!"
 		else
 			flash.alert = "Something went wrong! Double check please"
 			render "new"
