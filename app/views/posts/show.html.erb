@@ -17,7 +17,7 @@
 		</span>
 	</h1>
 
-	<h5>Post created by <%= @post.user.name %> <%= time_ago_in_words(@post.created_at) %></h5>
+	<h5>Post created by <%= @post.user.name %> <%= time_ago_in_words(@post.created_at) %> ago</h5>
 	<%= image_tag @post.image.url(:medium) %>
 	
 	<div class="show-likes-comments">
@@ -45,8 +45,8 @@
 	<h2><%= link_to @random_post.title, post_path(@random_post) %></h2>
 	<p>
 		Shared by <%= @random_post.user.name %> <br>
-		<i class="fa fa-comment-o"><%= @random_post.comments.count %> Comments</i>&nbsp;&nbsp;&nbsp;
-		<i class="fa fa-thumbs-o-up"><%= @random_post.get_likes.size %> Likes</i>
+		<i class="fa fa-comment-o">&nbsp;<%= @random_post.comments.count %> Comments</i>&nbsp;&nbsp;&nbsp;
+		<i class="fa fa-thumbs-o-up">&nbsp;<%= @random_post.get_likes.size %> Likes</i>
 	</p>
 
 </div>
