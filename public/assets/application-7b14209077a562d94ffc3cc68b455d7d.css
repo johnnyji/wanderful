@@ -1,0 +1,1036 @@
+/*COMMENT FORM*/
+/* line 43, /Users/Johnny/Desktop/repos/wanderful/app/assets/stylesheets/comments.css.scss */
+html, body {
+  box-sizing: border-box;
+  height: auto;
+  min-height: 100vh;
+}
+/* line 48, /Users/Johnny/Desktop/repos/wanderful/app/assets/stylesheets/comments.css.scss */
+html a, body a {
+  text-decoration: none;
+  color: inherit;
+}
+/* line 52, /Users/Johnny/Desktop/repos/wanderful/app/assets/stylesheets/comments.css.scss */
+html a:hover, body a:hover {
+  text-decoration: none;
+}
+
+/* line 58, /Users/Johnny/Desktop/repos/wanderful/app/assets/stylesheets/comments.css.scss */
+body {
+  height: auto;
+  min-height: 100vh;
+}
+
+/* line 63, /Users/Johnny/Desktop/repos/wanderful/app/assets/stylesheets/comments.css.scss */
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+
+/* line 71, /Users/Johnny/Desktop/repos/wanderful/app/assets/stylesheets/comments.css.scss */
+.comments {
+  position: relative;
+  left: 5%;
+  margin-bottom: 4em;
+  display: block;
+}
+/* line 77, /Users/Johnny/Desktop/repos/wanderful/app/assets/stylesheets/comments.css.scss */
+.comments h2 {
+  color: #2980b9;
+  margin-bottom: 1em;
+}
+/* line 82, /Users/Johnny/Desktop/repos/wanderful/app/assets/stylesheets/comments.css.scss */
+.comments .user {
+  font-size: 1.2em;
+  color: #333333;
+  font-weight: bold;
+}
+/* line 88, /Users/Johnny/Desktop/repos/wanderful/app/assets/stylesheets/comments.css.scss */
+.comments .content {
+  margin: 1em 0 3em 0;
+  padding-bottom: 2em;
+  border-bottom: 1px solid #dbdbdb;
+  width: 40vw;
+}
+/* line 95, /Users/Johnny/Desktop/repos/wanderful/app/assets/stylesheets/comments.css.scss */
+.comments .delete {
+  font-weight: normal;
+  font-size: 0.8em;
+  display: inline-block;
+  margin-left: 0.5em;
+}
+/* line 100, /Users/Johnny/Desktop/repos/wanderful/app/assets/stylesheets/comments.css.scss */
+.comments .delete:hover {
+  border-bottom: none;
+}
+
+/* line 106, /Users/Johnny/Desktop/repos/wanderful/app/assets/stylesheets/comments.css.scss */
+.comment-form {
+  margin: 2em 0 10vh 0;
+  position: relative;
+  left: 5%;
+}
+/* line 111, /Users/Johnny/Desktop/repos/wanderful/app/assets/stylesheets/comments.css.scss */
+.comment-form label {
+  display: block;
+  font-size: 1.3em;
+  color: #2980b9;
+  margin-bottom: 0.5em;
+}
+/* line 118, /Users/Johnny/Desktop/repos/wanderful/app/assets/stylesheets/comments.css.scss */
+.comment-form textarea {
+  border: none;
+  height: 30vh;
+  width: 35vw;
+  resize: none;
+  margin-bottom: 2em;
+  border-bottom: 1px solid #dbdbdb;
+  background-color: #ecf0f1;
+  outline: none;
+  -webkit-transition: all 0.5s ease;
+  -moz-transition: all 0.5s ease;
+  -o-transition: all 0.5s ease;
+  transition: all 0.5s ease;
+}
+/* line 130, /Users/Johnny/Desktop/repos/wanderful/app/assets/stylesheets/comments.css.scss */
+.comment-form input[type="submit"] {
+  border-radius: 0;
+  background-color: #2980b9;
+  color: #fff;
+  -webkit-transition: all 0.5s ease;
+  -moz-transition: all 0.5s ease;
+  -o-transition: all 0.5s ease;
+  transition: all 0.5s ease;
+}
+/* line 136, /Users/Johnny/Desktop/repos/wanderful/app/assets/stylesheets/comments.css.scss */
+.comment-form input[type="submit"]:hover {
+  background-color: #3498db;
+}
+/* line 141, /Users/Johnny/Desktop/repos/wanderful/app/assets/stylesheets/comments.css.scss */
+.comment-form abbr {
+  display: none;
+}
+/*! normalize.css v3.0.2 | MIT License | git.io/normalize */
+
+/**
+ * 1. Set default font family to sans-serif.
+ * 2. Prevent iOS text size adjust after orientation change, without disabling
+ *    user zoom.
+ */
+
+
+html {
+  font-family: sans-serif; /* 1 */
+  -ms-text-size-adjust: 100%; /* 2 */
+  -webkit-text-size-adjust: 100%; /* 2 */
+}
+
+/**
+ * Remove default margin.
+ */
+
+body {
+  margin: 0;
+}
+
+/* HTML5 display definitions
+   ========================================================================== */
+
+/**
+ * Correct `block` display not defined for any HTML5 element in IE 8/9.
+ * Correct `block` display not defined for `details` or `summary` in IE 10/11
+ * and Firefox.
+ * Correct `block` display not defined for `main` in IE 11.
+ */
+
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+main,
+menu,
+nav,
+section,
+summary {
+  display: block;
+}
+
+/**
+ * 1. Correct `inline-block` display not defined in IE 8/9.
+ * 2. Normalize vertical alignment of `progress` in Chrome, Firefox, and Opera.
+ */
+
+audio,
+canvas,
+progress,
+video {
+  display: inline-block; /* 1 */
+  vertical-align: baseline; /* 2 */
+}
+
+/**
+ * Prevent modern browsers from displaying `audio` without controls.
+ * Remove excess height in iOS 5 devices.
+ */
+
+audio:not([controls]) {
+  display: none;
+  height: 0;
+}
+
+/**
+ * Address `[hidden]` styling not present in IE 8/9/10.
+ * Hide the `template` element in IE 8/9/11, Safari, and Firefox < 22.
+ */
+
+[hidden],
+template {
+  display: none;
+}
+
+/* Links
+   ========================================================================== */
+
+/**
+ * Remove the gray background color from active links in IE 10.
+ */
+
+a {
+  background-color: transparent;
+}
+
+/**
+ * Improve readability when focused and also mouse hovered in all browsers.
+ */
+
+a:active,
+a:hover {
+  outline: 0;
+}
+
+/* Text-level semantics
+   ========================================================================== */
+
+/**
+ * Address styling not present in IE 8/9/10/11, Safari, and Chrome.
+ */
+
+abbr[title] {
+  border-bottom: 1px dotted;
+}
+
+/**
+ * Address style set to `bolder` in Firefox 4+, Safari, and Chrome.
+ */
+
+b,
+strong {
+  font-weight: bold;
+}
+
+/**
+ * Address styling not present in Safari and Chrome.
+ */
+
+dfn {
+  font-style: italic;
+}
+
+/**
+ * Address variable `h1` font-size and margin within `section` and `article`
+ * contexts in Firefox 4+, Safari, and Chrome.
+ */
+
+h1 {
+  font-size: 2em;
+  margin: 0.67em 0;
+}
+
+/**
+ * Address styling not present in IE 8/9.
+ */
+
+mark {
+  background: #ff0;
+  color: #000;
+}
+
+/**
+ * Address inconsistent and variable font size in all browsers.
+ */
+
+small {
+  font-size: 80%;
+}
+
+/**
+ * Prevent `sub` and `sup` affecting `line-height` in all browsers.
+ */
+
+sub,
+sup {
+  font-size: 75%;
+  line-height: 0;
+  position: relative;
+  vertical-align: baseline;
+}
+
+sup {
+  top: -0.5em;
+}
+
+sub {
+  bottom: -0.25em;
+}
+
+/* Embedded content
+   ========================================================================== */
+
+/**
+ * Remove border when inside `a` element in IE 8/9/10.
+ */
+
+img {
+  border: 0;
+}
+
+/**
+ * Correct overflow not hidden in IE 9/10/11.
+ */
+
+svg:not(:root) {
+  overflow: hidden;
+}
+
+/* Grouping content
+   ========================================================================== */
+
+/**
+ * Address margin not present in IE 8/9 and Safari.
+ */
+
+figure {
+  margin: 1em 40px;
+}
+
+/**
+ * Address differences between Firefox and other browsers.
+ */
+
+hr {
+  -moz-box-sizing: content-box;
+  box-sizing: content-box;
+  height: 0;
+}
+
+/**
+ * Contain overflow in all browsers.
+ */
+
+pre {
+  overflow: auto;
+}
+
+/**
+ * Address odd `em`-unit font size rendering in all browsers.
+ */
+
+code,
+kbd,
+pre,
+samp {
+  font-family: monospace, monospace;
+  font-size: 1em;
+}
+
+/* Forms
+   ========================================================================== */
+
+/**
+ * Known limitation: by default, Chrome and Safari on OS X allow very limited
+ * styling of `select`, unless a `border` property is set.
+ */
+
+/**
+ * 1. Correct color not being inherited.
+ *    Known issue: affects color of disabled elements.
+ * 2. Correct font properties not being inherited.
+ * 3. Address margins set differently in Firefox 4+, Safari, and Chrome.
+ */
+
+button,
+input,
+optgroup,
+select,
+textarea {
+  color: inherit; /* 1 */
+  font: inherit; /* 2 */
+  margin: 0; /* 3 */
+}
+
+/**
+ * Address `overflow` set to `hidden` in IE 8/9/10/11.
+ */
+
+button {
+  overflow: visible;
+}
+
+/**
+ * Address inconsistent `text-transform` inheritance for `button` and `select`.
+ * All other form control elements do not inherit `text-transform` values.
+ * Correct `button` style inheritance in Firefox, IE 8/9/10/11, and Opera.
+ * Correct `select` style inheritance in Firefox.
+ */
+
+button,
+select {
+  text-transform: none;
+}
+
+/**
+ * 1. Avoid the WebKit bug in Android 4.0.* where (2) destroys native `audio`
+ *    and `video` controls.
+ * 2. Correct inability to style clickable `input` types in iOS.
+ * 3. Improve usability and consistency of cursor style between image-type
+ *    `input` and others.
+ */
+
+button,
+html input[type="button"], /* 1 */
+input[type="reset"],
+input[type="submit"] {
+  -webkit-appearance: button; /* 2 */
+  cursor: pointer; /* 3 */
+}
+
+/**
+ * Re-set default cursor for disabled elements.
+ */
+
+button[disabled],
+html input[disabled] {
+  cursor: default;
+}
+
+/**
+ * Remove inner padding and border in Firefox 4+.
+ */
+
+button::-moz-focus-inner,
+input::-moz-focus-inner {
+  border: 0;
+  padding: 0;
+}
+
+/**
+ * Address Firefox 4+ setting `line-height` on `input` using `!important` in
+ * the UA stylesheet.
+ */
+
+input {
+  line-height: normal;
+}
+
+/**
+ * It's recommended that you don't attempt to style these elements.
+ * Firefox's implementation doesn't respect box-sizing, padding, or width.
+ *
+ * 1. Address box sizing set to `content-box` in IE 8/9/10.
+ * 2. Remove excess padding in IE 8/9/10.
+ */
+
+input[type="checkbox"],
+input[type="radio"] {
+  box-sizing: border-box; /* 1 */
+  padding: 0; /* 2 */
+}
+
+/**
+ * Fix the cursor style for Chrome's increment/decrement buttons. For certain
+ * `font-size` values of the `input`, it causes the cursor style of the
+ * decrement button to change from `default` to `text`.
+ */
+
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+  height: auto;
+}
+
+/**
+ * 1. Address `appearance` set to `searchfield` in Safari and Chrome.
+ * 2. Address `box-sizing` set to `border-box` in Safari and Chrome
+ *    (include `-moz` to future-proof).
+ */
+
+input[type="search"] {
+  -webkit-appearance: textfield; /* 1 */
+  -moz-box-sizing: content-box;
+  -webkit-box-sizing: content-box; /* 2 */
+  box-sizing: content-box;
+}
+
+/**
+ * Remove inner padding and search cancel button in Safari and Chrome on OS X.
+ * Safari (but not Chrome) clips the cancel button when the search input has
+ * padding (and `textfield` appearance).
+ */
+
+input[type="search"]::-webkit-search-cancel-button,
+input[type="search"]::-webkit-search-decoration {
+  -webkit-appearance: none;
+}
+
+/**
+ * Define consistent border, margin, and padding.
+ */
+
+fieldset {
+  border: 1px solid #c0c0c0;
+  margin: 0 2px;
+  padding: 0.35em 0.625em 0.75em;
+}
+
+/**
+ * 1. Correct `color` not being inherited in IE 8/9/10/11.
+ * 2. Remove padding so people aren't caught out if they zero out fieldsets.
+ */
+
+legend {
+  border: 0; /* 1 */
+  padding: 0; /* 2 */
+}
+
+/**
+ * Remove default vertical scrollbar in IE 8/9/10/11.
+ */
+
+textarea {
+  overflow: auto;
+}
+
+/**
+ * Don't inherit the `font-weight` (applied by a rule above).
+ * NOTE: the default cannot safely be changed in Chrome and Safari on OS X.
+ */
+
+optgroup {
+  font-weight: bold;
+}
+
+/* Tables
+   ========================================================================== */
+
+/**
+ * Remove most spacing between table cells.
+ */
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+td,
+th {
+  padding: 0;
+}
+/* line 40, /Users/Johnny/Desktop/repos/wanderful/app/assets/stylesheets/posts.css.scss */
+html, body {
+  box-sizing: border-box;
+  height: auto;
+  min-height: 100vh;
+}
+/* line 45, /Users/Johnny/Desktop/repos/wanderful/app/assets/stylesheets/posts.css.scss */
+html a, body a {
+  text-decoration: none;
+  color: inherit;
+}
+/* line 49, /Users/Johnny/Desktop/repos/wanderful/app/assets/stylesheets/posts.css.scss */
+html a:hover, body a:hover {
+  text-decoration: none;
+}
+
+/* line 55, /Users/Johnny/Desktop/repos/wanderful/app/assets/stylesheets/posts.css.scss */
+body {
+  height: auto;
+  min-height: 100vh;
+}
+
+/* line 60, /Users/Johnny/Desktop/repos/wanderful/app/assets/stylesheets/posts.css.scss */
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+
+/*INDEX*/
+/* line 71, /Users/Johnny/Desktop/repos/wanderful/app/assets/stylesheets/posts.css.scss */
+.welcome {
+  left: 50%;
+  margin: 5vh auto 15vh auto;
+  text-align: center;
+  width: auto;
+  height: auto;
+  font-weight: lighter;
+  font-size: 2.3em;
+}
+/* line 80, /Users/Johnny/Desktop/repos/wanderful/app/assets/stylesheets/posts.css.scss */
+.welcome .signup {
+  text-shadow: 1px 1px 1px #dbdbdb;
+}
+/* line 84, /Users/Johnny/Desktop/repos/wanderful/app/assets/stylesheets/posts.css.scss */
+.welcome p {
+  color: #95a5a6;
+  padding: 5vh 0 5vh 0;
+  font-size: 0.8em;
+}
+/* line 89, /Users/Johnny/Desktop/repos/wanderful/app/assets/stylesheets/posts.css.scss */
+.welcome p a {
+  padding-bottom: 0.6em;
+}
+/* line 91, /Users/Johnny/Desktop/repos/wanderful/app/assets/stylesheets/posts.css.scss */
+.welcome p a:hover {
+  color: #2980b9;
+  border-bottom: 3px solid;
+}
+
+/* line 99, /Users/Johnny/Desktop/repos/wanderful/app/assets/stylesheets/posts.css.scss */
+.post-wrapper {
+  border-bottom: 1px solid #dbdbdb;
+  margin-bottom: 12vh;
+  padding-bottom: 4vh;
+}
+/* line 104, /Users/Johnny/Desktop/repos/wanderful/app/assets/stylesheets/posts.css.scss */
+.post-wrapper .image-wrapper {
+  width: 100%;
+  height: 225px;
+  overflow: hidden;
+  text-align: center;
+}
+/* line 110, /Users/Johnny/Desktop/repos/wanderful/app/assets/stylesheets/posts.css.scss */
+.post-wrapper .image-wrapper:hover img {
+  z-index: -1;
+  -webkit-transform: scale(1.1);
+  -moz-transform: scale(1.1);
+  -o-transform: scale(1.1);
+  transform: scale(1.1);
+  -webkit-transition: all 0.5s ease;
+  -moz-transition: all 0.5s ease;
+  -o-transition: all 0.5s ease;
+  transition: all 0.5s ease;
+}
+/* line 118, /Users/Johnny/Desktop/repos/wanderful/app/assets/stylesheets/posts.css.scss */
+.post-wrapper h1 {
+  text-align: center;
+  font-weight: normal;
+}
+/* line 122, /Users/Johnny/Desktop/repos/wanderful/app/assets/stylesheets/posts.css.scss */
+.post-wrapper h1 a:hover {
+  border-bottom: none;
+}
+/* line 128, /Users/Johnny/Desktop/repos/wanderful/app/assets/stylesheets/posts.css.scss */
+.post-wrapper .likes-comments {
+  margin: 0 auto 0 auto;
+  text-align: center;
+}
+
+/*SHOW*/
+/* line 137, /Users/Johnny/Desktop/repos/wanderful/app/assets/stylesheets/posts.css.scss */
+.show-post-wrapper {
+  position: relative;
+  display: inline-block;
+  left: 5%;
+  margin: 0 0 5vh 0;
+  padding-bottom: 5vh;
+  border-bottom: 1px solid #dbdbdb;
+  width: 60vw;
+}
+/* line 146, /Users/Johnny/Desktop/repos/wanderful/app/assets/stylesheets/posts.css.scss */
+.show-post-wrapper h1 {
+  font-size: 3em;
+  letter-spacing: 1px;
+}
+/* line 151, /Users/Johnny/Desktop/repos/wanderful/app/assets/stylesheets/posts.css.scss */
+.show-post-wrapper .show-subtitle {
+  font-size: 0.5em;
+  margin-left: 1em;
+  color: #95a5a6;
+}
+/* line 156, /Users/Johnny/Desktop/repos/wanderful/app/assets/stylesheets/posts.css.scss */
+.show-post-wrapper .show-subtitle .show-edit-delete {
+  font-size: 0.7em;
+}
+/* line 160, /Users/Johnny/Desktop/repos/wanderful/app/assets/stylesheets/posts.css.scss */
+.show-post-wrapper .show-subtitle .visit-link {
+  -webkit-transition: all 0.5s ease;
+  -moz-transition: all 0.5s ease;
+  -o-transition: all 0.5s ease;
+  transition: all 0.5s ease;
+  background-color: #2980b9;
+  width: auto;
+  display: inline-block;
+  padding: 0.5em 0.5em 0.5em 0.5em;
+  font-size: 0.8em;
+  margin-right: 1em;
+  font-weight: normal;
+}
+/* line 170, /Users/Johnny/Desktop/repos/wanderful/app/assets/stylesheets/posts.css.scss */
+.show-post-wrapper .show-subtitle .visit-link:hover {
+  background-color: #3498db;
+}
+/* line 174, /Users/Johnny/Desktop/repos/wanderful/app/assets/stylesheets/posts.css.scss */
+.show-post-wrapper .show-subtitle .visit-link a {
+  color: #fff;
+}
+/* line 177, /Users/Johnny/Desktop/repos/wanderful/app/assets/stylesheets/posts.css.scss */
+.show-post-wrapper .show-subtitle .visit-link a:hover {
+  border-bottom: none;
+}
+/* line 184, /Users/Johnny/Desktop/repos/wanderful/app/assets/stylesheets/posts.css.scss */
+.show-post-wrapper h5 {
+  color: #95a5a6;
+}
+/* line 188, /Users/Johnny/Desktop/repos/wanderful/app/assets/stylesheets/posts.css.scss */
+.show-post-wrapper p {
+  color: #333333;
+  font-size: 1.2em;
+}
+/* line 193, /Users/Johnny/Desktop/repos/wanderful/app/assets/stylesheets/posts.css.scss */
+.show-post-wrapper img {
+  margin-top: 1em;
+  width: 90%;
+}
+/* line 198, /Users/Johnny/Desktop/repos/wanderful/app/assets/stylesheets/posts.css.scss */
+.show-post-wrapper .show-likes-comments {
+  width: 90%;
+  font-size: 1.3em;
+  margin: 1em 0 1em 0;
+  padding-right: 10px;
+}
+/* line 204, /Users/Johnny/Desktop/repos/wanderful/app/assets/stylesheets/posts.css.scss */
+.show-post-wrapper .show-likes-comments a {
+  margin-right: 1.5em;
+  color: #2980b9;
+}
+
+/* line 211, /Users/Johnny/Desktop/repos/wanderful/app/assets/stylesheets/posts.css.scss */
+.show-sidebar {
+  display: inline-block;
+  position: relative;
+  float: right;
+  margin-right: 5%;
+  width: 25vw;
+  font-size: 0.8em;
+  border-left: 1px solid #dbdbdb;
+  text-align: center;
+  opacity: 0.8;
+  -webkit-transition: all 0.5s ease;
+  -moz-transition: all 0.5s ease;
+  -o-transition: all 0.5s ease;
+  transition: all 0.5s ease;
+}
+/* line 222, /Users/Johnny/Desktop/repos/wanderful/app/assets/stylesheets/posts.css.scss */
+.show-sidebar:hover {
+  opacity: 1;
+}
+/* line 226, /Users/Johnny/Desktop/repos/wanderful/app/assets/stylesheets/posts.css.scss */
+.show-sidebar h3 {
+  font-weight: normal;
+  margin-bottom: 2em;
+}
+/* line 231, /Users/Johnny/Desktop/repos/wanderful/app/assets/stylesheets/posts.css.scss */
+.show-sidebar img {
+  height: 50%;
+  width: 80%;
+}
+/* line 236, /Users/Johnny/Desktop/repos/wanderful/app/assets/stylesheets/posts.css.scss */
+.show-sidebar a {
+  font-size: 0.8em;
+  font-weight: normal;
+}
+/* line 241, /Users/Johnny/Desktop/repos/wanderful/app/assets/stylesheets/posts.css.scss */
+.show-sidebar i {
+  margin-top: 1em;
+}
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or vendor/assets/stylesheets of plugins, if any, can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any styles
+ * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
+ * file per style scope.
+ *
+
+
+ */
+/* line 57, /Users/Johnny/Desktop/repos/wanderful/app/assets/stylesheets/application.css.scss */
+html, body {
+  box-sizing: border-box;
+}
+/* line 59, /Users/Johnny/Desktop/repos/wanderful/app/assets/stylesheets/application.css.scss */
+html a, body a {
+  text-decoration: none;
+  padding-bottom: 1vh;
+  color: #95a5a6;
+}
+/* line 64, /Users/Johnny/Desktop/repos/wanderful/app/assets/stylesheets/application.css.scss */
+html a:hover, body a:hover {
+  color: #2980b9;
+  border-bottom: 3px solid;
+}
+
+/* line 71, /Users/Johnny/Desktop/repos/wanderful/app/assets/stylesheets/application.css.scss */
+.main-container {
+  min-height: 100vh;
+  height: auto;
+}
+
+/* line 75, /Users/Johnny/Desktop/repos/wanderful/app/assets/stylesheets/application.css.scss */
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+
+/* line 79, /Users/Johnny/Desktop/repos/wanderful/app/assets/stylesheets/application.css.scss */
+.main-header {
+  position: relative;
+  top: 0;
+  width: 100%;
+  height: 15vh;
+  margin: 0 0 10vh 0;
+  font-weight: lighter;
+  letter-spacing: 1px;
+  border-bottom: 1px solid #dbdbdb;
+}
+/* line 89, /Users/Johnny/Desktop/repos/wanderful/app/assets/stylesheets/application.css.scss */
+.main-header .flash {
+  -webkit-transform: translate(-50%, -50%);
+  -moz-transform: translate(-50%, -50%);
+  -o-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  position: absolute;
+  text-align: center;
+  width: 50vw;
+  height: 14vh;
+  top: 50%;
+  left: 50%;
+  z-index: 1;
+  font-size: 1.2em;
+}
+/* line 100, /Users/Johnny/Desktop/repos/wanderful/app/assets/stylesheets/application.css.scss */
+.main-header .flash .notice {
+  -webkit-transform: translate(-50%, -50%);
+  -moz-transform: translate(-50%, -50%);
+  -o-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  text-align: center;
+  color: #2980b9;
+}
+/* line 109, /Users/Johnny/Desktop/repos/wanderful/app/assets/stylesheets/application.css.scss */
+.main-header .flash .alert {
+  -webkit-transform: translate(-50%, -50%);
+  -moz-transform: translate(-50%, -50%);
+  -o-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  text-align: center;
+  font-weight: normal;
+  color: #c0392b;
+}
+/* line 120, /Users/Johnny/Desktop/repos/wanderful/app/assets/stylesheets/application.css.scss */
+.main-header .left {
+  position: absolute;
+  -webkit-transform: translate(-50%, -50%);
+  -moz-transform: translate(-50%, -50%);
+  -o-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  top: 50%;
+  left: 10%;
+  font-size: 1.2em;
+}
+/* line 127, /Users/Johnny/Desktop/repos/wanderful/app/assets/stylesheets/application.css.scss */
+.main-header .left p {
+  display: inline-block;
+  padding-left: 1.5em;
+}
+/* line 133, /Users/Johnny/Desktop/repos/wanderful/app/assets/stylesheets/application.css.scss */
+.main-header .right {
+  position: absolute;
+  -webkit-transform: translate(-50%, -50%);
+  -moz-transform: translate(-50%, -50%);
+  -o-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  top: 50%;
+  right: 0;
+  font-size: 1.2em;
+}
+/* line 140, /Users/Johnny/Desktop/repos/wanderful/app/assets/stylesheets/application.css.scss */
+.main-header .right p {
+  display: inline-block;
+  padding-left: 1.5em;
+}
+
+/*DEVISE FORMS*/
+/* line 149, /Users/Johnny/Desktop/repos/wanderful/app/assets/stylesheets/application.css.scss */
+.devise-form-wrapper {
+  position: absolute;
+  -webkit-transform: translate(-50%, -50%);
+  -moz-transform: translate(-50%, -50%);
+  -o-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  left: 50%;
+  top: 55%;
+  width: auto;
+  min-width: 50vw;
+  height: 65vh;
+  font-weight: lighter;
+  font-size: 1.5em;
+  /*only if label exists*/
+}
+/* line 160, /Users/Johnny/Desktop/repos/wanderful/app/assets/stylesheets/application.css.scss */
+.devise-form-wrapper h2 {
+  font-size: 2.3em;
+  font-weight: lighter;
+  text-align: center;
+  letter-spacing: 1px;
+}
+/* line 168, /Users/Johnny/Desktop/repos/wanderful/app/assets/stylesheets/application.css.scss */
+.devise-form-wrapper label {
+  padding-bottom: 0.3em;
+  margin-right: 1em;
+  font-weight: lighter;
+  letter-spacing: 1px;
+}
+/* line 175, /Users/Johnny/Desktop/repos/wanderful/app/assets/stylesheets/application.css.scss */
+.devise-form-wrapper .image {
+  border-bottom: none;
+}
+/* line 179, /Users/Johnny/Desktop/repos/wanderful/app/assets/stylesheets/application.css.scss */
+.devise-form-wrapper input {
+  position: relative;
+  -webkit-transform: translateX(-50%);
+  -moz-transform: translateX(-50%);
+  -o-transform: translateX(-50%);
+  transform: translateX(-50%);
+  left: 50%;
+  outline: none;
+  border: none;
+  width: 60%;
+  margin-bottom: 1em;
+  padding: 0.3em;
+  -webkit-transition: all 0.5s ease;
+  -moz-transition: all 0.5s ease;
+  -o-transition: all 0.5s ease;
+  transition: all 0.5s ease;
+}
+/* line 190, /Users/Johnny/Desktop/repos/wanderful/app/assets/stylesheets/application.css.scss */
+.devise-form-wrapper input:focus {
+  background-color: #ecf0f1;
+}
+/* line 194, /Users/Johnny/Desktop/repos/wanderful/app/assets/stylesheets/application.css.scss */
+.devise-form-wrapper input:active, .devise-form-wrapper input:visited {
+  outline: none;
+}
+/* line 199, /Users/Johnny/Desktop/repos/wanderful/app/assets/stylesheets/application.css.scss */
+.devise-form-wrapper textarea {
+  position: relative;
+  left: 0;
+  width: 100%;
+  height: 40vh;
+  border: none;
+  border-bottom: 1px solid #dbdbdb;
+  outline: none;
+  background-color: #ecf0f1;
+  resize: none;
+}
+/* line 210, /Users/Johnny/Desktop/repos/wanderful/app/assets/stylesheets/application.css.scss */
+.devise-form-wrapper textarea .image {
+  border-bottom: none;
+}
+/* line 215, /Users/Johnny/Desktop/repos/wanderful/app/assets/stylesheets/application.css.scss */
+.devise-form-wrapper .remember-me {
+  position: relative;
+  -webkit-transform: translateX(-50%);
+  -moz-transform: translateX(-50%);
+  -o-transform: translateX(-50%);
+  transform: translateX(-50%);
+  left: 50%;
+  width: 20vw;
+  margin: 0.8em 0 0.8em 0;
+}
+/* line 224, /Users/Johnny/Desktop/repos/wanderful/app/assets/stylesheets/application.css.scss */
+.devise-form-wrapper .remember-me .checkbox input[type=checkbox],
+.devise-form-wrapper .remember-me .checkbox-inline input[type=checkbox],
+.devise-form-wrapper .remember-me .radio input[type=radio],
+.devise-form-wrapper .remember-me .radio-inline input[type=radio] {
+  margin: 10px 0 -20px 150px;
+}
+/* line 229, /Users/Johnny/Desktop/repos/wanderful/app/assets/stylesheets/application.css.scss */
+.devise-form-wrapper .btn {
+  -webkit-transform: translateX(-50%);
+  -moz-transform: translateX(-50%);
+  -o-transform: translateX(-50%);
+  transform: translateX(-50%);
+  position: relative;
+  left: 50%;
+  border-radius: 0;
+  font-size: 1.1em;
+  font-weight: normal;
+  width: 50%;
+  margin: 5vh 0 15vh 0;
+  background-color: #2980b9;
+  border-bottom: none;
+  color: #fff;
+}
+/* line 241, /Users/Johnny/Desktop/repos/wanderful/app/assets/stylesheets/application.css.scss */
+.devise-form-wrapper .btn:hover {
+  background-color: #3498db;
+}
+/* line 246, /Users/Johnny/Desktop/repos/wanderful/app/assets/stylesheets/application.css.scss */
+.devise-form-wrapper .devise-links {
+  display: inline-block;
+  position: relative;
+  width: 100%;
+  font-size: 0.8em;
+  bottom: 0vh;
+}
+/* line 254, /Users/Johnny/Desktop/repos/wanderful/app/assets/stylesheets/application.css.scss */
+.devise-form-wrapper .devise-links .password-recovery,
+.devise-form-wrapper .devise-links .login {
+  margin-top: 1em;
+  margin-bottom: 5vh;
+  text-align: center;
+}
+/* line 261, /Users/Johnny/Desktop/repos/wanderful/app/assets/stylesheets/application.css.scss */
+.devise-form-wrapper abbr {
+  display: none;
+}
+/* line 265, /Users/Johnny/Desktop/repos/wanderful/app/assets/stylesheets/application.css.scss */
+.devise-form-wrapper .cancel {
+  position: relative;
+  width: 100%;
+  font-size: 0.8em;
+  bottom: 0vh;
+  margin-top: 1em;
+  margin-bottom: 5vh;
+  text-align: center;
+}
+/* line 275, /Users/Johnny/Desktop/repos/wanderful/app/assets/stylesheets/application.css.scss */
+.devise-form-wrapper .login {
+  margin-top: 0;
+}
+
+/*.page-footer {
+	position: relative;
+	bottom: 0;
+	background-color: red;
+}*/
