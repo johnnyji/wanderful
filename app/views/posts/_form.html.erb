@@ -1,7 +1,7 @@
 	<%= simple_form_for @post do |f| %>
-		<%= f.input :title %>
-		<%= f.input :link %>
-		<span class="image"><%= f.input :image %></span>
+		<%= f.input :title, label: false, placeholder: "Post title" %>
+		<%= f.input :link, label: false, placeholder: "Post link (ex: www.wanderful.com)" %>
+		<span class="image"><%= f.input :image, label: false %></span>
 		<br>
 		<%= f.input :description, label: false, placeholder: "Tell us about the link!" %>
 		<br>

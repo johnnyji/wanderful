@@ -55,8 +55,6 @@ $text-color: #333;
 
 html, body {
   box-sizing: border-box;
-  height: auto;
-	min-height: 100vh;
   a {
 		text-decoration: none;
 		padding-bottom: 1vh;
@@ -69,6 +67,10 @@ html, body {
 	}
 }
 
+.main-container {
+	min-height: 100vh;
+	height: auto;
+}
 *, *:before, *:after {
   box-sizing: inherit;
 }
@@ -160,7 +162,8 @@ html, body {
 		text-align: center;
 		letter-spacing: 1px;
 	}
-
+	
+	/*only if label exists*/
 	label {
 		padding-bottom: 0.3em;
 		margin-right: 1em;
@@ -173,16 +176,18 @@ html, body {
 	}
 
 	input {
-		float: right;
+		position: relative;
+		@include position-x;
+		left: 50%;
 		outline: none;
 		border: none;
-		border-bottom: 2px solid #dbdbdb;
-		padding-bottom: 0.3em;
 		width: 60%;
+		margin-bottom: 1em;
+		padding: 0.3em;
 		@include transition;
 
 		&:focus {
-			border-bottom: 2px solid $link-hover;
+			background-color: #ecf0f1;
 		}
 
 		&:active, &:visited {
@@ -194,7 +199,7 @@ html, body {
 		position: relative;
 		left: 0;
 		width: 100%;
-		height: 30vh;
+		height: 40vh;
 		border: none;
 		border-bottom: 1px solid #dbdbdb;
 		outline: none;
@@ -208,21 +213,22 @@ html, body {
 
 	.remember-me {
 		position: relative;
-		left: 0;
-		width: 23vw;
+		@include position-x;
+		left: 50%;
+		width: 20vw;
 		margin: 0.8em 0 0.8em 0;
 		.checkbox input[type=checkbox], 
 		.checkbox-inline input[type=checkbox], 
 		.radio input[type=radio], 
 		.radio-inline input[type=radio] {
-			margin: 10px 0 0 150px;
+			margin: 10px 0 -20px 150px;
 		}
 	}
 
 	.btn {
 		@include position-x;
 		position: relative;
-		left: 0;
+		left: 50%;
 		border-radius: 0;
 		font-size: 1.1em;
 		font-weight: normal;
@@ -237,14 +243,15 @@ html, body {
 	}
 
 	.devise-links {
-		position: absolute;
+		position: relative;
 		width: 100%;
 		font-size: 0.8em;
-		bottom: -10vh;
+		bottom: 0vh;
 
 		.password-recovery,
 		.login {
 			margin-top: 1em;
+			margin-bottom: 5vh;
 			text-align: center;
 		}
 	}
@@ -255,9 +262,16 @@ html, body {
 
 	.cancel {
 		position: relative;
-		bottom: -25vh;
+		width: 100%;
 		font-size: 0.8em;
-		padding-right: 3em;
+		bottom: 0vh;
+		margin-top: 1em;
+		margin-bottom: 5vh;
+		text-align: center;
+	}
+
+	.login {
+		margin-top: 0;
 	}
 }
 
