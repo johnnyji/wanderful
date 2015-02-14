@@ -70,16 +70,20 @@ $text-color: #333;
 
 .welcome {
 	left: 50%;
-	margin: 0 auto 10vh auto;
+	margin: 5vh auto 15vh auto;
 	text-align: center;
 	width: auto;
 	height: auto;
 	font-weight: lighter;
+	font-size: 2.3em;
+
+	.signup {
+		text-shadow: 1px 1px 1px #dbdbdb;
+	}
 
 	p {
 		color: $link;
 		padding: 5vh 0 5vh 0;
-		font-weight: lighter;
 		font-size: 0.8em;
 
 		a {

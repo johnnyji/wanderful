@@ -17,7 +17,7 @@ class CommentsController < ApplicationController
 			redirect_to post_path(@post)
 		else
 			redirect_to post_path(@post)
-			flash.notice = "Comments can't be blank!"
+			flash.alert = "Comments can't be blank!"
 		end
 	end
 
@@ -28,7 +28,7 @@ class CommentsController < ApplicationController
 			redirect_to post_path(@comment.post)
 			flash.notice = "Comment successfully deleted!"
 		else
-			flash.notice = "Something went wrong... Hmmm"
+			flash.alert = "Something went wrong... Hmmm"
 		end
 	end
 

@@ -116,9 +116,15 @@ $text-color: #333;
 
 	textarea {
 		border: none;
-		height: 20vh;
+		height: 30vh;
 		width: 30vw;
-		margin-bottom: 1em;
+		margin-bottom: 2em;
+		border-bottom: 1px solid #dbdbdb;
+		@include transition;
+		&:focus {
+			background-color: #ecf0f1;
+			outline: none;
+		}
 	}
 
 	input[type="submit"] {
@@ -130,5 +136,9 @@ $text-color: #333;
 		&:hover {
 			background-color: #3498db;
 		}
+	}
+
+	abbr {
+		display: none;
 	}
 }
