@@ -1,5 +1,5 @@
 	<%= simple_form_for @post do |f| %>
-		<%= f.input :title, label: false, placeholder: "Post title" %>
+		<%= f.input :title, label: false, input_html: { maxlength: 30 }, placeholder: "Post title (30 characters max)" %>
 		<%= f.input :link, label: false, placeholder: "Post link (ex: www.wanderful.com)" %>
 		<span class="image"><%= f.input :image, label: false %></span>
 		<br>
