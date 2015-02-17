@@ -76,6 +76,10 @@ $text-color: #333;
 	font-weight: normal;
 	font-size: 3em;
 	
+	.edit {
+		border-bottom: none;
+	}
+	
 	.user-edit {
 		display: inline-block;
 		font-weight: lighter;

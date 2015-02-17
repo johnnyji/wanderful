@@ -1,8 +1,8 @@
-<% if @user.id == current_user.id %>
+<% if @user == current_user %>
 	<h1 class="user-header">
 		<%= @user.name %>
 		<span class='user-edit'>
-			<%= link_to edit_user_registration_path, class: "data" do %>
+			<%= link_to edit_user_registration_path, class: "edit" do %>
 				<i class="fa fa-pencil-square-o"></i>
 			<% end %>
 		</span>

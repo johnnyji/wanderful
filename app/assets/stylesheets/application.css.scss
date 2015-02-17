@@ -13,7 +13,6 @@
  *= require_tree .
  *= require_self
  */
-
 @mixin position-center {
 	-webkit-transform: translate(-50%, -50%);
 	-moz-transform: translate(-50%, -50%);
