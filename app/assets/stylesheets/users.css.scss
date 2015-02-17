@@ -1,0 +1,91 @@
+// Place all the styles related to the users controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+@mixin position-center {
+	-webkit-transform: translate(-50%, -50%);
+	-moz-transform: translate(-50%, -50%);
+	-o-transform: translate(-50%, -50%);
+	transform: translate(-50%, -50%);
+}
+
+@mixin position-x {
+	-webkit-transform: translateX(-50%);
+	-moz-transform: translateX(-50%);
+	-o-transform: translateX(-50%);
+	transform: translateX(-50%);
+}
+
+@mixin position-y {
+	-webkit-transform: translateY(-50%);
+	-moz-transform: translateY(-50%);
+	-o-transform: translateY(-50%);
+	transform: translateY(-50%);
+}
+
+@mixin scale-up {
+	-webkit-transform: scale(1.1);
+	-moz-transform: scale(1.1);
+	-o-transform: scale(1.1);
+	transform: scale(1.1);
+}
+
+@mixin transition {
+	-webkit-transition: all 0.5s ease;
+	-moz-transition: all 0.5s ease;
+	-o-transition: all 0.5s ease;
+	transition: all 0.5s ease;
+}
+
+html, body {
+  box-sizing: border-box;
+	height: auto;
+	min-height: 100vh;
+
+  a {
+		text-decoration: none;
+		color: inherit;
+
+		&:hover {
+			text-decoration: none;
+		}
+	}
+}
+
+body {
+	height: auto;
+	min-height: 100vh;
+}
+
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+
+$link: #95a5a6;
+$link-hover: #2980b9;
+$text-color: #333;
+
+/* USER HEADER */
+
+.user-header {
+	left: 50%;
+	margin: 5vh auto 15vh auto;
+	text-align: center;
+	width: auto;
+	height: auto;
+	font-weight: normal;
+	font-size: 3em;
+	
+	.user-edit {
+		display: inline-block;
+		font-weight: lighter;
+		font-size: 0.5em;
+	}
+
+	p {
+		color: $link;
+		padding: 5vh 0 5vh 0;
+		font-size: 0.6em;
+		font-weight: lighter;
+	}
+}

@@ -1,0 +1,33 @@
+<% if @user.id == current_user.id %>
+	<h1 class="user-header">
+		<%= @user.name %>
+		<span class='user-edit'>
+			<%= link_to edit_user_registration_path, class: "data" do %>
+				<i class="fa fa-pencil-square-o"></i>
+			<% end %>
+		</span>
+		<p>Insert user description here.</p>
+	</h1>
+<% else %>
+	<h1 class="user-header">
+		<%= @user.name %>
+		<p>Insert user description here.</p>
+	</h1>
+<% end %>
+
+<% @posts.each do |post| %>
+	<div class="col-md-4">
+		<div class="post-wrapper">
+			<div class="image-wrapper">
+				<%= link_to (image_tag post.image.url(:thumb)), post %>
+			</div>
+		
+			<h1><%= link_to post.title, post %></h1>
+
+			<div class="likes-comments">
+				<i class="fa fa-comment-o">&nbsp;<%= pluralize(post.comments.count, "Comment") %></i>&nbsp;&nbsp;&nbsp;&nbsp;
+				<i class="fa fa-thumbs-o-up">&nbsp;<%= pluralize(post.get_likes.size, "Like") %></i>
+			</div>
+		</div>
+	</div>
+<% end %>

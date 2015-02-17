@@ -17,15 +17,25 @@ class Post < ActiveRecord::Base
   validates_attachment_content_type :image, content_type: /\Aimage\/.*\Z/
   validates_presence_of :title, :link, :description
   validates_format_of :link, with: URI_REGEX
+  validate :check_link
 
   def format_url
   	self.link = "http://#{self.link}" unless link =~ /^http/   
 	end
 
 	private
+
+	def check_link
+		begin
+			@page_link = MetaInspector.new(link)
+		rescue Faraday::ConnectionFailed => e
+			errors.add(:link, 'is not valid')
+		end
+	end
+
 	#defines the MetaInspector method
 	def get_image_from_link
-		page = MetaInspector.new(link)
+		page = @page_link
 		#ends the method if the page doesnt have any images
 		return unless page.images.best.present?
 

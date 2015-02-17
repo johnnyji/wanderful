@@ -21,7 +21,7 @@ class PostsController < ApplicationController
 			redirect_to @post
 			flash.notice = "Succesfully posted!"
 		else
-			flash.alert = "Something went wrong! Double check please"
+			flash.alert = @post.errors.full_messages.to_sentence
 			render "new"
 		end
 	end
