@@ -3,6 +3,6 @@
 		<div class="comment-area">
 			<%= f.input :content, label: "Comment here:", placeholder: "Blah blah blah..." %>
 		</div>
-		<%= f.button :submit %>
+		<%= f.button :submit, remote: true %>
 	<% end %>
 </div>
