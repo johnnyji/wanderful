@@ -75,6 +75,19 @@ $text-color: #333;
 	height: auto;
 	font-weight: normal;
 	font-size: 3em;
+
+	.user-image {
+		display: block;
+		margin: 3vh auto 3vh auto;
+		&:hover, &:active, &:focus, &:visited {
+			border-bottom: none;
+		}
+
+		img {
+			border-radius: 100%;
+			width: 150px;
+		}
+	}
 	
 	.edit {
 		border-bottom: none;

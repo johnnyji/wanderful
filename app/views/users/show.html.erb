@@ -1,5 +1,6 @@
 <% if @user == current_user %>
 	<h1 class="user-header">
+		<%= link_to image_tag(@user.image(:medium)), edit_user_registration_path(@user), class: "user-image" %>
 		<%= @user.name %>
 		<span class='user-edit'>
 			<%= link_to edit_user_registration_path, class: "edit" do %>

@@ -17,7 +17,8 @@
     <div class="left">
       <p style="font-weight: normal"><%= link_to "Wanderful", root_path %><p>
       <% if user_signed_in? %>
-        <p><%= link_to "Profile", edit_user_registration_path %></p>
+      <%= link_to image_tag(current_user.image.url(:thumb)), user_path(current_user.id), class: "user-avatar" %>
+        <p><%= link_to "Edit Profile", edit_user_registration_path %></p>
       <% end %>
     </div>
     
