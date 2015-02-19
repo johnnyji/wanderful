@@ -213,14 +213,15 @@ html, body {
 
 	textarea {
 		position: relative;
-		left: 0;
-		width: 100%;
+		@include position-x;
+		left: 50%;
+		width: 60%;
 		height: 40vh;
 		border: none;
 		border-bottom: 1px solid #dbdbdb;
 		outline: none;
 		background-color: #ecf0f1;
-		resize: none;
+		margin-bottom: 1em;
 
 		.image {
 			border-bottom: none;
@@ -289,4 +290,8 @@ html, body {
 	.login {
 		margin-top: 0;
 	}
+}
+
+#user_current_password::-webkit-input-placeholder {
+		color: red;
 }

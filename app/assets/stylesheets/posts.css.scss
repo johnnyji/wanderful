@@ -109,8 +109,8 @@ $text-color: #333;
 		&:hover {
 			img {
 				z-index: -1;
-				@include scale-up;
 				@include transition;
+				@include scale-up;
 			}
 		}
 	}

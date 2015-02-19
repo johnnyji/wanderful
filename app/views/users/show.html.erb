@@ -7,12 +7,24 @@
 				<i class="fa fa-pencil-square-o"></i>
 			<% end %>
 		</span>
-		<p>Insert user description here.</p>
+
+		<% if @user.description %>
+			<p><%= @user.description %></p>
+		<% else %>
+			<p><%= link_to "Write something about yourself!", edit_user_registration_path %></p>
+		<% end %>
+
 	</h1>
 <% else %>
 	<h1 class="user-header">
+		
+		<%= link_to image_tag(@user.image(:medium)), edit_user_registration_path(@user), class: "user-image" %>
 		<%= @user.name %>
-		<p>Insert user description here.</p>
+
+		<% if @user.description %>
+			<p><%= @user.description %></p>
+		<% end %>
+
 	</h1>
 <% end %>
 
