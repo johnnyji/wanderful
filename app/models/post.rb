@@ -1,6 +1,7 @@
 require 'open-uri'
 
 class Post < ActiveRecord::Base
+	include Bootsy::Container
 	# adds a constant for uri regex
 	URI_REGEX = /\A(http|https):\/\/[a-z0-9]+([\-\.]{1}[a-z0-9]+)*\.[a-z]{2,20}(:[0-9]{1,5})?(\/.*)?\z/i
 	acts_as_votable #gem for voting
