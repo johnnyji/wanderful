@@ -6,7 +6,7 @@ class ApplicationController < ActionController::Base
 
   protected
   def configure_permitted_parameters #adds name param to devise
-  	devise_parameter_sanitizer.for(:sign_up) << :name
-  	devise_parameter_sanitizer.for(:account_update) << :name
+  	devise_parameter_sanitizer.for(:sign_up) << :name << :image
+  	devise_parameter_sanitizer.for(:account_update) << :name << :image
   end
 end
