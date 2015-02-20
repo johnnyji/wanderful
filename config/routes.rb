@@ -1,8 +1,7 @@
 Rails.application.routes.draw do
-  mount Bootsy::Engine => '/bootsy', as: 'bootsy'
   devise_for :users
   resources :users
-
+  resources :tags
   resources :posts do #nested routes, comments only visible through posts
   	member do
   		get "like", to: "posts#upvote"

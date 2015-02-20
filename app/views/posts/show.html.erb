@@ -31,6 +31,10 @@
 			<%= pluralize(@post.get_downvotes.size, "Dislike") %>
 		<% end %>
 	</div>
+
+	<div class="tags">
+		<%= @post.tag_list.map{ |t| link_to t, tag_path(t) }.join(", ").html_safe %>
+	</div>
 	
 	<div class="show-description">
 		<%= simple_format(@post.description) %>

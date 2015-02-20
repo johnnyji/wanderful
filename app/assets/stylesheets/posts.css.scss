@@ -209,6 +209,12 @@ $text-color: #333;
 	}
 }
 
+.tags {
+	font-size: 1.2em;
+	color: $link;
+	margin-bottom: 1em;
+}
+
 .show-sidebar {
 	display: inline-block;
 	position: relative;
