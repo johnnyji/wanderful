@@ -7,7 +7,7 @@ class User < ActiveRecord::Base
   has_many :comments
 
   #adding user image using paperclip
-  has_attached_file :image, styles: {large: "500x500#", medium: "200x200#", thumb: "50x50#"}, default_url: "/:style/imageMissing.jpg"
+  has_attached_file :image, styles: { medium: "200x200#", thumb: "50x50#"}, :default_url => ActionController::Base.helpers.asset_path('missing_:style.png')
   validates_attachment_content_type :image, content_type: /\Aimage\/.*\z/
 
 end

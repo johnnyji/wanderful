@@ -19,8 +19,19 @@
 			<h1><%= link_to post.title, post %></h1>
 
 			<div class="likes-comments">
-				<i class="fa fa-comment-o">&nbsp;<%= pluralize(post.comments.count, "Comment") %></i>&nbsp;&nbsp;&nbsp;&nbsp;
-				<i class="fa fa-thumbs-o-up">&nbsp;<%= pluralize(post.get_likes.size, "Like") %></i>
+				<i class="fa fa-comment-o">&nbsp;
+					<span><%= pluralize(post.comments.count, "Comment") %></span>
+				</i>
+					&nbsp;&nbsp;&nbsp;&nbsp;
+				<i class="fa fa-thumbs-o-up">&nbsp;
+					<span><%= pluralize(post.get_likes.size, "Like") %></span>
+				</i>
+			</div>
+
+			<div class="tags">
+				<% post.tags.each do |tag| %>
+					<%= link_to tag.name, tag_path(tag) %>
+				<% end %>
 			</div>
 		</div>
 	</div>

@@ -1,5 +1,5 @@
 class PostsController < ApplicationController
-	before_action :find_post, only: [:show, :edit, :update, :delete, :destroy, :upvote, :downvote]
+	before_action :find_post, only: [:edit, :update, :delete, :destroy, :upvote, :downvote]
 	before_action :authenticate_user!, except: [:index, :show] #authenticates user for new/edit/destroy
 
 	def index
@@ -9,6 +9,8 @@ class PostsController < ApplicationController
 	def show
 		@comments = Comment.where(post_id: @post) #finds comments where the post_id is the same as current post
 		@random_post = Post.where.not(id: @post).order("RANDOM()").first #generates 2 random posts
+		@post = Post.find(params[:id])
+		@tags = @post.tags
 	end
 
 	def new

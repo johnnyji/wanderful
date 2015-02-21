@@ -32,8 +32,11 @@
 		<% end %>
 	</div>
 
+	<!-- TAGS -->
 	<div class="tags">
-		<%= @post.tag_list.map{ |t| link_to t, tag_path(t) }.join(", ").html_safe %>
+		<% @tags.each do |tag| %>
+			<%= link_to tag.name, tag_path(tag.id) %>
+		<% end %>
 	</div>
 	
 	<div class="show-description">

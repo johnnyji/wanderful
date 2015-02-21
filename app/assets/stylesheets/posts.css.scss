@@ -62,6 +62,7 @@ body {
 }
 
 $link: #95a5a6;
+$light-link-hover: #3498db;
 $link-hover: #2980b9;
 $text-color: #333;
 
@@ -70,11 +71,12 @@ $text-color: #333;
 
 .welcome {
 	left: 50%;
-	margin: 5vh auto 15vh auto;
+	margin: 8vh auto 18vh auto;
 	text-align: center;
 	width: auto;
 	height: auto;
-	font-weight: lighter;
+	font-weight: normal;
+	letter-spacing: -1px;
 	font-size: 2.3em;
 
 	.signup {
@@ -120,7 +122,9 @@ $text-color: #333;
 		font-weight: normal;
 		letter-spacing: -1px;
 		a {
+			color: $link-hover;
 			&:hover {
+			color: $light-link-hover;
 			border-bottom: none;
 			}
 		}
@@ -128,6 +132,15 @@ $text-color: #333;
 
 	.likes-comments {
 		margin: 0 auto 0 auto;
+		text-align: center;
+		color: $text-color;
+		span {
+			font-family: inherit;
+		}
+	}
+
+	.tags {
+		margin: 0.5em auto 0.5em auto;
 		text-align: center;
 	}
 }
