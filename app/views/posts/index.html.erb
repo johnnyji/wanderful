@@ -1,11 +1,13 @@
 <% if user_signed_in? %>
 	<h1 class="welcome">
 		Hello <%= current_user.name %>, what did you find online today?
-		<p><%= link_to "Share your link!", new_post_path %></p>
+		<p><%= link_to "Share your link!", new_post_path, remote: true %></p>
+		<div class="index-form ajax" style="display:none;"></div>
 	</h1>
 <% else %>
 	<h1 class="welcome">
-		Share what you find online, <span class="signup"><%= link_to "sign up today!", new_user_registration_path %></span>
+		Share what you find online, <span class="signup"><%= link_to "sign up today!", new_user_registration_path, remote: true %></span>
+		<div class="registration-form ajax" style="display:none;"></div>
 	</h1>
 <% end %>
 

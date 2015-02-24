@@ -46,7 +46,7 @@ html, body {
 		text-decoration: none;
 		color: inherit;
 
-		&:hover {
+		&:hover,{
 			text-decoration: none;
 		}
 	}
@@ -65,6 +65,7 @@ $link: #95a5a6;
 $light-link-hover: #3498db;
 $link-hover: #2980b9;
 $text-color: #333;
+$form-color: #ecf0f1;
 
 
 /*INDEX*/
@@ -93,6 +94,50 @@ $text-color: #333;
 			&:hover {
 				color: $link-hover;
 				border-bottom: 3px solid;
+			}
+			&:focus {
+				color: $link-hover;
+				text-decoration: none;
+			}
+		}
+	}
+
+	// INDEX-FORM-AJAX
+	.ajax {
+		font-size: 0.7em;
+		font-weight: lighter;
+		margin-top: 1em;
+		input {
+			@include transition;
+			outline: none;
+			border: none;
+			min-width: 35vw;
+			margin-bottom: 1em;
+			padding: 0.3em;
+			&:focus {
+				background-color: $form-color;
+			}
+		}
+
+		textarea {
+			background-color: $form-color;
+			outline: none;
+			border: none;
+			border-bottom: 1px solid #dbdbdb;
+			min-height: 40vh;
+			min-width: 35vw;
+		}
+		.btn {
+			border-radius: 0;
+			font-size: 1.1em;
+			font-weight: normal;
+			min-width: 20vw;
+			margin: 5vh 0 15vh 0;
+			background-color: $link-hover;
+			border-bottom: none;
+			color: #fff;
+			&:hover {
+				background-color: #3498db;
 			}
 		}
 	}

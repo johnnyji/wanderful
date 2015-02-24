@@ -251,13 +251,13 @@ html, body {
 		border-radius: 0;
 		font-size: 1.1em;
 		font-weight: normal;
-		width: 50%;
+		width: 20vw;
 		margin: 5vh 0 15vh 0;
 		background-color: $link-hover;
 		border-bottom: none;
 		color: #fff;
 		&:hover {
-			background-color: #3498db
+			background-color: #3498db;
 		}
 	}
 

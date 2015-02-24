@@ -1,6 +1,7 @@
 class PostsController < ApplicationController
 	before_action :find_post, only: [:edit, :update, :delete, :destroy, :upvote, :downvote]
 	before_action :authenticate_user!, except: [:index, :show] #authenticates user for new/edit/destroy
+	respond_to :html, :js
 
 	def index
 		@posts = Post.all.order("created_at DESC")
@@ -19,12 +20,22 @@ class PostsController < ApplicationController
 
 	def create
 		@post = current_user.posts.build(post_params)
-		if @post.save
-			redirect_to @post
-			flash.notice = "Succesfully posted!"
-		else
-			flash.alert = @post.errors.full_messages.to_sentence
-			render "new"
+		respond_to do |format|
+			if @post.save
+				format.html {
+					redirect_to @post
+					flash.notice = "Succesfully posted!"
+				}
+				format.js {
+					redirect_to @post
+					flash.notice = "Succesfully posted!"
+				}
+			else
+				format.html {
+					flash.alert = @post.errors.full_messages.to_sentence
+					render "new"
+				}
+			end
 		end
 	end
 

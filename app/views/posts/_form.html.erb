@@ -1,4 +1,4 @@
-	<%= simple_form_for @post do |f| %>
+	<%= simple_form_for @post, remote: true do |f| %>
 		<%= f.input :title, label: false, input_html: { maxlength: 30 }, placeholder: "Post title (30 characters max)" %>
 		<%= f.input :link, label: false, placeholder: "Post link (ex: www.wanderful.com)" %>
 		<%= f.input :tag_list, label: false, placeholder: "Insert your tags (seperate by commas)" %>

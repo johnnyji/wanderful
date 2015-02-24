@@ -1,5 +1,6 @@
 class CommentsController < ApplicationController
 	before_action :authenticate_user!
+	respond_to :html, :js
 
 	def new
 		@post = Post.find(params[:post_id])
@@ -18,7 +19,7 @@ class CommentsController < ApplicationController
 					flash[:notice] = "Comment created successfully."
 					redirect_to post_path(@post)
 				}
-				format.json {}
+				format.json
 			else
 				format.html {
 					redirect_to post_path(@post)
