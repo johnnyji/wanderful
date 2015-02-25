@@ -1,3 +1,18 @@
 $(document).ready(function() {
-	$(".comment-list").html("<%= j (render @post.comments) %>");
+
+	//AJAX to post comments and increase comment counter with every posted comment
+	var commentCount = <%= @post.comments.count %>
+
+	if (commentCount > 1) {
+		var commentCountDisplay = commentCount + " Comments"
+	} else if (commentCount === 0) {
+		var commentCountDisplay = "No Comments"
+	} else {
+		var commentCountDisplay = commentCount + " Comment"
+	}
+
+	$(".comment-list").append("<%= j (render @comment) %>").slideDown(400);
+	commentCount + 1;
+	$(".comment-text").val('');
+	$(".comment-counter").html(commentCountDisplay);
 });

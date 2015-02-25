@@ -1,7 +1,7 @@
 <div class="comment-form">
 	<%= simple_form_for([@post, @post.comments.build], remote: true) do |f| %>
 		<div class="comment-area">
-			<%= f.input :content, label: "Comment Here:", placeholder: "Blah blah blah..." %>
+			<%= f.input :content, as: :text, label: "Comment Here:", placeholder: "Blah blah blah...", input_html: {class: "comment-text"} %>
 		</div>
 		<%= f.button :submit %>
 	<% end %>

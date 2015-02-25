@@ -9,7 +9,7 @@ class PostsController < ApplicationController
 
 	def show
 		@comments = Comment.where(post_id: @post) #finds comments where the post_id is the same as current post
-		@random_post = Post.where.not(id: @post).order("RANDOM()").first #generates 2 random posts
+		@random_post = Post.where.not(id: @post).order("RANDOM()").first #generates random posts
 		@post = Post.find(params[:id])
 		@tags = @post.tags
 	end
