@@ -59,9 +59,12 @@
 </div>
 
 <!-- COMMENTS -->
+
 <div class="comments">
 	<h2><%= pluralize(@post.comments.count, "Comment") %></h2>
-	<%= render "comments" %>
+	<div class="comment-list">
+		<%= render "/comments/comments" %>
+	</div>
 </div>
 
 <%= render "comments/form" %>

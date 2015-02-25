@@ -1,4 +1,5 @@
 $(document).ready(function() {
-	$(".index-form").html("<%= j (render 'form') %>");
-	$(".index-form").slideDown(400);
+	debugger
+	$(".post-container").prepend("<%= j (render @post) %>");
+	$(".index-form").slideUp(400);
 });

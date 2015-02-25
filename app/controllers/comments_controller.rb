@@ -13,12 +13,19 @@ class CommentsController < ApplicationController
 		@comment.user_id = current_user.id
 		@comment.post_id = @post.id
 
-		if @comment.save
-			flash[:notice] = "Comment created successfully."
-			redirect_to post_path(@post)
-		else
-			redirect_to post_path(@post)
-			flash.alert = "Comments can't be blank!"
+		respond_to do |format|
+			if @comment.save
+				format.html {
+					flash[:notice] = "Comment created successfully."
+					redirect_to post_path(@post)
+				}
+				format.js
+			else
+				format.html {
+					redirect_to post_path(@post)
+					flash.alert = "Comments can't be blank!"
+				}
+			end
 		end
 	end
 
