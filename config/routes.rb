@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  devise_for :users
+  devise_for :users, controllers: {sessions: "sessions", registrations: "registrations"}
   resources :users
   resources :tags
   resources :posts do #nested routes, comments only visible through posts

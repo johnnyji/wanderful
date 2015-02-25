@@ -26,10 +26,7 @@ class PostsController < ApplicationController
 					redirect_to @post
 					flash.notice = "Succesfully posted!"
 				}
-				format.js {
-					redirect_to @post
-					flash.notice = "Succesfully posted!"
-				}
+				format.js
 			else
 				format.html {
 					flash.alert = @post.errors.full_messages.to_sentence

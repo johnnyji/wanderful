@@ -4,28 +4,21 @@ class CommentsController < ApplicationController
 
 	def new
 		@post = Post.find(params[:post_id])
-		@comment = @post.comments.new comment_params
+		@comment = @post.comments.new(comment_params)
 	end
 
 	def create
 		@post = Post.find(params[:post_id])
-		@comment = @post.comments.new comment_params
+		@comment = @post.comments.new(comment_params)
 		@comment.user_id = current_user.id
 		@comment.post_id = @post.id
 
-		respond_to do |format|
-			if @comment.save
-				format.html {
-					flash[:notice] = "Comment created successfully."
-					redirect_to post_path(@post)
-				}
-				format.json
-			else
-				format.html {
-					redirect_to post_path(@post)
-					flash.alert = "Comments can't be blank!"
-				}
-			end
+		if @comment.save
+			flash[:notice] = "Comment created successfully."
+			redirect_to post_path(@post)
+		else
+			redirect_to post_path(@post)
+			flash.alert = "Comments can't be blank!"
 		end
 	end
 
@@ -42,7 +35,7 @@ class CommentsController < ApplicationController
 
 	private
 	def comment_params
-		params.require(:comment).permit(:content, :bootsy_image_gallery_id)
+		params.require(:comment).permit(:content)
 	end
 	
 end
