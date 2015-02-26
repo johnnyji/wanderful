@@ -1,5 +1,5 @@
 <div class="comment-form">
-	<%= simple_form_for([@post, @post.comments.build], remote: true) do |f| %>
+	<%= simple_form_for([@post, Comment.new], remote: true) do |f| %>
 		<div class="comment-area">
 			<%= f.input :content, as: :text, label: "Comment Here:", placeholder: "Blah blah blah...", input_html: {class: "comment-text"} %>
 		</div>

@@ -11,7 +11,7 @@ $(document).ready(function() {
 		var commentCountDisplay = commentCount + " Comment"
 	}
 
-	$(".comment-list").slideDown(400).append("<%= j (render @comment) %>");
+	$(".comment-list").slideDown(400).prepend("<%= j (render @comment) %>");
 	commentCount + 1;
 	$(".comment-text").val('');
 	$(".comment-counter").html(commentCountDisplay);

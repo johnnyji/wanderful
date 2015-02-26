@@ -64,14 +64,15 @@
 
 <!-- COMMENTS -->
 <!-- form cant go before comments.. why? -->
+<%= render partial: "/comments/form" %>
+
 
 <div class="comments">
 	<h2 class="comment-counter"><%= pluralize(@post.comments.count, "Comment") %></h2>
 	<div class="comment-list">
 		<% @post.comments.each do |comment| %>
-			<%= render partial: comment %>
+			<%= render partial: comment, locals: {comment: comment} %>
 		<% end %>
 	</div>
 </div>
 
-<%= render "/comments/form" %>
