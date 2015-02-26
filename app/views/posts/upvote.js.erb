@@ -1,0 +1,23 @@
+$(document).ready(function() {
+	var upvoteCount = <%= @post.get_upvotes.size %>;
+	var downvoteCount = <%= @post.get_downvotes.size %>;
+
+	if (upvoteCount > 1) {
+		var upvotes = upvoteCount + " Likes";
+	} else if (upvoteCount === 0) {
+		var upvotes = upvoteCount + "No Likes";
+	} else {
+		var upvotes = upvoteCount + " Like";
+	}
+
+	if (downvoteCount > 1) {
+		var downvotes = downvoteCount + " Dislikes";
+	} else if (downvoteCount === 0) {
+		var downvotes = "No Dislikes";
+	} else {
+		var downvotes = downvoteCount + " Dislike";
+	}
+
+	$(".like").html(upvotes);
+	$(".dislike").html(downvotes);
+});
