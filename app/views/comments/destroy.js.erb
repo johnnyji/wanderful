@@ -1,8 +1,9 @@
 $(document).ready(function() {
-
-	//AJAX to post comments and increase comment counter with every posted comment
 	var commentCount = <%= @post.comments.count %>
+	var selectedComment = $("#comment_<%= @comment.id %>");
 
+	// Decrements the comment counter as comments are deleted
+	commentCount - 1;
 	if (commentCount > 1) {
 		var commentCountDisplay = commentCount + " Comments"
 	} else if (commentCount === 0) {
@@ -11,8 +12,6 @@ $(document).ready(function() {
 		var commentCountDisplay = commentCount + " Comment"
 	}
 
-	$(".comment-list").slideDown(400).append("<%= j (render @comment) %>");
-	commentCount + 1;
-	$(".comment-text").val('');
 	$(".comment-counter").html(commentCountDisplay);
+	selectedComment.slideUp(300);
 });

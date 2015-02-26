@@ -29,14 +29,26 @@ class CommentsController < ApplicationController
 		end
 	end
 
+	def delete
+		@post = Post.find(params[:post_id])
+		@comment = @post.comments.find(params[:id])
+	end
+
 	def destroy
 		@post = Post.find(params[:post_id])
 		@comment = @post.comments.find(params[:id])
-		if @comment.destroy
-			redirect_to post_path(@comment.post)
-			flash.notice = "Comment successfully deleted!"
-		else
-			flash.alert = "Something went wrong... Hmmm"
+		respond_to do |format|
+			if @comment.destroy
+				format.html {
+					redirect_to post_path(@comment.post)
+					flash.notice = "Comment successfully deleted!"
+				}
+				format.js
+			else
+				format.html {
+					flash.alert = "Something went wrong... Hmmm"
+				}
+			end
 		end
 	end
 
