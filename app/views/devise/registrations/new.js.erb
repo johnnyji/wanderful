@@ -1,7 +1,4 @@
 $(document).ready(function() {
 	$(".registration-form").html("<%= j (render '/devise/registrations/new') %>");
 	$(".registration-form").slideToggle(400);
-	$(".form-actions").click(function() {
-		console.log("hit");
-	});
 });
