@@ -2,20 +2,16 @@ $(document).ready(function() {
 	var downvoteCount = <%= @post.get_downvotes.size %>;
 	var upvoteCount = <%= @post.get_upvotes.size %>;
 
-	if (downvoteCount > 1) {
-		var downvotes = downvoteCount + " Dislikes";
-	} else if (downvoteCount === 0) {
-		var downvotes = "No Dislikes";
-	} else {
+	if (downvoteCount === 1) {
 		var downvotes = downvoteCount + " Dislike";
+	} else {
+		var downvotes = downvoteCount + " Dislikes";
 	}
 
-	if (upvoteCount > 1) {
-		var upvotes = upvoteCount + " Likes";
-	} else if (upvoteCount === 0) {
-		var upvotes = "No Likes";
-	} else {
+	if (upvoteCount === 1) {
 		var upvotes = upvoteCount + " Like";
+	} else {
+		var upvotes = upvoteCount + " Likes";
 	}
 
 
