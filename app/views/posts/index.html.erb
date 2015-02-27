@@ -1,5 +1,6 @@
-<% if user_signed_in? %>
+<% if user_signed_in? %> <!-- SIGNED IN USER INTRO -->
 	<h1 class="welcome">
+		
 		<span class="welcome-user">Hello <%= current_user.name %></span><br>
 		What will you
 			<div class="search-bar">
@@ -8,11 +9,14 @@
 				<% end %>
 			</div>
 		today?
+
 		<p class="share-link"><%= link_to "Share your link!", new_post_path, remote: true %></p>
 		<div class="index-form ajax" style="display:none;"></div>
+
 	</h1>
-<% else %>
+<% else %> <!-- GENERIC USER INTRO -->
 	<h1 class="welcome">
+
 		<span class="welcome-user app-title">
 			Wanderful
 		</span>, &nbsp;
@@ -24,12 +28,14 @@
 		</div>
 		today!
 		<br>
+
 		<span class="signup"><%= link_to "Join here.", new_user_registration_path, remote: true %></span>
 		<div class="registration-form ajax" style="display:none;"></div>
+
 	</h1>
 <% end %>
 
-<div class="post-container">
+<div class="post-container"> <!-- POST DISPLAY LOOP -->
 	<% @posts.each do |post| %>
 		<%= render partial: post %>
 	<% end %>
