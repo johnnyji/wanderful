@@ -72,6 +72,18 @@ class PostsController < ApplicationController
 		end
 	end
 
+	def search
+		@q = params[:q]
+
+		if !@q
+			# redirect to page showing no search found
+		end
+
+		@post_results = Post.search(@q)
+		@tags_results = Tag.search(@q)
+	end
+
+
 	private
 	def post_params
 		params.require(:post).permit(:title, :link, :description, :image, :bootsy_image_gallery_id, :tag_list)

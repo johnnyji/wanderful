@@ -20,6 +20,9 @@ class Post < ActiveRecord::Base
   validates_format_of :link, with: URI_REGEX
   validate :check_link
 
+  # search
+  scope :search, lambda { |search_terms| where(["lower(title) like ?", "%#{search_terms.downcase}%"]) }
+
   def format_url
   	self.link = "http://#{self.link}" unless link =~ /^http/   
 	end

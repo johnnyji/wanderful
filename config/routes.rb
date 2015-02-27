@@ -11,4 +11,7 @@ Rails.application.routes.draw do
   end
 
   root "posts#index"
+
+  # search path
+  get '/search' => 'posts#search'
 end

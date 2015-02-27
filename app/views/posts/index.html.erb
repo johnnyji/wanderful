@@ -1,3 +1,8 @@
+<%= form_tag(search_path, method: "get") do %>
+	<%= text_field_tag :search, nil, placeholder: "Search", name: 'q' %>
+	<%= submit_tag 'Search', name: nil %>
+<% end %>
+
 <% if user_signed_in? %>
 	<h1 class="welcome">
 		Hello <%= current_user.name %>, what did you find online today?

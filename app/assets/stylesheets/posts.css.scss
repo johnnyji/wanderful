@@ -67,12 +67,19 @@ $link-hover: #2980b9;
 $text-color: #333;
 $form-color: #ecf0f1;
 
+// SEARCH BAR
+
+.search-bar {
+	text-align: center;
+	margin: 3em 0 5em 0;
+}
+
 
 /*INDEX*/
 
 .welcome {
 	left: 50%;
-	margin: 3em auto 5em auto;
+	margin: 1em auto 5em auto;
 	text-align: center;
 	width: auto;
 	height: auto;
