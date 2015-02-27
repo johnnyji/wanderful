@@ -73,14 +73,14 @@ class PostsController < ApplicationController
 	end
 
 	def search
-		@q = params[:q]
+		@query = params[:query]
 
-		if !@q
-			# redirect to page showing no search found
+		# AJAX for when no page when no search is found
+		if !@query
 		end
 
-		@post_results = Post.search(@q)
-		@tags_results = Tag.search(@q)
+		@post_results = Post.search(@query)
+		@tags_results = Tag.search(@query)
 	end
 
 

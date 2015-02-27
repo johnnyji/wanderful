@@ -67,34 +67,91 @@ $link-hover: #2980b9;
 $text-color: #333;
 $form-color: #ecf0f1;
 
-// SEARCH BAR
+.app-title {
+	color: $link-hover;
+	letter-spacing: -1px;
+}
+
+// SEARCH BAR LINE
 
 .search-bar {
+	display: inline-block;
 	text-align: center;
-	margin: 3em 0 5em 0;
+	font-weight: lighter;
+	font-size: 1em;
+	margin: 1em 0.3em 1.5em 0.3em;
+	width: auto;
+	::-webkit-input-placeholder {
+		text-align: center;
+	}
+	:-moz-placeholder { /* Firefox 18- */
+   text-align: center;  
+	}
+	::-moz-placeholder {  /* Firefox 19+ */
+	   text-align: center;  
+	}
+	:-ms-input-placeholder {  
+	   text-align: center; 
+	}
+	form {
+		width: auto;
+	}
+	#search {		
+		background-color: $form-color;
+		width: 20vw;
+		color: $link-hover;
+		border: none;
+		padding: 0.2em;
+		&:focus {
+			outline: none;
+		}
+	}
+
+	.submit-button {
+		border: none;
+		font-size: 1.1em;
+		font-weight: normal;
+		margin: 5vh 0 15vh 0;
+		background-color: $link-hover;
+		border-bottom: none;
+		color: #fff;
+		&:hover {
+			background-color: #3498db;
+		}
+	}
 }
 
 
-/*INDEX*/
+// INDEX 	
 
 .welcome {
 	left: 50%;
-	margin: 1em auto 5em auto;
+	margin: 0 auto 5em auto;
 	text-align: center;
 	width: auto;
 	height: auto;
-	font-weight: normal;
+	font-weight: lighter;
 	letter-spacing: -1px;
 	font-size: 2.3em;
+
+	.welcome-user {
+		font-size: 1.5em;
+	}
 
 	.signup {
 		text-shadow: 1px 1px 1px #dbdbdb;
 	}
 
-	p {
-		color: $link;
-		padding: 5vh 0 5vh 0;
+	p, .share-link {
+		@include position-x;
+		position: relative;
+		left: 50%;
+		width: 50vw;
+		border-top: 1px solid #dbdbdb;
+		padding: 6vh 0 4vh 0;
+		font-weight: normal;
 		font-size: 0.8em;
+		color: $link;
 
 		a {
 			padding-bottom: 0.6em;
