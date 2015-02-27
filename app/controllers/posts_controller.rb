@@ -80,7 +80,7 @@ class PostsController < ApplicationController
 		end
 
 		@post_results = Post.search(@query)
-		@tags_results = Tag.search(@query)
+		@tag_results = Post.tagged_with(@query)
 	end
 
 

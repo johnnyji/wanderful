@@ -1,9 +1,11 @@
-<h1>Post </h1>
-<% @post_results.each do |result| %>
-	<%= result.title %>
-<% end %>
+<h1>Post about <%= @query %></h1>
+<div class="post-container">
+	<% @post_results.each do |post| %>
+		<%= render partial: post %>
+	<% end %>
+</div>
 
-<h1>Tag</h1>
-<% @tags_results.each do |tag| %>
-	<%= tag.name %>
+<h1>Posts tagged with "<%= @query %>"</h1>
+<% @tag_results.each do |post| %>
+	<%= render partial: post %>
 <% end %>
