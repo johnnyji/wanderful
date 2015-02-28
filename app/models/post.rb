@@ -7,7 +7,7 @@ class Post < ActiveRecord::Base
 	URI_REGEX = /\A(http|https):\/\/[a-z0-9]+([\-\.]{1}[a-z0-9]+)*\.[a-z]{2,20}(:[0-9]{1,5})?(\/.*)?\z/i
 	HASHTAG_REGEX = /(?:\s|^)(?:#(?!\d+(?:\s|$)))(\w+)(?=\s|$)/i
 	acts_as_votable #voting
-	acts_as_taggable #tagging
+	acts_as_taggable
 
 	belongs_to :user
 	has_many :comments
@@ -36,7 +36,7 @@ class Post < ActiveRecord::Base
 	end
 
 	def extract_tags
-		extract_hashtags(self.description).join(", ")
+		extract_hashtags(self.description)
 		# makes the tags into a string seperated by commas so it can be taken as input for acts_as_taggable_on
 	end
 

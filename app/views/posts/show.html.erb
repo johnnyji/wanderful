@@ -39,11 +39,8 @@
 	<!-- TAGS -->
 	<div class="tags">
 		<% @tags.each do |tag| %>
-			<%= link_to tag.name, tag_path(tag.id) %>
+			<%= link_to "##{tag.name} ", tag_path(tag.id) %>
 		<% end %>
-		<br>
-		<%= @hashtags %>
-
 	</div>
 	
 	<div class="show-description">

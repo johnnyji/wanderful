@@ -19,7 +19,7 @@
 		<div class="tags">
 			<% if post.tags.size >= 1 %>
 				<% post.tags.first(3).each do |tag| %>
-					<%= link_to tag.name, tag_path(tag) %>
+					<%= link_to "##{tag.name}", tag_path(tag) %>
 				<% end %>
 			<% else %>
 				 <p>No tags avaliable :(</p>

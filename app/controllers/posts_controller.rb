@@ -21,6 +21,9 @@ class PostsController < ApplicationController
 
 	def create
 		@post = current_user.posts.build(post_params)
+		tags = @post.extract_tags
+		tags.each { |tag| @post.tag_list.add(tag) }
+
 		respond_to do |format|
 			if @post.save
 				format.html {
@@ -41,6 +44,10 @@ class PostsController < ApplicationController
 	end
 
 	def update
+		@post.tag_list.remove(@post.tag_list)
+		tags = @post.extract_tags
+		tags.each { |tag| @post.tag_list.add(tag) }
+
 		if @post.update(post_params)
 			redirect_to @post
 		else
@@ -86,7 +93,7 @@ class PostsController < ApplicationController
 
 	private
 	def post_params
-		params.require(:post).permit(:title, :link, :description, :image, :bootsy_image_gallery_id, :tag_list)
+		params.require(:post).permit(:title, :link, :description, :image, :bootsy_image_gallery_id)
 	end
 
 	def find_post
