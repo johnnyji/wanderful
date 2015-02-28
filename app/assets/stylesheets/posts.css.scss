@@ -107,16 +107,15 @@ $form-color: #ecf0f1;
 		}
 	}
 
-	.submit-button {
+	.search-button {
 		border: none;
-		font-size: 1.1em;
-		font-weight: normal;
-		margin: 5vh 0 15vh 0;
-		background-color: $link-hover;
-		border-bottom: none;
-		color: #fff;
+		font-size: 1em;
+		padding: 0.2em;
+		font-weight: lighter;
+		color: $link-hover;
+		background-color: transparent;
 		&:hover {
-			background-color: #3498db;
+			color: #3498db;
 		}
 	}
 }

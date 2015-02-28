@@ -1,9 +1,17 @@
-<h1>Post about <%= @query %></h1>
-<div class="post-container">
-	<% @post_results.each do |post| %>
-		<%= render partial: post %>
-	<% end %>
-</div>
+<% if @post_results.size >= 1 %>
+
+	<h1>Post about <%= @query %></h1>
+	<div class="post-container">
+		<% @post_results.each do |post| %>
+			<%= render partial: post %>
+		<% end %>
+	</div>
+
+<% else %>
+
+	<h1>No results for <%= @query %></h1>
+	
+<% end %>
 
 <h1>Posts tagged with "<%= @query %>"</h1>
 <% @tag_results.each do |post| %>

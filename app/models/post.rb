@@ -3,6 +3,7 @@ require 'open-uri'
 class Post < ActiveRecord::Base
 	# adds a constant for uri regex
 	URI_REGEX = /\A(http|https):\/\/[a-z0-9]+([\-\.]{1}[a-z0-9]+)*\.[a-z]{2,20}(:[0-9]{1,5})?(\/.*)?\z/i
+	HASHTAG_REGEX = /(?:\s|^)(?:#(?!\d+(?:\s|$)))(\w+)(?=\s|$)/i
 	acts_as_votable #voting
 	acts_as_taggable #tagging
 
@@ -35,6 +36,9 @@ class Post < ActiveRecord::Base
 		rescue Faraday::ConnectionFailed => e
 			errors.add(:link, 'is not valid')
 		end
+	end
+
+	def check_hashtag
 	end
 
 	#defines the MetaInspector method
