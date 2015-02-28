@@ -298,3 +298,17 @@ html, body {
 #user_current_password::-webkit-input-placeholder {
 		color: red;
 }
+
+.scroll-up {
+	@include position-center;
+	display: none;
+	position: fixed;
+	bottom: 2%;
+	right: 1%;
+	font-size: 2em;
+	color: $text-color;
+	&:hover {
+		color: $link-hover;
+		cursor: pointer;
+	}
+}
