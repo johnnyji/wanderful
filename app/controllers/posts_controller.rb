@@ -1,6 +1,6 @@
 class PostsController < ApplicationController
 	before_action :find_post, only: [:edit, :update, :delete, :destroy, :upvote, :downvote]
-	before_action :authenticate_user!, except: [:index, :show] #authenticates user for new/edit/destroy
+	before_action :authenticate_user!, except: [:index, :show, :search] #authenticates user for new/edit/destroy
 	respond_to :html, :js
 
 	def index

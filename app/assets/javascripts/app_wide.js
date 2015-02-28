@@ -48,7 +48,6 @@ $(document).ready(function() {
 
 		if ($topOfScreen > 500) {
 			$scrollButton.fadeIn(500);
-			console.log("hit");
 		}
 
 		if ($topOfScreen < 300) {
