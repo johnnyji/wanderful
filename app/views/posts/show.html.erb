@@ -41,6 +41,11 @@
 		<% @tags.each do |tag| %>
 			<%= link_to tag.name, tag_path(tag.id) %>
 		<% end %>
+		<br>
+		<% @hashtags.each do |hashtag| %>
+			#<%= hashtag %>
+		<% end %>
+
 	</div>
 	
 	<div class="show-description">

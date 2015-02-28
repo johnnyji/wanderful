@@ -12,6 +12,7 @@ class PostsController < ApplicationController
 		@comments = @post.comments
 		@random_post = Post.where.not(id: @post).order("RANDOM()").first #generates random posts
 		@tags = @post.tags
+		@hashtags = @post.extract_tags
 	end
 
 	def new
