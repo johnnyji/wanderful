@@ -44,11 +44,13 @@ class PostsController < ApplicationController
 	end
 
 	def update
-		@post.tag_list.remove(@post.tag_list)
+		@post.attributes = post_params
+		current_tags = @post.tag_list
+		current_tags.remove(current_tags)
 		tags = @post.extract_tags
 		tags.each { |tag| @post.tag_list.add(tag) }
-
-		if @post.update(post_params)
+		
+		if @post.save(post_params)
 			redirect_to @post
 		else
 			flash.alert = "Something went wrong! Double check please"
