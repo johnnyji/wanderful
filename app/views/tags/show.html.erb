@@ -1,5 +1,5 @@
 <% if @posts.count > 0 %>
-	<p class="user-header">Links about "<%= @tag.name %>"</p>
+	<p class="user-header">#<%= @tag.name %></p>
 	<% @posts.each do |post| %>
 		<div class="col-md-4">
 			<div class="post-wrapper">
