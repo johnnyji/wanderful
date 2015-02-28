@@ -66,11 +66,7 @@ $light-link-hover: #3498db;
 $link-hover: #2980b9;
 $text-color: #333;
 $form-color: #ecf0f1;
-
-.app-title {
-	color: $link-hover;
-	letter-spacing: -1px;
-}
+$confirm-color: #27ae60;
 
 // SEARCH BAR LINE
 
@@ -124,7 +120,6 @@ $form-color: #ecf0f1;
 // INDEX 	
 
 .welcome {
-	left: 50%;
 	margin: 0 auto 5em auto;
 	text-align: center;
 	width: auto;
@@ -133,14 +128,32 @@ $form-color: #ecf0f1;
 	letter-spacing: -1px;
 	font-size: 2.3em;
 
+	.app-title {
+		color: $link-hover;
+		font-size: 2em;
+	}
+
 	.welcome-user {
 		font-size: 1.5em;
 	}
 
-	.signup {
-		text-shadow: 1px 1px 1px #dbdbdb;
+	.sign-up {
+		@include position-x;
+		position: relative;
+		left: 50%;
+		width: 50vw;
+		border-top: 1px solid #dbdbdb;
+		padding: 6vh 0 4vh 0;
+		font-weight: normal;
+		font-size: 1.2em;
+		a {
+			color: $confirm-color;
+			&:hover, &:visited, &:active, &:focus {
+				color: $confirm-color;
+			}
+		}
 	}
-
+	
 	p, .share-link {
 		@include position-x;
 		position: relative;
