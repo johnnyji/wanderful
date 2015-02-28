@@ -2,6 +2,7 @@ require 'open-uri'
 require 'twitter-text'
 class Post < ActiveRecord::Base
 	include Twitter::Extractor
+	include Twitter::Autolink
 	# adds a constant for uri regex
 	URI_REGEX = /\A(http|https):\/\/[a-z0-9]+([\-\.]{1}[a-z0-9]+)*\.[a-z]{2,20}(:[0-9]{1,5})?(\/.*)?\z/i
 	HASHTAG_REGEX = /(?:\s|^)(?:#(?!\d+(?:\s|$)))(\w+)(?=\s|$)/i
@@ -14,6 +15,7 @@ class Post < ActiveRecord::Base
 
 	#gets image using MetaInspector before the post saves
 	before_save :get_image_from_link, if: ->(post) { post.link_changed? }
+	#WRITE A BEFORE_SAVE THAT TAKES EXTRACT_TAGS ARRAY AND INPUTS IT AS TAG_LIST
 
 	before_validation :format_url
 
@@ -34,7 +36,8 @@ class Post < ActiveRecord::Base
 	end
 
 	def extract_tags
-		extract_hashtags(self.description)
+		extract_hashtags(self.description).join(", ")
+		# makes the tags into a string seperated by commas so it can be taken as input for acts_as_taggable_on
 	end
 
 	private

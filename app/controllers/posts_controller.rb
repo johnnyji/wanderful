@@ -79,7 +79,6 @@ class PostsController < ApplicationController
 		# AJAX for when no page when no search is found
 		if !@query
 		end
-
 		@post_results = Post.search(@query)
 		@tag_results = Post.tagged_with(@query)
 	end
