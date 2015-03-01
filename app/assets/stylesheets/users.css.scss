@@ -46,7 +46,7 @@ html, body {
 		text-decoration: none;
 		color: inherit;
 
-		&:hover {
+		&:hover,{
 			text-decoration: none;
 		}
 	}
@@ -62,13 +62,15 @@ body {
 }
 
 $link: #95a5a6;
+$light-link-hover: #3498db;
 $link-hover: #2980b9;
 $text-color: #333;
+$form-color: #ecf0f1;
+$confirm-color: #27ae60;
 
 /* USER HEADER */
 
 .user-header {
-	left: 50%;
 	margin: 5vh auto 15vh auto;
 	text-align: center;
 	width: auto;
@@ -99,12 +101,70 @@ $text-color: #333;
 		font-size: 0.5em;
 	}
 
-	p {
+	.user-description {
 		color: $link;
 		padding: 5vh 0 5vh 0;
+		border-bottom: 1px solid #dbdbdb;
+		border-top: 1px solid #dbdbdb;
 		font-size: 0.6em;
 		font-weight: lighter;
-		width: 50%;
-		margin: auto;	
+		width: 50vw;
+		margin: 4vh auto 5vh auto;	
+	}
+
+	.share-link {
+		font-size: 0.6em;
+		margin-bottom: 2em;
+		a {
+			color: $link;
+			&:hover, &:focus, &:active {
+				color: $link-hover;
+				text-decoration: none;
+			}
+		}
+	}
+
+	.ajax {
+		font-size: 0.6em;
+		font-weight: lighter;
+		margin: 1em auto 0 auto;
+		text-align: center;
+		input {
+			@include transition;
+			outline: none;
+			border: none;
+			min-width: 35vw;
+			margin-bottom: 1em;
+			padding: 0.3em;
+			&:focus {
+				background-color: $form-color;
+			}
+		}
+
+		textarea {
+			background-color: $form-color;
+			outline: none;
+			border: none;
+			border-bottom: 1px solid #dbdbdb;
+			min-height: 40vh;
+			min-width: 35vw;
+		}
+		.btn {
+			border-radius: 0;
+			font-size: 1.1em;
+			font-weight: normal;
+			min-width: 20vw;
+			margin: 5vh 0 15vh 0;
+			background-color: $link-hover;
+			border-bottom: none;
+			color: #fff;
+			&:hover {
+				background-color: #3498db;
+			}
+		}
+		.form-inputs {
+			margin: 3em auto 0 auto;
+			width: 35vw;
+		}
 	}
 }

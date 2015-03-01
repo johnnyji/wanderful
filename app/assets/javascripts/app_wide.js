@@ -28,7 +28,7 @@ $(document).ready(function() {
 	// toggles the "join here" text
 	$(".sign-up a").click(function() {
 		if ($(this).text() === "Join here!") {
-			$(this).text("You're 90% there!");
+			$(this).text("Scroll down, you're 90% there!");
 		} else {
 			$(this).text("Join here!");
 		}

@@ -9,22 +9,29 @@
 		</span>
 
 		<% if @user.description %>
-			<p><%= @user.description %></p>
+			<p class="user-description">
+				<%= @user.description %>
+			</p>
 		<% else %>
-			<p><%= link_to "Write something about yourself!", edit_user_registration_path %></p>
+			<p class="user-description">
+				<%= link_to "Write something about yourself!", edit_user_registration_path %>
+			</p>
 		<% end %>
-
+		<p class="share-link"><%= link_to "Share your link!", new_post_path, remote: true %></p>
+		<div class="index-form ajax" style="display:none;"></div>
 	</h1>
 <% else %>
 	<h1 class="user-header">
-		
-		<%= link_to image_tag(@user.image(:medium)), edit_user_registration_path(@user), class: "user-image" %>
+		<div class="user-image">
+			<%= image_tag(@user.image(:medium)) %>
+		</div>
 		<%= @user.name %>
 
 		<% if @user.description %>
-			<p><%= @user.description %></p>
+			<p class="user-description">
+				<%= @user.description %>
+			</p>
 		<% end %>
-
 	</h1>
 <% end %>
 

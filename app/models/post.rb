@@ -1,12 +1,13 @@
 require 'open-uri'
 require 'twitter-text'
+
 class Post < ActiveRecord::Base
 	include Twitter::Extractor
 	include Twitter::Autolink
 	# adds a constant for uri regex
 	URI_REGEX = /\A(http|https):\/\/[a-z0-9]+([\-\.]{1}[a-z0-9]+)*\.[a-z]{2,20}(:[0-9]{1,5})?(\/.*)?\z/i
 	HASHTAG_REGEX = /(?:\s|^)(?:#(?!\d+(?:\s|$)))(\w+)(?=\s|$)/i
-	acts_as_votable #voting
+	acts_as_votable
 	acts_as_taggable
 
 	belongs_to :user
