@@ -93,6 +93,7 @@ $confirm-color: #27ae60;
 		width: auto;
 	}
 	#search {		
+		margin-top: 1em;
 		background-color: $form-color;
 		width: 20vw;
 		color: $link-hover;
@@ -126,15 +127,26 @@ $confirm-color: #27ae60;
 	height: auto;
 	font-weight: lighter;
 	letter-spacing: -1px;
-	font-size: 2.3em;
+	font-size: 2em;
 
 	.app-title {
 		color: $link-hover;
 		font-size: 2em;
 	}
 
+	.app-search {
+		font-size: 0.9em;
+	}
+
 	.welcome-user {
-		font-size: 1.5em;
+		font-size: 1.8em;
+	}
+
+	.link-user a {
+		color: $link-hover;
+		&:hover {
+			color: $light-link-hover;
+		}
 	}
 
 	.sign-up {
@@ -262,8 +274,9 @@ $confirm-color: #27ae60;
 		margin: 0 auto 0 auto;
 		text-align: center;
 		color: $text-color;
+		font-weight: normal;
 		span {
-			font-family: inherit;
+			font-family: "Open Sans", sans-serif;
 		}
 	}
 
@@ -324,6 +337,7 @@ $confirm-color: #27ae60;
 	}
 
 	h5 {
+		font-size: 1.2em;
 		color: $link;
 	}
 

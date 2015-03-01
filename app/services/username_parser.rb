@@ -1,0 +1,2 @@
+class UsernameParser
+end

@@ -1,19 +1,15 @@
-<% if @post_results.size >= 1 %>
-
-	<h1>Post about <%= @query %></h1>
-	<div class="post-container">
-		<% @post_results.each do |post| %>
+<% if @search_results.size >= 1 %>
+	<h1 class="query-title">
+		<%= @query_name %>
+	</h1>
+	<div class="post-container"> <!-- POST DISPLAY LOOP -->
+		<% @search_results.each do |post| %>
 			<%= render partial: post %>
 		<% end %>
 	</div>
 
 <% else %>
 
-	<h1>No results for <%= @query %></h1>
+<h1 class="query-title"><%= @query_name %> returned no results</h1>
 	
-<% end %>
-
-<h1>Posts tagged with "<%= @query %>"</h1>
-<% @tag_results.each do |post| %>
-	<%= render partial: post %>
 <% end %>

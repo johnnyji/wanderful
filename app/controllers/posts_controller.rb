@@ -21,6 +21,7 @@ class PostsController < ApplicationController
 
 	def create
 		@post = current_user.posts.build(post_params)
+
 		tags = @post.extract_tags
 		tags.each { |tag| @post.tag_list.add(tag) }
 
@@ -84,14 +85,16 @@ class PostsController < ApplicationController
 
 	def search
 		@query = params[:query]
-
 		# AJAX for when no page when no search is found
-		if !@query
+		if @query.start_with? "#" #if else to determine set query to tags or post depending on input format
+			@query.slice!(0)
+			@search_results = Post.tagged_with(@query)
+			@query_name = "<span class='query-name'>##{@query}</span>".html_safe
+		else
+			@search_results = Post.search(@query)
+			@query_name = "Posts about <span class='query-name'>#{@query}</span>".html_safe
 		end
-		@post_results = Post.search(@query)
-		@tag_results = Post.tagged_with(@query)
 	end
-
 
 	private
 	def post_params

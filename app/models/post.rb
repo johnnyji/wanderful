@@ -12,7 +12,7 @@ class Post < ActiveRecord::Base
 
 	belongs_to :user
 	has_many :comments
-	has_attached_file :image, styles: { medium: "750x500#", thumb: "250x250#" }, default_url: "/images/:style/missing.png"
+	has_attached_file :image, styles: { medium: "700x480#", thumb: "250x250#" }, default_url: "/images/:style/missing.png"
 
 	#gets image using MetaInspector before the post saves
 	before_save :get_image_from_link, if: ->(post) { post.link_changed? }
@@ -38,7 +38,6 @@ class Post < ActiveRecord::Base
 
 	def extract_tags
 		extract_hashtags(self.description)
-		# makes the tags into a string seperated by commas so it can be taken as input for acts_as_taggable_on
 	end
 
 	private
