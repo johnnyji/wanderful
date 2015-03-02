@@ -1,4 +1,11 @@
 $(document).ready(function() {
 	$(".index-form").html("<%= j (render 'form') %>");
 	$(".index-form").slideToggle(400);
+
+	// slides user down to post link
+	setTimeout(function() {
+		$("html, body").animate({
+			scrollTop: $(".index-form").offset().top - 100
+		}, 500);
+	}, 200);
 });
