@@ -1,0 +1,15 @@
+	<% if @search_results.size >= 1 %>
+		<h1 class="query-title">
+			<%= @query_name %>
+		</h1>
+		<div class="post-container"> <!-- POST DISPLAY LOOP -->
+			<% @search_results.each do |post| %>
+				<%= render partial: post %>
+			<% end %>
+		</div>
+
+	<% else %>
+
+	<h1 class="query-title"><%= @query_name %> returned no results</h1>
+		
+	<% end %>

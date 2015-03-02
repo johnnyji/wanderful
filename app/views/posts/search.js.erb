@@ -1,0 +1,16 @@
+$(document).ready(function() {
+	var $allPosts = $(".post-container");
+	var $searchResults = $(".search-container");
+	var $searchAnchor = $("#search-anchor");
+
+	$allPosts.slideUp(300);
+	$searchResults.html("<%= j (render partial: 'search') %>");
+	$searchResults.slideDown(300);
+
+	// slides user down to search results
+	setTimeout(function() {
+		$("html, body").animate({
+			scrollTop: $searchAnchor.offset().top - 100
+		}, 500);
+	}, 200);
+});

@@ -86,13 +86,27 @@ class PostsController < ApplicationController
 	def search
 		@query = params[:query]
 		# AJAX for when no page when no search is found
-		if @query.start_with? "#" #if else to determine set query to tags or post depending on input format
-			@query.slice!(0)
-			@search_results = Post.tagged_with(@query)
-			@query_name = "<span class='query-name'>##{@query}</span>".html_safe
-		else
-			@search_results = Post.search(@query)
-			@query_name = "Posts about <span class='query-name'>#{@query}</span>".html_safe
+		respond_to do |format|
+			format.html {
+				if @query.start_with? "#" #if else to determine set query to tags or post depending on input format
+					@query.slice!(0)
+					@search_results = Post.tagged_with(@query)
+					@query_name = "<span class='query-name'>##{@query}</span>".html_safe
+				else
+					@search_results = Post.search(@query)
+					@query_name = "Posts about <span class='query-name'>#{@query}</span>".html_safe
+				end
+			}
+			format.js {
+				if @query.start_with? "#" #if else to determine set query to tags or post depending on input format
+					@query.slice!(0)
+					@search_results = Post.tagged_with(@query)
+					@query_name = "<span class='query-name'>##{@query}</span>".html_safe
+				else
+					@search_results = Post.search(@query)
+					@query_name = "Posts about <span class='query-name'>#{@query}</span>".html_safe
+				end
+			}
 		end
 	end
 
