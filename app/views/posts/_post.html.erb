@@ -6,6 +6,16 @@
 	
 		<h1><%= link_to post.title, post %></h1>
 
+		<div class="tags">
+			<% if post.tags.size >= 1 %>
+				<% post.tags.first(3).each do |tag| %>
+					<%= link_to "##{tag.name}", tag_path(tag) %>
+				<% end %>
+			<% else %>
+				 <p>No tags avaliable :(</p>
+			<% end %>
+		</div>
+
 		<div class="likes-comments">
 			<i class="fa fa-comment-o">&nbsp;
 				<span><%= pluralize(post.comments.count, "Comment") %></span>
@@ -16,14 +26,8 @@
 			</i>
 		</div>
 
-		<div class="tags">
-			<% if post.tags.size >= 1 %>
-				<% post.tags.first(3).each do |tag| %>
-					<%= link_to "##{tag.name}", tag_path(tag) %>
-				<% end %>
-			<% else %>
-				 <p>No tags avaliable :(</p>
-			<% end %>
+		<div class="post-user">
+			Shared by: &nbsp;&nbsp;<%= link_to post.user.name, user_path(post.user) %>
 		</div>
 
 	</div>
