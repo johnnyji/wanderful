@@ -2,6 +2,9 @@ $(document).ready(function() {
 	var $allPosts = $(".post-container");
 	var $searchResults = $(".search-container");
 	var $searchAnchor = $("#search-anchor");
+	var $searchBar = $(".search-input");
+
+	$searchBar.val("");
 
 	$allPosts.slideUp(300);
 	$searchResults.html("<%= j (render partial: 'search') %>");
