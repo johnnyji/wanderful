@@ -14,5 +14,4 @@ Rails.application.routes.draw do
 
   # search path
   get '/search' => 'posts#search'
-  # get '/tag_search' => 'posts#tag_search'
 end 

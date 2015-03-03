@@ -46,18 +46,5 @@
 <% end %>
 
 <% @posts.each do |post| %>
-	<div class="col-md-4">
-		<div class="post-wrapper">
-			<div class="image-wrapper">
-				<%= link_to (image_tag post.image.url(:thumb)), post %>
-			</div>
-		
-			<h1><%= link_to post.title, post %></h1>
-
-			<div class="likes-comments">
-				<i class="fa fa-comment-o">&nbsp;<%= pluralize(post.comments.count, "Comment") %></i>&nbsp;&nbsp;&nbsp;&nbsp;
-				<i class="fa fa-thumbs-o-up">&nbsp;<%= pluralize(post.get_likes.size, "Like") %></i>
-			</div>
-		</div>
-	</div>
+	<%= render partial: post %>
 <% end %>
