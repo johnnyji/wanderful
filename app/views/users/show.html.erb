@@ -15,7 +15,7 @@
 		</div>
 
 		<div class="follow-size">
-			Followers: <span>0</span> | Following: <span>0</span>
+			Followers: <span><%= @user.followers_count %></span> | Following: <span><%= @user.follow_count %></span>
 		</div>
 
 		<% if @user.description %>
@@ -52,9 +52,8 @@
 		</div>
 
 		<div class="follow-size">
-			Followers: <span>0</span> | Following: <span>0</span>
+			Followers: <span><%= @user.followers_count %></span> | Following: <span><%= @user.follow_count %></span>
 		</div>
-
 
 		<% if @user.description %>
 			<p class="user-description">
