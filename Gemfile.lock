@@ -29,6 +29,7 @@ GEM
       tzinfo (~> 1.1)
     acts-as-taggable-on (3.4.4)
       activerecord (>= 3.2, < 5)
+    acts_as_follower (0.2.1)
     acts_as_votable (0.10.0)
     addressable (2.3.6)
     arel (5.0.1.20140414130214)
@@ -193,6 +194,7 @@ PLATFORMS
 
 DEPENDENCIES
   acts-as-taggable-on (~> 3.4.4)
+  acts_as_follower (~> 0.2.1)
   acts_as_votable (~> 0.10.0)
   awesome_print (~> 1.6.1)
   aws-sdk (~> 2.0.28)

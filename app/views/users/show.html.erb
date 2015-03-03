@@ -14,6 +14,10 @@
 			@<%= @user.username %>
 		</div>
 
+		<div class="follow-size">
+			Followers: <span>0</span> | Following: <span>0</span>
+		</div>
+
 		<% if @user.description %>
 			<p class="user-description">
 				<%= @user.description %>
@@ -34,9 +38,24 @@
 			<%= image_tag(@user.image(:medium)) %>
 		</div>
 		<%= @user.name %>
+
 		<div class="user-username">
 			@<%= @user.username %>
+
+			<div class="user-follow">
+				<% if current_user.following?(@user) %> <!-- ALREADY FOLLOWING -->
+					<%= link_to "Following", unfollow_user_path(@user), class: "following" %>
+				<% else %>
+					<%= link_to "Follow", follow_user_path(@user), class: "not-following" %>
+				<% end %>
+			</div>
 		</div>
+
+		<div class="follow-size">
+			Followers: <span>0</span> | Following: <span>0</span>
+		</div>
+
+
 		<% if @user.description %>
 			<p class="user-description">
 				<%= @user.description %>

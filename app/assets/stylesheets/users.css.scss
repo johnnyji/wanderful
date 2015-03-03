@@ -97,6 +97,33 @@ $confirm-color: #27ae60;
 		font-weight: lighter;
 		margin: 1em 0 1em 0;
 		color: $link;
+		.user-follow {
+			display: inline-block;
+			padding: 0.2em 0.5em 0.2em 0.5em;
+			a {
+				color: #fff;
+				border-bottom: none;
+			}
+			.following {
+				background-color: $confirm-color;
+				border-radius: 10px;
+				padding: 0.2em 0.8em 0.2em 0.8em;
+			}
+
+			.not-following { 
+				background-color: $link;
+				border-radius: 10px;
+				padding: 0.2em 0.8em 0.2em 0.8em;
+			}
+		}
+	}
+
+	.follow-size {
+		font-size: 0.4em;
+		color: $link;
+		span {
+			color: $link-hover;
+		}
 	}
 	
 	.edit {

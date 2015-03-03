@@ -7,6 +7,9 @@ class User < ActiveRecord::Base
   has_many :posts, dependent: :destroy
   has_many :comments, dependent: :destroy
 
+  acts_as_follower
+  acts_as_followable
+
   # anytime you save a user, check for @ then remove if @ is present
   before_save :check_username
 
