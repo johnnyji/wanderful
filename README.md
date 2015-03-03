@@ -1,7 +1,7 @@
-# Wanderful
-Share and discover the web
+# [Wanderful](http://wanderfully.herokuapp.com/)
+Share and discover the web!
 
-### App created by: [Johnny Ji](https://www.johnnyji.com/)
+### App created by: [Johnny Ji](http://www.johnnyji.com/)
 
 **[Wanderful](http://wanderfully.herokuapp.com/)** is a place for you to tailor the web to your needs! Here's how it works:
 
@@ -9,6 +9,7 @@ Share and discover the web
 1. Save and share interesting links you find online
 2. Collect (follow) other people to be updated on links they share
 3. Gain Collectors (followers) by sharing more and more interesting links!
+4. Personalize your web news feed by collecting your friends and favourite icons!
 
 
 ###The Dev Process:
