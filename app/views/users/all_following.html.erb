@@ -1,0 +1,22 @@
+<div class="user-list-wrapper col-sm-6">
+	<% if user_signed_in? %>
+		<% if current_user == @user %>
+			<h1>Your following:</h1>
+		<% else %>
+			<h1><%= link_to "@#{@user.username}", user_path(@user) %> is following</h1>
+		<% end %>
+	<% else %>
+		<h1><%= link_to "@#{@user.username}", user_path(@user) %> is following</h1>
+	<% end %>
+	
+		<% @followings.each do |follower| %>
+			<div class="each-user-wrapper">
+				<%= link_to image_tag(follower.image(:thumb)), user_path(follower.id) %>
+				<%= link_to "@#{follower.username}", user_path(follower.id) %>
+				<div class="name">
+					<%= follower.name %>
+				</div>
+			</div>
+		<% end %>
+
+</div>

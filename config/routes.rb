@@ -8,6 +8,10 @@ Rails.application.routes.draw do
     end
   end
 
+  # list of user's followers and followings
+  get "users/:id/all_followers" => "users#all_followers", as: "all_followers"
+  get "users/:id/all_following" => "users#all_following", as: "all_following"
+
   resources :tags
   
   resources :posts do #nested routes, comments only visible through posts

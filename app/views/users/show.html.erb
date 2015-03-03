@@ -18,7 +18,12 @@
 		</span>
 
 		<div class="follow-size">
-			Followers: <span><%= @user.followers_count %></span> | Following: <span><%= @user.follow_count %></span>
+			<span class="follower-count">
+				<%= link_to "Followers: #{@user.followers_count}", all_followers_path(@user) %>
+			</span> | 
+			<span class="following-count">
+				<%= link_to "Following: #{@user.follow_count}", all_following_path(@user) %>
+			</span>
 		</div>
 
 		<% if @user.description %>
@@ -67,8 +72,12 @@
 		</div>
 
 		<div class="follow-size">
-			Followers: <span class="follower-count"><%= @user.followers_count %></span> | 
-			Following: <span class="following-count"><%= @user.follow_count %></span>
+			<span class="follower-count">
+				<%= link_to "Followers: #{@user.followers_count}", all_followers_path(@user) %>
+			</span> | 
+			<span class="following-count">
+				<%= link_to "Following: #{@user.follow_count}", all_following_path(@user) %>
+			</span>
 		</div>
 
 		<% if @user.description %> <!-- USER'S PROFILE DESCRIPTION -->

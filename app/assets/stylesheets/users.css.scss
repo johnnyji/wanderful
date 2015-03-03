@@ -210,3 +210,34 @@ $confirm-color: #27ae60;
 		}
 	}
 }
+
+// USER FOLLOWERS AND FOLLOWINGS PAGE
+
+.user-list-wrapper {
+	position: relative;
+	@include position-x;
+	left: 50%;
+	margin: 0 auto 0 auto;
+	font-size: 1.2em;
+	a:hover {
+		border-bottom: none;
+	}
+
+	h1 {
+		text-align: center;
+		margin-bottom: 2em;
+	}
+
+	.each-user-wrapper {
+		display: block;
+		padding: 1em 0.5em 1em 0.5em;
+		border-bottom: 1px solid #dbdbdb;
+		img {
+			border-radius: 100%;
+		}
+		.name {
+			display: inline-block;
+			margin-left: 2em;
+		}
+	}
+}

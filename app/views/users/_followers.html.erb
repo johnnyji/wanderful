@@ -1,1 +1,1 @@
-<%= @user.followers_count %>
+<%= link_to "Followers: #{@user.followers_count}", all_followers_path(@user) %>
