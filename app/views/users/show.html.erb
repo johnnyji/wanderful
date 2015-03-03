@@ -2,6 +2,7 @@
 <% if @user == current_user %>
 	<h1 class="user-header">
 		<%= link_to image_tag(@user.image(:medium)), edit_user_registration_path(@user), class: "user-image" %>
+
 		<div class="user-name">
 			<%= @user.name %>
 		</div>
@@ -39,6 +40,7 @@
 		<div class="user-image">
 			<%= image_tag(@user.image(:medium)) %>
 		</div>
+		
 		<div class="user-name">
 			<%= @user.name %>
 		</div>
@@ -47,10 +49,14 @@
 			@<%= @user.username %>
 
 			<div class="user-follow">
-				<% if current_user.following?(@user) %> <!-- ALREADY FOLLOWING -->
-					<%= link_to "Following", unfollow_user_path(@user), class: "following" %>
+				<% if user_signed_in? %>
+					<% if current_user.following?(@user) %> <!-- ALREADY FOLLOWING -->
+						<%= link_to "Following", unfollow_user_path(@user), class: "following" %>
+					<% else %>
+						<%= link_to "Follow", follow_user_path(@user), class: "not-following" %>
+					<% end %>
 				<% else %>
-					<%= link_to "Follow", follow_user_path(@user), class: "not-following" %>
+					<%= link_to "Follow", new_user_registration_path, class: "not-following" %>
 				<% end %>
 			</div>
 		</div>

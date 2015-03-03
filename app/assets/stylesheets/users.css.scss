@@ -95,6 +95,10 @@ $confirm-color: #27ae60;
 		}
 	}
 
+	.user-name {
+		display: block;
+	}
+
 	.user-username {
 		display: inline-block;
 		font-size: 0.5em;
@@ -118,6 +122,9 @@ $confirm-color: #27ae60;
 				background-color: $link;
 				border-radius: 10px;
 				padding: 0.2em 0.8em 0.2em 0.8em;
+				&:hover {
+					background-color: #90C695;
+				}
 			}
 		}
 	}
