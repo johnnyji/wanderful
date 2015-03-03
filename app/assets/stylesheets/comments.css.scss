@@ -84,6 +84,9 @@ $text-color: #333;
 		font-size: 1.2em;
 		color: $text-color;
 		font-weight: bold;
+		a:hover {
+			border-bottom: none;	
+		}
 		.image {
 			display: inline-block;
 			img {
@@ -94,6 +97,7 @@ $text-color: #333;
 
 		.name {
 			display: inline-block;
+			margin-left: -0.5em;
 		}
 	}
 

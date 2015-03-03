@@ -58,7 +58,7 @@
 
 	<% else %>
  		<!-- if the user is signed out -->
- 		<h1 class="worldwide-feed">Worldwide Feed</h1>
+ 		<h1 class="worldwide-feed signed-out-feed"><i class="fa fa-chevron-down"></i></h1>
 		<% @posts.each do |post| %>
 			<%= render partial: post %>
 		<% end %>

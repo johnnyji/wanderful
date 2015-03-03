@@ -5,8 +5,10 @@ class PostsController < ApplicationController
 
 	def index
 		@posts = Post.all.order("created_at DESC")
+
+		# shows posts of current user and their followees
 		following_users = current_user.following_users.map(&:id) if current_user
-		@posts_by_following = Post.where(user_id: following_users).order("created_at DESC")
+		@posts_by_following = Post.where(user_id: [following_users, current_user.id]).order("created_at DESC") if current_user
 	end
 
 	def show

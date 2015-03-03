@@ -1,18 +1,24 @@
 <div class="col-md-4">
 	<div class="post-wrapper">
+
+		<div class="post-user">
+			<div class="user-picture">
+				<%= link_to image_tag(post.user.image.url(:thumb)), user_path(post.user) %>
+			</div>
+			<%= link_to "@#{post.user.username}", user_path(post.user) %>
+		</div>
+
 		<div class="image-wrapper">
 			<%= link_to (image_tag post.image.url(:thumb)), post %>
 		</div>
-	
 		<h1><%= link_to post.title, post %></h1>
-
 		<div class="tags">
 			<% if post.tags.size >= 1 %>
 				<% post.tags.first(3).each do |tag| %>
 					<%= link_to "##{tag.name}", tag_path(tag) %>
 				<% end %>
 			<% else %>
-				 <p>No tags avaliable :(</p>
+				 <p>No tags avaliable</p>
 			<% end %>
 		</div>
 
@@ -24,10 +30,6 @@
 			<i class="fa fa-thumbs-o-up">&nbsp;
 				<span><%= pluralize(post.get_likes.size, "Like") %></span>
 			</i>
-		</div>
-
-		<div class="post-user">
-			Shared by: <%= link_to "@#{post.user.username}", user_path(post.user) %>
 		</div>
 	</div>
 </div>

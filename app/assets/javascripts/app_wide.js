@@ -3,6 +3,7 @@ $(document).ready(function() {
 	var $logoutTitle = $(".app-title");
 	var $logoutSearchBar = $(".app-search");
 	var $searchButton = $(".logout-search");
+	var $signedOutTitle = $(".signed-out-feed");
 	var bounceInLeft = "animated bounceInLeft";
 	var bounceInRight = "animated bounceInRight";
 	var bounceInDown = "animated bounceInDown";
@@ -19,6 +20,14 @@ $(document).ready(function() {
 		setTimeout(function() {
 			$logoutTitle.removeClass(bounce);
 		}, 1000);
+	});
+
+	//displays signed out title on scroll down
+	$(window).scroll(function() {
+		var $topOfScreen = $(window).scrollTop();
+		if ($topOfScreen > 200) {
+			$signedOutTitle.text("Worldwide Feed");
+		}
 	});
 
 	// search bar on logout page slide in right
