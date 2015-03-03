@@ -5,8 +5,8 @@ class ApplicationController < ActionController::Base
   before_filter :configure_permitted_parameters, if: :devise_controller?
 
   protected
-  def configure_permitted_parameters #adds name param to devise
-  	devise_parameter_sanitizer.for(:sign_up) << :name << :image << :description
-  	devise_parameter_sanitizer.for(:account_update) << :name << :image << :description
+  def configure_permitted_parameters #adds custom param to devise
+  	devise_parameter_sanitizer.for(:sign_up) << :name << :image << :description << :username
+  	devise_parameter_sanitizer.for(:account_update) << :name << :image << :description << :username
   end
-end
+end 

@@ -6,8 +6,8 @@
 
     <div class="form-inputs">
       <%= f.input :image, label: false, required: true, placeholder: "Pick a picture!" %>
-      <%= f.input :name, label: false, required: true, autofocus: true %>
-      <%= f.input :email, label: false, required: true %>
+      <%= f.input :name, label: false, required: true, autofocus: true, placeholder: "Change your name" %>
+      <%= f.input :username, label: false, required: true, autofocus: true, placeholder: "Change your username"%>
       <%= f.input :description, label: false, maxlength: 300, placeholder: "Tell us something about yourself! (300 chars max)" %>
       
       <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>

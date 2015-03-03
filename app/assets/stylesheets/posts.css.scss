@@ -376,11 +376,14 @@ $confirm-color: #27ae60;
 	margin-bottom: 1em;
 }
 
+
+// RANDOM SIDEBAR POST
 .show-sidebar {
 	display: inline-block;
 	position: relative;
 	float: right;
 	margin-right: 5%;
+	padding: 1em 0 1em 2em;
 	width: 25vw;
 	font-size: 0.8em;
 	border-left: 1px solid #dbdbdb;
@@ -389,24 +392,37 @@ $confirm-color: #27ae60;
 	@include transition;
 	&:hover {
 		opacity: 1;
+		text-decoration: none;
 	}
 
-	h3 {
+	.sidebar-title {
 		font-weight: normal;
 		margin-bottom: 2em;
+	}
+
+	.sidebar-post-title {
+		a {
+			&:hover {
+				border-bottom: none;
+			}
+		}
 	}
 
 	img {
 		height: 50%;
 		width: 80%;
 	}
-
-	a {
-		font-size: 0.8em;
-		font-weight: normal;
-	}
-
-	i {
-		margin-top: 1em;
+	
+	.sidebar-post-info {
+		a {
+			font-size: 1em;
+			font-weight: normal;
+			&:hover {
+				border-bottom: none;
+			}
+		}
+		i {
+			margin-top: 1em;
+		}
 	}
 }

@@ -27,7 +27,7 @@
 		</div>
 
 		<div class="post-user">
-			Shared by: &nbsp;&nbsp;<%= link_to post.user.name, user_path(post.user) %>
+			Shared by: <%= link_to "@#{post.user.username}", user_path(post.user) %>
 		</div>
 
 	</div>

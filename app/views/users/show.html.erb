@@ -1,12 +1,18 @@
+<!-- IF THE PROFILE BELONGS TO THE CURRENT USER -->
 <% if @user == current_user %>
 	<h1 class="user-header">
 		<%= link_to image_tag(@user.image(:medium)), edit_user_registration_path(@user), class: "user-image" %>
 		<%= @user.name %>
+
 		<span class='user-edit'>
 			<%= link_to edit_user_registration_path, class: "edit" do %>
 				<i class="fa fa-pencil-square-o"></i>
 			<% end %>
 		</span>
+
+		<div class="user-username">
+			@<%= @user.username %>
+		</div>
 
 		<% if @user.description %>
 			<p class="user-description">
@@ -20,13 +26,17 @@
 		<p class="share-link"><%= link_to "Share your link!", new_post_path, remote: true %></p>
 		<div class="index-form ajax" style="display:none;"></div>
 	</h1>
+
+<!-- IF THE PROFILE DOES NOT BELONG TO THE CURRENT USER -->
 <% else %>
 	<h1 class="user-header">
 		<div class="user-image">
 			<%= image_tag(@user.image(:medium)) %>
 		</div>
 		<%= @user.name %>
-
+		<div class="user-username">
+			@<%= @user.username %>
+		</div>
 		<% if @user.description %>
 			<p class="user-description">
 				<%= @user.description %>

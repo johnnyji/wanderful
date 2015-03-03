@@ -88,20 +88,44 @@ class PostsController < ApplicationController
 		# AJAX for when no page when no search is found
 		respond_to do |format|
 			format.html {
-				if @query.start_with? "#" #if else to determine set query to tags or post depending on input format
+				#search for tags
+				if @query.start_with? "#"
 					@query.slice!(0)
 					@search_results = Post.tagged_with(@query)
 					@query_name = "<span class='query-name'>##{@query}</span>".html_safe
+				#search for users
+				elsif @query.start_with? "@"
+					@query.slice!(0)
+					post_user = User.find_by(username: @query)
+					if post_user #if else to make sure that user exists
+						@search_results = Post.all.where(user_id: post_user.id)
+					else
+						@search_results = ""
+					end
+					@query_name = "Posts by <span class='query-name'>@#{@query}</span>".html_safe
+				#search for posts
 				else
 					@search_results = Post.search(@query)
 					@query_name = "Posts about <span class='query-name'>#{@query}</span>".html_safe
 				end
 			}
 			format.js {
-				if @query.start_with? "#" #if else to determine set query to tags or post depending on input format
+				#search for tags
+				if @query.start_with? "#"
 					@query.slice!(0)
 					@search_results = Post.tagged_with(@query)
 					@query_name = "<span class='query-name'>##{@query}</span>".html_safe
+				#search for users
+				elsif @query.start_with? "@"
+					@query.slice!(0)
+					post_user = User.find_by(username: @query)
+					if post_user #if else to make sure that user exists
+						@search_results = Post.all.where(user_id: post_user.id)
+					else
+						@search_results = ""
+					end
+					@query_name = "Posts by <span class='query-name'>@#{@query}</span>".html_safe
+				#search for posts
 				else
 					@search_results = Post.search(@query)
 					@query_name = "Posts about <span class='query-name'>#{@query}</span>".html_safe

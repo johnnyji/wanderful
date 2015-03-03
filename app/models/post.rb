@@ -32,10 +32,6 @@ class Post < ActiveRecord::Base
   	self.link = "http://#{self.link}" unless link =~ /^http/   
 	end
 
-	def extract_usernames
-		extract_mentioned_screen_names(self.description)
-	end
-
 	def extract_tags
 		extract_hashtags(self.description)
 	end

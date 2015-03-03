@@ -90,6 +90,14 @@ $confirm-color: #27ae60;
 			width: 150px;
 		}
 	}
+
+	.user-username {
+		display: block;
+		font-size: 0.5em;
+		font-weight: lighter;
+		margin: 1em 0 1em 0;
+		color: $link;
+	}
 	
 	.edit {
 		border-bottom: none;
