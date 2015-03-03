@@ -448,3 +448,12 @@ $confirm-color: #27ae60;
 		}
 	}
 }
+
+// COMMENT FORM WHEN USER IS SIGNED OUT
+
+.sign-out-comment {
+	position: relative;
+	font-size: 1.5em;
+	left: 5%;
+	margin: 2em 0 3em 0;
+}

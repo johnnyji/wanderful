@@ -63,8 +63,13 @@
 </div>
 
 <!-- COMMENTS -->
-<%= render partial: "/comments/form" %>
-
+<% if user_signed_in? %>
+	<%= render partial: "/comments/form" %>
+<% else %>
+	<div class="sign-out-comment">
+		<%= link_to "Log In", new_user_session_path %> or <%= link_to "Sign Up", new_user_registration_path %> to post a comment!
+	</div>
+<% end %>
 
 <div class="comments">
 	<h2 class="comment-counter"><%= pluralize(@post.comments.count, "Comment") %></h2>
@@ -74,4 +79,3 @@
 		<% end %>
 	</div>
 </div>
-
