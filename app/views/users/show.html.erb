@@ -19,10 +19,10 @@
 
 		<div class="follow-size">
 			<span class="follower-count">
-				<%= link_to "Followers: #{@user.followers_count}", all_followers_path(@user) %>
+				<%= link_to "Collected by: #{@user.followers_count}", all_followers_path(@user) %>
 			</span> | 
 			<span class="following-count">
-				<%= link_to "Following: #{@user.follow_count}", all_following_path(@user) %>
+				<%= link_to "Collecting: #{@user.follow_count}", all_following_path(@user) %>
 			</span>
 		</div>
 
@@ -65,7 +65,7 @@
 						</div>
 					<% end %>
 				<% else %> <!-- FAKE FOLLOW TAB FOR NON-REGISTERED USERS -->
-					<%= link_to "Follow", new_user_registration_path, class: "not-following" %>
+					<%= link_to "Collect", new_user_registration_path, class: "not-following" %>
 				<% end %>
 			</div>
 
@@ -73,10 +73,10 @@
 
 		<div class="follow-size">
 			<span class="follower-count">
-				<%= link_to "Followers: #{@user.followers_count}", all_followers_path(@user) %>
+				<%= link_to "Collected by: #{@user.followers_count}", all_followers_path(@user) %>
 			</span> | 
 			<span class="following-count">
-				<%= link_to "Following: #{@user.follow_count}", all_following_path(@user) %>
+				<%= link_to "Collecting: #{@user.follow_count}", all_following_path(@user) %>
 			</span>
 		</div>
 
