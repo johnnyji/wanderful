@@ -78,6 +78,10 @@ $confirm-color: #27ae60;
 	font-weight: normal;
 	font-size: 3em;
 
+	.user-name {
+		display: block;
+	}
+
 	.user-image {
 		display: block;
 		margin: 3vh auto 3vh auto;
@@ -92,7 +96,7 @@ $confirm-color: #27ae60;
 	}
 
 	.user-username {
-		display: block;
+		display: inline-block;
 		font-size: 0.5em;
 		font-weight: lighter;
 		margin: 1em 0 2em 0;
@@ -118,19 +122,18 @@ $confirm-color: #27ae60;
 		}
 	}
 
-	.follow-size {
-		font-size: 0.4em;
-		color: $link;
-	}
-	
-	.edit {
-		border-bottom: none;
-	}
-	
 	.user-edit {
 		display: inline-block;
 		font-weight: lighter;
 		font-size: 0.5em;
+		.edit {
+			border-bottom: none;
+		}
+	}
+
+	.follow-size {
+		font-size: 0.4em;
+		color: $link;
 	}
 
 	.user-description {

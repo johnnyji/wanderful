@@ -2,17 +2,19 @@
 <% if @user == current_user %>
 	<h1 class="user-header">
 		<%= link_to image_tag(@user.image(:medium)), edit_user_registration_path(@user), class: "user-image" %>
-		<%= @user.name %>
+		<div class="user-name">
+			<%= @user.name %>
+		</div>
+
+		<div class="user-username">
+			@<%= @user.username %>
+		</div>
 
 		<span class='user-edit'>
 			<%= link_to edit_user_registration_path, class: "edit" do %>
 				<i class="fa fa-pencil-square-o"></i>
 			<% end %>
 		</span>
-
-		<div class="user-username">
-			@<%= @user.username %>
-		</div>
 
 		<div class="follow-size">
 			Followers: <span><%= @user.followers_count %></span> | Following: <span><%= @user.follow_count %></span>
@@ -37,7 +39,9 @@
 		<div class="user-image">
 			<%= image_tag(@user.image(:medium)) %>
 		</div>
-		<%= @user.name %>
+		<div class="user-name">
+			<%= @user.name %>
+		</div>
 
 		<div class="user-username">
 			@<%= @user.username %>
