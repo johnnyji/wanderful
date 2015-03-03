@@ -36,28 +36,36 @@
 		<p class="sign-up"><%= link_to "Join here!", new_user_registration_path, remote: true %></p>
 		<div class="registration-form ajax" style="display:none;"></div>
 
+		<h1 class="worldwide-feed signed-out-feed"><i class="fa fa-chevron-down"></i></h1>
+		<% @posts.each do |post| %>
+			<%= render partial: post %>
+		<% end %>
+
 	</h1>
 <% end %>
 
 <div id="search-anchor"></div> <!-- anchor for jumping to when search is queried -->
 <div class="search-container" style="display:none;"></div>
-<div class="post-container"> <!-- POST DISPLAY LOOP -->
+
+
+
+<!-- POST DISPLAY LOOP -->
+<div class="post-container">
 	<% if user_signed_in? %>
-		<!-- if the user is signed in -->
+
 		<% if current_user.follow_count >= 1 %>
-			<!-- show posts by users the current_user is following -->
-			<% @posts_by_following.each do |post| %>
+			<% @posts_by_following.each do |post| %> <!-- show posts by users the current user is following -->
 				<%= render partial: post %>
 			<% end %>
 		<% else %>
-			<% @posts.each do |post| %>
+			<% @posts.each do |post| %> <!-- show worldwide posts when current user isnt following anyone -->
 				<%= render partial: post %>
 			<% end %>
 		<% end %>
 
 	<% else %>
- 		<!-- if the user is signed out -->
- 		<h1 class="worldwide-feed signed-out-feed"><i class="fa fa-chevron-down"></i></h1>
+
+		<h1 class="worldwide-feed signed-out-feed"><i class="fa fa-chevron-down"></i></h1>
 		<% @posts.each do |post| %>
 			<%= render partial: post %>
 		<% end %>

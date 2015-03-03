@@ -3,6 +3,7 @@ $(document).ready(function() {
 	var $logoutTitle = $(".app-title");
 	var $logoutSearchBar = $(".app-search");
 	var $searchButton = $(".logout-search");
+	var $downButton = $(".fa-chevron-down");
 	var $signedOutTitle = $(".signed-out-feed");
 	var bounceInLeft = "animated bounceInLeft";
 	var bounceInRight = "animated bounceInRight";
@@ -28,6 +29,13 @@ $(document).ready(function() {
 		if ($topOfScreen > 200) {
 			$signedOutTitle.text("Worldwide Feed");
 		}
+	});
+
+	//jumps the signed out user down if they click down arrow instead of scrolling
+	$downButton.click(function() {
+			$("html, body").animate({
+				scrollTop: $signedOutTitle.offset().top - 50
+			}, 500);
 	});
 
 	// search bar on logout page slide in right
