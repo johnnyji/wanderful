@@ -1,0 +1,10 @@
+$(document).ready(function() {
+	var $buttonDiv = $(".follow-button");
+	var $counterFollowers = $(".follower-count");
+	var $counterFollowing = $(".following-count");
+
+	$buttonDiv.html("<%= j (render partial: 'unfollow')%>");
+
+	$counterFollowers.html("<%= j (render partial: 'followers') %>");
+	$counterFollowing.html("<%= j (render partial: 'following') %>");
+});

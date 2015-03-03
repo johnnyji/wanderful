@@ -6,16 +6,29 @@ class UsersController < ApplicationController
 
 	def follow
 		@user = User.find(params[:id])
-			current_user.follow(@user)
-			redirect_to :back
-			#somehow notify the @user that he/she has been followed
-			flash.notice = "You are following @#{@user.username}"
+		respond_to do |format|
+			format.html {
+				current_user.follow(@user)
+				redirect_to :back
+				flash.notice = "You are following @#{@user.username}"
+			}
+			format.js {
+				current_user.follow(@user)
+			}
+		end
 	end
 
 	def unfollow
 		@user = User.find(params[:id])
-			current_user.stop_following(@user)
-			redirect_to :back
-			flash.notice = "You have stopped following @#{@user.username}"
+		respond_to do |format|
+			format.html {
+				current_user.stop_following(@user)
+				redirect_to :back
+				flash.notice = "You have stopped following @#{@user.username}"
+			}
+			format.js {
+				current_user.stop_following(@user)
+			}
+		end
 	end
 end

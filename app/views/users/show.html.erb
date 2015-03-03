@@ -40,7 +40,7 @@
 		<div class="user-image">
 			<%= image_tag(@user.image(:medium)) %>
 		</div>
-		
+
 		<div class="user-name">
 			<%= @user.name %>
 		</div>
@@ -51,21 +51,27 @@
 			<div class="user-follow">
 				<% if user_signed_in? %>
 					<% if current_user.following?(@user) %> <!-- ALREADY FOLLOWING -->
-						<%= link_to "Following", unfollow_user_path(@user), class: "following" %>
+						<div class="follow-button">
+							<%= render partial: "unfollow" %>
+						</div>
 					<% else %>
-						<%= link_to "Follow", follow_user_path(@user), class: "not-following" %>
+						<div class="follow-button">
+							<%= render partial: "follow" %>
+						</div>
 					<% end %>
-				<% else %>
+				<% else %> <!-- FAKE FOLLOW TAB FOR NON-REGISTERED USERS -->
 					<%= link_to "Follow", new_user_registration_path, class: "not-following" %>
 				<% end %>
 			</div>
+
 		</div>
 
 		<div class="follow-size">
-			Followers: <span><%= @user.followers_count %></span> | Following: <span><%= @user.follow_count %></span>
+			Followers: <span class="follower-count"><%= @user.followers_count %></span> | 
+			Following: <span class="following-count"><%= @user.follow_count %></span>
 		</div>
 
-		<% if @user.description %>
+		<% if @user.description %> <!-- USER'S PROFILE DESCRIPTION -->
 			<p class="user-description">
 				<%= @user.description %>
 			</p>
