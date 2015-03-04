@@ -4,8 +4,8 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 
-  extend FriendlyId
-  friendly_id :username
+  # extend FriendlyId
+  # friendly_id :username
   
   has_many :posts, dependent: :destroy
   has_many :comments, dependent: :destroy
@@ -25,5 +25,6 @@ class User < ActiveRecord::Base
 
   def check_username
     self.username.gsub!(/^\@*/, "")
+    # CHECKS IF THE USERNAME HAS ANY PUNCTUATIONS OR SPACES, IF IT DOESNT, RAISE ERROR 
   end
 end
