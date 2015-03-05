@@ -117,21 +117,21 @@ class PostsController < ApplicationController
 				#search for tags
 				if @query.start_with? "#"
 					@query.slice!(0)
-					@search_results = Post.tagged_with(@query)
+					@search_results = Post.tagged_with(@query).order("created_at DESC")
 					@query_name = "<span class='query-name'>##{@query}</span>".html_safe
 				#search for users
 				elsif @query.start_with? "@"
 					@query.slice!(0)
 					post_user = User.find_by(username: @query)
 					if post_user #if else to make sure that user exists
-						@search_results = Post.all.where(user_id: post_user.id)
+						@search_results = Post.all.where(user_id: post_user.id).order("created_at DESC")
 					else
 						@search_results = ""
 					end
 					@query_name = "Posts by <span class='query-name'>@#{@query}</span>".html_safe
 				#search for posts
 				else
-					@search_results = Post.search(@query)
+					@search_results = Post.search(@query).order("created_at DESC")
 					@query_name = "Posts about <span class='query-name'>#{@query}</span>".html_safe
 				end
 			}
