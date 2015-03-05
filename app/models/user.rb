@@ -11,7 +11,7 @@ class User < ActiveRecord::Base
 
   has_many :posts, dependent: :destroy
   has_many :comments, dependent: :destroy
-  has_attached_file :image, styles: { medium: "200x200#", thumb: "50x50#"}, :default_url => ActionController::Base.helpers.asset_path('missing_:style.png')
+  has_attached_file :image, styles: { medium: "200x200#", thumb: "50x50#"}, default_url: ActionController::Base.helpers.asset_path("/images/missing_:style.png")
   validates_attachment_content_type :image, content_type: /\Aimage\/.*\z/, message: "You need a picture!"
   validates_uniqueness_of :username, message: "username is taken, try another!"
   validates_presence_of :username, message: "username can't be blank!"
