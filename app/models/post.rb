@@ -29,7 +29,7 @@ class Post < ActiveRecord::Base
   scope :search, lambda { |search_terms| where(["lower(title) like ?", "%#{search_terms.downcase}%"]) }
 
   def format_url
-  	self.link = "http://#{self.link}" unless link =~ /^http/   
+  	self.link = "http://#{self.link}" unless link =~ /^http/
 	end
 
 	def extract_tags
@@ -42,7 +42,7 @@ class Post < ActiveRecord::Base
 		begin
 			@page_link = MetaInspector.new(link)
 		rescue Faraday::ConnectionFailed => e
-			errors.add(:link, 'is not valid')
+			errors.add(:link)
 		end
 	end
 

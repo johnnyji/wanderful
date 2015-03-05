@@ -36,11 +36,6 @@
 		<p class="sign-up"><%= link_to "Join here!", new_user_registration_path, remote: true %></p>
 		<div class="registration-form ajax" style="display:none;"></div>
 
-		<h1 class="worldwide-feed signed-out-feed"><i class="fa fa-chevron-down"></i></h1>
-		<% @posts.each do |post| %>
-			<%= render partial: post %>
-		<% end %>
-
 	</h1>
 <% end %>
 

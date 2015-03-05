@@ -1,11 +1,10 @@
 class PostsController < ApplicationController
 	before_action :find_post, only: [:edit, :update, :delete, :destroy, :upvote, :downvote]
-	before_action :authenticate_user!, except: [:index, :show, :search] #authenticates user for new/edit/destroy
+	before_action :authenticate_user!, except: [:index, :show, :search]
 	respond_to :html, :js
 
 	def index
 		@posts = Post.all.order("created_at DESC")
-
 		# shows posts of current user and their followees
 		following_users = current_user.following_users.map(&:id) if current_user
 		@posts_by_following = Post.where(user_id: [following_users, current_user.id]).order("created_at DESC") if current_user
@@ -41,6 +40,7 @@ class PostsController < ApplicationController
 					flash.alert = @post.errors.full_messages.to_sentence
 					render "new"
 				}
+				format.js
 			end
 		end
 	end

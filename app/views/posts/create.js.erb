@@ -1,4 +1,8 @@
 $(document).ready(function() {
-	$(".post-container").prepend("<%= j (render @post) %>");
-	$(".index-form").slideUp(400);
+	<% if @post.errors.any? %>
+ 		window.location.replace("<% new_post_path %>");
+	<% else %>
+		$(".post-container").prepend("<%= j (render @post) %>");
+		$(".index-form").slideUp(400);
+	<% end %>
 });

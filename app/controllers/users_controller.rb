@@ -2,12 +2,10 @@ class UsersController < ApplicationController
 	before_action :find_user
 
 	def show
-		# @user = User.find(params[:id])
 		@posts = Post.all.where(user_id: @user.id).order("created_at DESC")
 	end
 
 	def follow
-		# @user = User.find(params[:id])
 		respond_to do |format|
 			format.html {
 				current_user.follow(@user)
@@ -21,7 +19,6 @@ class UsersController < ApplicationController
 	end
 
 	def unfollow
-		# @user = User.find(params[:id])
 		respond_to do |format|
 			format.html {
 				current_user.stop_following(@user)
@@ -35,12 +32,10 @@ class UsersController < ApplicationController
 	end
 
 	def all_followers
-		# @user = User.find(params[:id])
 		@followers = @user.user_followers
 	end
 
 	def all_following
-		# @user = User.find(params[:id])
 		@followings = @user.all_following
 	end
 

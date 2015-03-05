@@ -5,10 +5,13 @@ $(document).ready(function() {
 	var $searchButton = $(".logout-search");
 	var $downButton = $(".fa-chevron-down");
 	var $signedOutTitle = $(".signed-out-feed");
+	var $usernameField = $("#user_username");
+	var $usernameHint = $(".username-hint");
 	var bounceInLeft = "animated bounceInLeft";
 	var bounceInRight = "animated bounceInRight";
 	var bounceInDown = "animated bounceInDown";
 	var bounce = "animated bounce";
+	var usernameFormat = /^\d*[a-zA-Z][a-zA-Z\d]*$/i;
 
 	// title slide in and bounce when mouse hovers over
 	$logoutTitle.addClass(bounceInLeft);
@@ -22,6 +25,29 @@ $(document).ready(function() {
 			$logoutTitle.removeClass(bounce);
 		}, 1000);
 	});
+
+	//CANNOT USER PREDETERMINED VARIABLES BECAUSE AJAX OVERRIDES THEM
+	$(document).on("focus", "#user_username", function() {
+		if ($("#user_username").val().match(/^\d*[a-zA-Z][a-zA-Z\d]*$/i)) {
+			$(".unconfirm").slideUp(300);
+			$(".confirm").slideDown(300);
+		} else {
+			$(".confirm").slideUp(300);
+			$(".unconfirm").slideDown(300);
+		}
+		$(".username-hint").slideDown(300);
+	});
+
+	$(document).on("blur", "#user_username", function() {
+		if ($("#user_username").val().match(/^\d*[a-zA-Z][a-zA-Z\d]*$/i)) {
+			$(".unconfirm").slideUp(300);
+			$(".confirm").slideDown(300);
+		} else {
+			$(".confirm").slideUp(300);
+			$(".unconfirm").slideDown(300);
+		}
+	});
+	
 
 	//displays signed out title on scroll down
 	$(window).scroll(function() {

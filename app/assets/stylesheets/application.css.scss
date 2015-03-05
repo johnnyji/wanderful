@@ -50,8 +50,11 @@
 }
 
 $link: #95a5a6;
+$light-link-hover: #3498db;
 $link-hover: #2980b9;
 $text-color: #333;
+$form-color: #ecf0f1;
+$confirm-color: #27ae60;
 
 html, body {
 	max-width: 100vw;
@@ -293,6 +296,62 @@ html, body {
 
 	.login {
 		margin-top: 0;
+	}
+
+	.error-title {
+		color: red;
+		text-align: center;
+		margin-bottom: 2em;
+	}
+
+	.error {
+		display: inline-block;
+		color: red;
+		position: absolute;;
+		margin-left: 20%;
+		width: 30vw;
+		&:before {
+			content: "*"
+		}
+	}
+}
+
+// width of username-hint on AJAX call
+.registration-form {
+	.username-hint {
+		width: 100%;
+	}
+}
+
+// width of username on regular sign-up page
+.username-hint {
+	position: relative;
+	@include position-x;
+	left: 50%;
+	background-color: $form-color;
+	width: 60%;
+	padding: 1em;
+	margin-bottom: 2em;
+	color: $text-color;
+	.unconfirm {
+		margin-bottom: 1em;
+		.examples {
+			margin-top: 1em;
+			.yes {
+				color: green;
+			}
+			.no {
+				color: red;
+			}
+		}
+	}
+	.confirm {
+		display: none;
+		width: 100%;
+		padding: 1em;
+		text-align: center;
+		background-color: green;
+		color: #fff;
 	}
 }
 
