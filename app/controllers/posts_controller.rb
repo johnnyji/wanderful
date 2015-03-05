@@ -12,7 +12,7 @@ class PostsController < ApplicationController
 
 	def show
 		@post = Post.find(params[:id])
-		@comments = @post.comments
+		@comments = @post.comments.order("created_at DESC")
 		@random_post = Post.where.not(id: @post).order("RANDOM()").first #generates random posts
 		@tags = @post.tags
 		@hashtags = @post.extract_tags
