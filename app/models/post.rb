@@ -16,8 +16,6 @@ class Post < ActiveRecord::Base
 
 	#gets image using MetaInspector before the post saves
 	before_save :get_image_from_link, if: ->(post) { post.link_changed? }
-	#WRITE A BEFORE_SAVE THAT TAKES EXTRACT_TAGS ARRAY AND INPUTS IT AS TAG_LIST
-
 	before_validation :format_url
 
   validates_attachment_content_type :image, content_type: /\Aimage\/.*\Z/
