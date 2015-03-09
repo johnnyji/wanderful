@@ -1,14 +1,12 @@
 class CommentsController < ApplicationController
 	before_action :authenticate_user!
-	respond_to :html, :js
+	before_action :find_post
 
 	def new
-		@post = Post.find(params[:post_id])
 		@comment = @post.comments.new(comment_params)
 	end
 
 	def create
-		@post = Post.find(params[:post_id])
 		@comment = @post.comments.new(comment_params)
 		@comment.user_id = current_user.id
 		@comment.post_id = @post.id
@@ -30,12 +28,10 @@ class CommentsController < ApplicationController
 	end
 
 	def delete
-		@post = Post.find(params[:post_id])
 		@comment = @post.comments.find(params[:id])
 	end
 
 	def destroy
-		@post = Post.find(params[:post_id])
 		@comment = @post.comments.find(params[:id])
 		respond_to do |format|
 			if @comment.destroy
@@ -52,9 +48,18 @@ class CommentsController < ApplicationController
 		end
 	end
 
+	# ############################
+	# 			PRIVATE METHODS 
+	# ############################
+
 	private
+
 	def comment_params
 		params.require(:comment).permit(:content)
+	end
+
+	def find_post
+		@post = Post.find(params[:post_id])
 	end
 	
 end

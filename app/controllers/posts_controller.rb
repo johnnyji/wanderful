@@ -1,7 +1,6 @@
 class PostsController < ApplicationController
 	before_action :find_post, only: [:edit, :update, :delete, :destroy, :upvote, :downvote]
 	before_action :authenticate_user!, except: [:index, :show, :search]
-	respond_to :html, :js
 
 	def index
 		@posts = Post.all.order("created_at DESC")
@@ -12,22 +11,77 @@ class PostsController < ApplicationController
 
 	def show
 		@post = Post.find(params[:id])
-		@comments = @post.comments.order("created_at DESC")
-		@random_post = Post.where.not(id: @post).order("RANDOM()").first #generates random posts
-		@tags = @post.tags
-		@hashtags = @post.extract_tags
+		@random_post = Post.where.not(id: @post).order("RANDOM()").first
+		show_post_dependants
 	end
 
 	def new
-		@post = current_user.posts.build #makes sure user_id is present when creating a post
+		@post = current_user.posts.build
 	end
 
 	def create
 		@post = current_user.posts.build(post_params)
+		create_and_extract_tags
+		post_create_status_conditional
+	end
 
-		tags = @post.extract_tags
-		tags.each { |tag| @post.tag_list.add(tag) }
+	def edit
+	end
 
+	def update
+		@post.attributes = post_params #sets the post attributes to attributes in form
+		update_and_extract_tags
+		post_update_status_conditional
+	end 
+
+	def delete
+	end
+
+	def destroy
+		@post.destroy
+		redirect_to root_path
+	end
+
+	def upvote
+		@post.upvote_by current_user
+		voting_ajax_call
+	end
+
+	def downvote
+		@post.downvote_by current_user
+		voting_ajax_call
+	end
+
+	def search
+		respond_to do |format|
+			format.html { search_query_conditional }
+			format.js { search_query_conditional }
+		end
+	end
+
+
+	# ############################
+	# 			PRIVATE METHODS 
+	# ############################
+
+	private
+
+	##### POST #####
+	def post_params
+		params.require(:post).permit(:title, :link, :description, :image, :bootsy_image_gallery_id)
+	end
+
+	def find_post
+		@post = Post.find(params[:id])
+	end
+
+	def show_post_dependants
+		@comments = @post.comments.order("created_at DESC")
+		@tags = @post.tags
+		@hashtags = @post.extract_tags
+	end
+
+	def post_create_status_conditional
 		respond_to do |format|
 			if @post.save
 				format.html {
@@ -45,105 +99,69 @@ class PostsController < ApplicationController
 		end
 	end
 
-	def edit
-	end
-
-	def update
-		@post.attributes = post_params # sets the post attributes to the attributes present in the edit view
-		current_tags = @post.tag_list
-		current_tags.remove(current_tags) # clears the tag list
-		tags = @post.extract_tags # extracts tags from the edit view description set by the @post.attributes
-		tags.each { |tag| @post.tag_list.add(tag) } # adds each tag to the tag list
-		
+	def post_update_status_conditional
 		if @post.save(post_params)
 			redirect_to @post
+			flash.notice = "Post successfully updated!"
 		else
 			flash.alert = "Something went wrong! Double check please"
 			render "edit"
 		end
-	end 
-
-	def delete
 	end
 
-	def destroy
-		@post.destroy
-		redirect_to root_path
-	end
-
-	def upvote
-		@post.upvote_by current_user
+	##### AJAX CALL FOR LIKES & DISLIKES #####
+	def voting_ajax_call
 		respond_to do |format|
 			format.html { redirect_to :back }
 			format.js
 		end
 	end
 
-	def downvote
-		@post.downvote_by current_user
-		respond_to do |format|
-			format.html { redirect_to :back }
-			format.js
-		end
+	##### EXTRACTING HASHTAGS #####
+	def create_and_extract_tags
+		tags = @post.extract_tags
+		tags.each { |tag| @post.tag_list.add(tag) }
 	end
 
-	def search
+	def update_and_extract_tags
+		current_tags = @post.tag_list
+		current_tags.remove(current_tags) # clears the tag list
+		tags = @post.extract_tags # extracts tags from the edit view description set by the @post.attributes
+		tags.each { |tag| @post.tag_list.add(tag) } # adds each tag to the tag list
+	end
+
+	##### SEARCH QUERY #####
+	def search_query_conditional
 		@query = params[:query]
-		# AJAX for when no page when no search is found
-		respond_to do |format|
-			format.html {
-				#search for tags
-				if @query.start_with? "#"
-					@query.slice!(0)
-					@search_results = Post.tagged_with(@query)
-					@query_name = "<span class='query-name'>##{@query}</span>".html_safe
-				#search for users
-				elsif @query.start_with? "@"
-					@query.slice!(0)
-					post_user = User.find_by(username: @query)
-					if post_user #if else to make sure that user exists
-						@search_results = Post.all.where(user_id: post_user.id)
-					else
-						@search_results = ""
-					end
-					@query_name = "Posts by <span class='query-name'>@#{@query}</span>".html_safe
-				#search for posts
-				else
-					@search_results = Post.search(@query)
-					@query_name = "Posts about <span class='query-name'>#{@query}</span>".html_safe
-				end
-			}
-			format.js {
-				#search for tags
-				if @query.start_with? "#"
-					@query.slice!(0)
-					@search_results = Post.tagged_with(@query).order("created_at DESC")
-					@query_name = "<span class='query-name'>##{@query}</span>".html_safe
-				#search for users
-				elsif @query.start_with? "@"
-					@query.slice!(0)
-					post_user = User.find_by(username: @query)
-					if post_user #if else to make sure that user exists
-						@search_results = Post.all.where(user_id: post_user.id).order("created_at DESC")
-					else
-						@search_results = ""
-					end
-					@query_name = "Posts by <span class='query-name'>@#{@query}</span>".html_safe
-				#search for posts
-				else
-					@search_results = Post.search(@query).order("created_at DESC")
-					@query_name = "Posts about <span class='query-name'>#{@query}</span>".html_safe
-				end
-			}
+		if @query.start_with? "#"
+			search_posts_by_hashtag
+		elsif @query.start_with? "@"
+			search_posts_by_user
+		else
+			search_posts_by_name
 		end
 	end
 
-	private
-	def post_params
-		params.require(:post).permit(:title, :link, :description, :image, :bootsy_image_gallery_id)
+	def search_posts_by_hashtag
+		@query.slice!(0)
+		@search_results = Post.tagged_with(@query).order("created_at DESC")
+		@query_name = "<span class='query-name'>##{@query}</span>".html_safe
 	end
 
-	def find_post
-		@post = Post.find(params[:id])
+	def search_posts_by_user
+		@query.slice!(0)
+		post_user = User.find_by(username: @query)
+
+		if post_user #makes sure that the user exists in the database
+			@search_results = Post.all.where(user_id: post_user.id).order("created_at DESC")
+		else
+			@search_results = ""
+		end
+		@query_name = "Posts by <span class='query-name'>@#{@query}</span>".html_safe
+	end
+
+	def search_posts_by_name
+		@search_results = Post.search(@query).order("created_at DESC")
+		@query_name = "Posts about <span class='query-name'>#{@query}</span>".html_safe
 	end
 end

@@ -6,6 +6,33 @@ class UsersController < ApplicationController
 	end
 
 	def follow
+		follow_user_ajax
+	end
+
+	def unfollow
+		unfollow_user_ajax
+	end
+
+	def all_followers
+		@followers = @user.user_followers
+	end
+
+	def all_following
+		@followings = @user.all_following
+	end
+
+
+	# ############################
+	# 			PRIVATE METHODS 
+	# ############################
+
+	private
+
+	def find_user
+		@user = User.find(params[:id])
+	end
+
+	def follow_user_ajax
 		respond_to do |format|
 			format.html {
 				current_user.follow(@user)
@@ -18,7 +45,7 @@ class UsersController < ApplicationController
 		end
 	end
 
-	def unfollow
+	def unfollow_user_ajax
 		respond_to do |format|
 			format.html {
 				current_user.stop_following(@user)
@@ -29,18 +56,5 @@ class UsersController < ApplicationController
 				current_user.stop_following(@user)
 			}
 		end
-	end
-
-	def all_followers
-		@followers = @user.user_followers
-	end
-
-	def all_following
-		@followings = @user.all_following
-	end
-
-	private
-	def find_user
-		@user = User.find(params[:id])
 	end
 end
