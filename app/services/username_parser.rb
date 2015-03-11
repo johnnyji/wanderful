@@ -1,2 +1,0 @@
-class UsernameParser
-end

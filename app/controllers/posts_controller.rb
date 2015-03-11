@@ -12,7 +12,7 @@ class PostsController < ApplicationController
 	def show
 		@post = Post.find(params[:id])
 		@random_post = Post.where.not(id: @post).order("RANDOM()").first
-		show_post_dependants
+		@comments, @tags, @hashtags = ShowPostDependants.call(@post)
 	end
 
 	def new
@@ -30,8 +30,16 @@ class PostsController < ApplicationController
 
 	def update
 		@post.attributes = post_params #sets the post attributes to attributes in form
-		update_and_extract_tags
-		post_update_status_conditional
+		UpdatePostTags.call(@post)
+    if @post.save(post_params)
+      redirect_to @post
+      flash.notice = "Post successfully updated!"
+    else
+      flash.alert = "Something went wrong! Double check please"
+      render "edit"
+    end
+		# update_and_extract_tags
+		# post_update_status_conditional
 	end 
 
 	def delete
@@ -53,9 +61,10 @@ class PostsController < ApplicationController
 	end
 
 	def search
+		@query_name, @search_results = SearchByPrefix.call(params[:query])
 		respond_to do |format|
-			format.html { search_query_conditional }
-			format.js { search_query_conditional }
+			format.html
+			format.js
 		end
 	end
 
@@ -73,12 +82,6 @@ class PostsController < ApplicationController
 
 	def find_post
 		@post = Post.find(params[:id])
-	end
-
-	def show_post_dependants
-		@comments = @post.comments.order("created_at DESC")
-		@tags = @post.tags
-		@hashtags = @post.extract_tags
 	end
 
 	def post_create_status_conditional
@@ -99,16 +102,6 @@ class PostsController < ApplicationController
 		end
 	end
 
-	def post_update_status_conditional
-		if @post.save(post_params)
-			redirect_to @post
-			flash.notice = "Post successfully updated!"
-		else
-			flash.alert = "Something went wrong! Double check please"
-			render "edit"
-		end
-	end
-
 	##### AJAX CALL FOR LIKES & DISLIKES #####
 	def voting_ajax_call
 		respond_to do |format|
@@ -121,47 +114,5 @@ class PostsController < ApplicationController
 	def create_and_extract_tags
 		tags = @post.extract_tags
 		tags.each { |tag| @post.tag_list.add(tag) }
-	end
-
-	def update_and_extract_tags
-		current_tags = @post.tag_list
-		current_tags.remove(current_tags) # clears the tag list
-		tags = @post.extract_tags # extracts tags from the edit view description set by the @post.attributes
-		tags.each { |tag| @post.tag_list.add(tag) } # adds each tag to the tag list
-	end
-
-	##### SEARCH QUERY #####
-	def search_query_conditional
-		@query = params[:query]
-		if @query.start_with? "#"
-			search_posts_by_hashtag
-		elsif @query.start_with? "@"
-			search_posts_by_user
-		else
-			search_posts_by_name
-		end
-	end
-
-	def search_posts_by_hashtag
-		@query.slice!(0)
-		@search_results = Post.tagged_with(@query).order("created_at DESC")
-		@query_name = "<span class='query-name'>##{@query}</span>".html_safe
-	end
-
-	def search_posts_by_user
-		@query.slice!(0)
-		post_user = User.find_by(username: @query)
-
-		if post_user #makes sure that the user exists in the database
-			@search_results = Post.all.where(user_id: post_user.id).order("created_at DESC")
-		else
-			@search_results = ""
-		end
-		@query_name = "Posts by <span class='query-name'>@#{@query}</span>".html_safe
-	end
-
-	def search_posts_by_name
-		@search_results = Post.search(@query).order("created_at DESC")
-		@query_name = "Posts about <span class='query-name'>#{@query}</span>".html_safe
 	end
 end
