@@ -2,6 +2,13 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+//mobile mixin
+@mixin mobile-viewport {
+	@media all and (max-width: 400px) {
+		@content;
+	}
+}
+
 @mixin position-center {
 	-webkit-transform: translate(-50%, -50%);
 	-moz-transform: translate(-50%, -50%);

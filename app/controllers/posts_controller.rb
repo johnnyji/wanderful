@@ -21,7 +21,7 @@ class PostsController < ApplicationController
 
 	def create
 		@post = current_user.posts.build(post_params)
-		create_and_extract_tags
+		ExtractHashtags.call(@post)
 		post_create_status_conditional
 	end
 
@@ -30,7 +30,7 @@ class PostsController < ApplicationController
 
 	def update
 		@post.attributes = post_params #sets the post attributes to attributes in form
-		UpdatePostTags.call(@post)
+		UpdateHashtags.call(@post)
     if @post.save(post_params)
       redirect_to @post
       flash.notice = "Post successfully updated!"
@@ -38,8 +38,6 @@ class PostsController < ApplicationController
       flash.alert = "Something went wrong! Double check please"
       render "edit"
     end
-		# update_and_extract_tags
-		# post_update_status_conditional
 	end 
 
 	def delete
@@ -111,8 +109,8 @@ class PostsController < ApplicationController
 	end
 
 	##### EXTRACTING HASHTAGS #####
-	def create_and_extract_tags
-		tags = @post.extract_tags
-		tags.each { |tag| @post.tag_list.add(tag) }
-	end
+	# def create_and_extract_tags
+	# 	tags = @post.extract_tags
+	# 	tags.each { |tag| @post.tag_list.add(tag) }
+	# end
 end

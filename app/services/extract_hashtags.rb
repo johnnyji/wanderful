@@ -1,4 +1,4 @@
-class UpdatePostTags
+class ExtractHashtags
   extend Service
 
   def initialize(selected_post)
