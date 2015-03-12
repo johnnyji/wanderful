@@ -50,12 +50,18 @@ class PostsController < ApplicationController
 
 	def upvote
 		@post.upvote_by current_user
-		voting_ajax_call
+		respond_to do |format|
+			format.html { redirect_to :back }
+			format.js
+		end
 	end
 
 	def downvote
 		@post.downvote_by current_user
-		voting_ajax_call
+		respond_to do |format|
+			format.html { redirect_to :back }
+			format.js
+		end
 	end
 
 	def search
@@ -99,18 +105,4 @@ class PostsController < ApplicationController
 			end
 		end
 	end
-
-	##### AJAX CALL FOR LIKES & DISLIKES #####
-	def voting_ajax_call
-		respond_to do |format|
-			format.html { redirect_to :back }
-			format.js
-		end
-	end
-
-	##### EXTRACTING HASHTAGS #####
-	# def create_and_extract_tags
-	# 	tags = @post.extract_tags
-	# 	tags.each { |tag| @post.tag_list.add(tag) }
-	# end
 end
