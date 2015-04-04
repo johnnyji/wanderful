@@ -35,13 +35,6 @@
 			</span>
 		<% end %>
 	</div>
-
-	<!-- TAGS -->
-	<div class="tags">
-		<% @tags.each do |tag| %>
-			<%= link_to "##{tag.name} ", tag_path(tag.id) %>
-		<% end %>
-	</div>
 	
 	<div class="show-description">
 		<%= simple_format(@post.description) %>
