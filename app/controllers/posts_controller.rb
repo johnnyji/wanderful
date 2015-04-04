@@ -22,7 +22,19 @@ class PostsController < ApplicationController
 	def create
 		@post = current_user.posts.build(post_params)
 		ExtractHashtags.call(@post)
-		post_create_status_conditional
+		respond_to do |format|
+			if @post.save
+				embed_hashtags(@post)
+				format.html { redirect_to @post, notice: 'Succesfully posted!' }
+				format.js
+			else
+				format.html { render 'new', alert: @post.errors.full_messages.to_sentence }
+				format.js { render 'new' } #do i need another createFailed.JS file to redirect to new or will render 'new' suffice?
+			end
+		end
+
+		
+
 	end
 
 	def edit
@@ -30,8 +42,9 @@ class PostsController < ApplicationController
 
 	def update
 		@post.attributes = post_params #sets the post attributes to attributes in form
-		UpdateHashtags.call(@post)
+		ExtractHashtags.call(@post)
     if @post.save(post_params)
+    	embed_hashtags(@post)
       redirect_to @post
       flash.notice = "Post successfully updated!"
     else
@@ -80,29 +93,20 @@ class PostsController < ApplicationController
 	private
 
 	##### POST #####
+
 	def post_params
-		params.require(:post).permit(:title, :link, :description, :image, :bootsy_image_gallery_id)
+		params.require(:post).permit(:title, :link, :description, :image, :bootsy_image_gallery_id, :tag_list)
 	end
 
 	def find_post
 		@post = Post.find(params[:id])
 	end
 
-	def post_create_status_conditional
-		respond_to do |format|
-			if @post.save
-				format.html {
-					redirect_to @post
-					flash.notice = "Succesfully posted!"
-				}
-				format.js
-			else
-				format.html {
-					flash.alert = @post.errors.full_messages.to_sentence
-					render "new"
-				}
-				format.js
-			end
-		end
-	end
+	def embed_hashtags(post)
+		body = post.description
+    post.reload.tags.each do |hashtag|
+      body.gsub!("##{hashtag.name}", view_context.link_to("##{hashtag.name}", tag_path(hashtag.id)))
+    end
+    post.update(description: body)
+  end
 end
