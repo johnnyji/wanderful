@@ -318,7 +318,6 @@ $confirm-color: #27ae60;
 	}
 
 	.post-user {
-		font-size: 1.1em;
 		width: auto;
 		margin: 0 0 1em 2em;
 		color: $link;
@@ -328,6 +327,7 @@ $confirm-color: #27ae60;
 		.user-picture {
 			display: inline-block;
 			img {
+				width: 45px;
 				border-radius: 100%;
 				-webkit-filter: grayscale(50%);
 				-moz-filter: grayscale(50%);

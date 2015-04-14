@@ -29,12 +29,9 @@ class PostsController < ApplicationController
 				format.js
 			else
 				format.html { render 'new', alert: @post.errors.full_messages.to_sentence }
-				format.js { render 'new' } #do i need another createFailed.JS file to redirect to new or will render 'new' suffice?
+				format.js { render 'createError.js.erb' } #make this create file
 			end
 		end
-
-		
-
 	end
 
 	def edit
