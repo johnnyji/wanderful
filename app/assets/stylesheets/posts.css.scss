@@ -319,7 +319,6 @@ $confirm-color: #27ae60;
 
 	.post-user {
 		width: auto;
-		width
 		margin: 0 0 1em 2em;
 		color: $link;
 		a:hover {
@@ -327,14 +326,16 @@ $confirm-color: #27ae60;
 		}
 		.user-picture {
 			display: inline-block;
-			width: 45px;
-			img {
+			.thumb {
 				width: 45px;
-				border-radius: 100%;
-				-webkit-filter: grayscale(50%);
-				-moz-filter: grayscale(50%);
-				-o-filter: grayscale(50%);
-				filter: grayscale(50%);
+				margin-right: 1em;
+				img {
+					border-radius: 100%;
+					-webkit-filter: grayscale(50%);
+					-moz-filter: grayscale(50%);
+					-o-filter: grayscale(50%);
+					filter: grayscale(50%);
+				}
 			}
 		}
 	}

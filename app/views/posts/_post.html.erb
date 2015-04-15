@@ -3,7 +3,7 @@
 
 		<div class="post-user">
 			<div class="user-picture">
-				<%= link_to image_tag(post.user.image.url(:thumb)), user_path(post.user) %>
+				<%= link_to image_tag(post.user.image.url(:thumb)), user_path(post.user), class: "thumb" %>
 			</div>
 			<%= link_to "@#{post.user.username}", user_path(post.user) %>
 		</div>
