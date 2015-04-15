@@ -1,8 +1,6 @@
 class User < ActiveRecord::Base
   acts_as_follower
   acts_as_followable
-  # extend FriendlyId
-  # friendly_id :username
 
   FORMAT_USERNAME_REGEX = /^\d*[a-zA-Z][a-zA-Z\d]*$/i
 
@@ -28,13 +26,7 @@ class User < ActiveRecord::Base
   end
 
   def check_username_format
-    if self.username.match(FORMAT_USERNAME_REGEX)
-      #username is valid
-      return true
-    else
-      #username is invalid
-      return false
-    end
+    self.username.match(FORMAT_USERNAME_REGEX)
   end
 
 

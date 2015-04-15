@@ -14,11 +14,11 @@ class UsersController < ApplicationController
 	end
 
 	def all_followers
-		@followers = @user.user_followers
+		@followers = @user.user_followers.order('name')
 	end
 
 	def all_following
-		@followings = @user.all_following
+		@followings = @user.following_by_type('User').order('name')
 	end
 
 

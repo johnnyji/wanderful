@@ -1,72 +1,4 @@
-// Place all the styles related to the users controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
-
-@mixin position-center {
-	-webkit-transform: translate(-50%, -50%);
-	-moz-transform: translate(-50%, -50%);
-	-o-transform: translate(-50%, -50%);
-	transform: translate(-50%, -50%);
-}
-
-@mixin position-x {
-	-webkit-transform: translateX(-50%);
-	-moz-transform: translateX(-50%);
-	-o-transform: translateX(-50%);
-	transform: translateX(-50%);
-}
-
-@mixin position-y {
-	-webkit-transform: translateY(-50%);
-	-moz-transform: translateY(-50%);
-	-o-transform: translateY(-50%);
-	transform: translateY(-50%);
-}
-
-@mixin scale-up {
-	-webkit-transform: scale(1.1);
-	-moz-transform: scale(1.1);
-	-o-transform: scale(1.1);
-	transform: scale(1.1);
-}
-
-@mixin transition {
-	-webkit-transition: all 0.5s ease;
-	-moz-transition: all 0.5s ease;
-	-o-transition: all 0.5s ease;
-	transition: all 0.5s ease;
-}
-
-html, body {
-  box-sizing: border-box;
-	height: auto;
-	min-height: 100vh;
-
-  a {
-		text-decoration: none;
-		color: inherit;
-
-		&:hover,{
-			text-decoration: none;
-		}
-	}
-}
-
-body {
-	height: auto;
-	min-height: 100vh;
-}
-
-*, *:before, *:after {
-  box-sizing: inherit;
-}
-
-$link: #95a5a6;
-$light-link-hover: #3498db;
-$link-hover: #2980b9;
-$text-color: #333;
-$form-color: #ecf0f1;
-$confirm-color: #27ae60;
+@import "appwide";
 
 /* USER HEADER */
 
@@ -214,30 +146,40 @@ $confirm-color: #27ae60;
 // USER FOLLOWERS AND FOLLOWINGS PAGE
 
 .user-list-wrapper {
-	position: relative;
-	@include position-x;
-	left: 50%;
-	margin: 0 auto 0 auto;
-	font-size: 1.2em;
+	margin: 4em auto 6em auto;
+	width: 60%;
+	font-size: 1.1em;
+	@include medium-viewport {
+		width: 75%;
+	}
+	@include mobile-viewport {
+		width: 92%;
+	}
 	a:hover {
 		border-bottom: none;
 	}
 
 	h1 {
 		text-align: center;
-		margin-bottom: 2em;
+		margin-bottom: 1.5em;
 	}
 
 	.each-user-wrapper {
-		display: block;
-		padding: 1em 0.5em 1em 0.5em;
+		margin: 0;
+		padding: 1em 0.5em;
 		border-bottom: 1px solid #dbdbdb;
+		@include mobile-viewport {
+			padding: 1.6em 0.5em;
+		}
 		img {
+			display: inline-block;
 			border-radius: 100%;
+			float: left;
 		}
 		.name {
 			display: inline-block;
 			margin-left: 2em;
+			float: right;
 		}
 	}
 }

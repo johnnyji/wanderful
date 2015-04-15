@@ -1,0 +1,84 @@
+@mixin mobile-viewport {
+  @media all and (max-width: 450px) {
+    @content;
+  }
+}
+
+@mixin medium-viewport {
+  @media all and (min-width: 451px) and (max-width: 900px) {
+    @content;
+  }
+}
+
+@mixin position-center {
+  -webkit-transform: translate(-50%, -50%);
+  -moz-transform: translate(-50%, -50%);
+  -o-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+}
+
+@mixin position-x {
+  -webkit-transform: translateX(-50%);
+  -moz-transform: translateX(-50%);
+  -o-transform: translateX(-50%);
+  transform: translateX(-50%);
+}
+
+@mixin position-y {
+  -webkit-transform: translateY(-50%);
+  -moz-transform: translateY(-50%);
+  -o-transform: translateY(-50%);
+  transform: translateY(-50%);
+}
+
+@mixin scale-up {
+  -webkit-transform: scale(1.1);
+  -moz-transform: scale(1.1);
+  -o-transform: scale(1.1);
+  transform: scale(1.1);
+}
+
+@mixin transition {
+  -webkit-transition: all 0.5s ease;
+  -moz-transition: all 0.5s ease;
+  -o-transition: all 0.5s ease;
+  transition: all 0.5s ease;
+}
+
+$link: #95a5a6;
+$light-link-hover: #3498db;
+$link-hover: #2980b9;
+$text-color: #333;
+$form-color: #ecf0f1;
+$confirm-color: #27ae60;
+
+html, body {
+  min-height: 100vh;
+  box-sizing: border-box;
+  font-family: "Open Sans", sans-serif;
+  @include medium-viewport {
+    font-size: 0.9em;
+  }
+  @include mobile-viewport {
+    font-size: 0.82em;
+  }
+  a {
+    text-decoration: none;
+    padding-bottom: 1vh;
+    color: $link;
+    
+    &:hover {
+      color: $link-hover;
+      border-bottom: 3px solid;
+      text-decoration: none;
+    }
+  }
+
+  .data {
+    text-decoration: none;
+  }
+}
+
+*, *:before, *:after {
+  box-sizing: inherit;
+}
