@@ -327,9 +327,9 @@ $confirm-color: #27ae60;
 		.user-picture {
 			display: inline-block;
 			.thumb {
-				width: 45px;
 				margin-right: 1em;
 				img {
+					width: 45px;
 					border-radius: 100%;
 					-webkit-filter: grayscale(50%);
 					-moz-filter: grayscale(50%);
