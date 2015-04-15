@@ -24,7 +24,7 @@ class User < ActiveRecord::Base
 
 
   def remove_username_prefix
-    self.username.gsub!(/^\@*/i, "")
+    username.gsub!(/^\@*/i, '')
   end
 
   def check_username_format
