@@ -1,6 +1,6 @@
 $(document).ready(function() {
-  var $editProfile = $('.edit-profile');
-  var $editIcon = $('.edit-profile-icon');
+  var $shareLink = $('.share-link');
+  var $shareLinkIcon = $('.share-link-icon');
   var $dropdownMenu = $('.drop-icon');
   var $headerRight = $('.right');
   var $headerLeft = $('.left');
@@ -12,14 +12,14 @@ $(document).ready(function() {
 
   var integrateMobileHeader = function() {
     if ($(window).width() < 450) {
-      $editIcon.removeClass('hidden');
+      $shareLinkIcon.removeClass('hidden');
       $dropdownMenu.removeClass('hidden');
-      $editProfile.addClass('hidden');
+      $shareLink.addClass('hidden');
       $headerRight.hide();
       $headerLeft.removeClass('border-bottom');
     } else {
-      $editIcon.addClass('hidden');
-      $editProfile.removeClass('hidden');
+      $shareLinkIcon.addClass('hidden');
+      $shareLink.removeClass('hidden');
       $dropdownMenu.addClass('hidden');
       $headerRight.removeClass('mobile');
       $headerRight.show();

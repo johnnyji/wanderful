@@ -19,8 +19,8 @@
       <p class='title'><%= link_to "Wanderful", root_path %><p>
       <% if user_signed_in? %>
         <%= link_to image_tag(current_user.image.url(:thumb)), user_path(current_user.id), class: "user-avatar" %>
-        <%= link_to "Edit Profile", edit_user_registration_path, class: 'edit-profile' %>
-        <%= link_to edit_user_registration_path, class: "edit-profile-icon hidden" do %>
+        <%= link_to "Share Link", new_post_path, class: 'share-link' %>
+        <%= link_to new_post_path, class: "share-link-icon hidden" do %>
           <i class="fa fa-pencil-square-o"></i>
         <% end %>
       <% end %>
@@ -36,11 +36,11 @@
 
     <div class="right">
       <% if user_signed_in? %>
-        <p><%= link_to "Share Link", new_post_path %></p>
-        <p><%= link_to "Sign Out", destroy_user_session_path, method: :delete %></p>
+        <%= link_to "Edit Profile", edit_user_registration_path %>
+        <%= link_to "Sign Out", destroy_user_session_path, method: :delete %>
       <% else %>
-        <p><%= link_to "Log In", new_user_session_path %></p>
-        <p><%= link_to "Sign Up", new_user_registration_path %></p>
+        <%= link_to "Log In", new_user_session_path %>
+        <%= link_to "Sign Up", new_user_registration_path %>
       <% end %>
     </div>
   </div>
