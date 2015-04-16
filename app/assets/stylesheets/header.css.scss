@@ -28,14 +28,23 @@
   .left {
     @include position-y;
     position: absolute;
+    height: 82px;
     top: 50%;
     width: 45%;
     left: 2%;
+    a {
+      position: relative;
+      @include position-y;
+      top: 50%;
+    }
     .title {
+      top: 30px;
       font-weight: normal;
     }
+    .share-link {
+      top: 30px;
+    }
     .user-avatar {
-      vertical-align: middle;
       img {
         border-radius: 100%;
         height: 50px;
@@ -80,10 +89,16 @@
   .right {
     @include position-y;
     position: absolute;
+    height: 82px;
     top: 50%;
     text-align: right;
     width: 45%;
     right: 2%;
+    a {
+      position: relative;
+      @include position-y;
+      top: 50%;
+    }
   }
   @include medium-viewport {
     .left {
@@ -123,11 +138,10 @@
       position: relative;
       text-align: center;
       right: 0;
-      margin: 2em 0;
       font-weight: 400;
       width: 100%;
+      margin-bottom: 2em;
       a {
-        margin: 0 auto;
         width: 60%;
         &:hover {
           border-bottom: 0;

@@ -16,8 +16,8 @@
   <div class="main-header">
   
     <div class="left">
-      <p class='title'><%= link_to "Wanderful", root_path %><p>
       <% if user_signed_in? %>
+        <%= link_to "Wanderful", root_path, class: 'title' %>
         <%= link_to image_tag(current_user.image.url(:thumb)), user_path(current_user.id), class: "user-avatar" %>
         <%= link_to "Share Link", new_post_path, class: 'share-link' %>
         <%= link_to new_post_path, class: "share-link-icon hidden" do %>
