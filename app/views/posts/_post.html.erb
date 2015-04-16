@@ -9,7 +9,7 @@
 		</div>
 
 		<div class="image-wrapper">
-			<%= link_to (image_tag post.image.url(:thumb)), post %>
+			<%= link_to (image_tag post.image.url(:thumb)), post, class: 'post-image-link' %>
 		</div>
 		<h1><%= link_to post.title, post %></h1>
 		<div class="tags">

@@ -206,6 +206,11 @@
 		height: 225px;
 		overflow: hidden;
 		text-align: center;
+		.post-image-link {
+			&:hover {
+				border-bottom: none;
+			}
+		}
 		&:hover {
 			img {
 				@include transition;
