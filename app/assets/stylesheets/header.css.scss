@@ -1,0 +1,132 @@
+@import "appwide";
+
+.main-header {
+  position: relative;
+  top: 0;
+  width: 100%;
+  min-height: 90px;
+  height: auto;
+  margin: 0 0 70px 0;
+  font-weight: lighter;
+  font-size: 1.2em;
+  letter-spacing: 1px;
+  border-bottom: 1px solid $border-color;
+  p, a {
+    display: inline-block;
+    padding: 0.5em;
+    margin: 0;
+  }
+  .edit-profile-icon {
+    vertical-align: middle;
+    &:hover {
+      border-bottom: none;
+    }
+    i {
+      font-size: 2em;
+    }
+  }
+  .left {
+    position: relative;
+    left: 2%;
+    .title {
+      font-weight: normal;
+    }
+    .user-avatar {
+      vertical-align: middle;
+      img {
+        border-radius: 100%;
+        height: 50px;
+        width: 50px;
+      }
+      &:hover, &:active, &:visited, &:focus {
+        border-bottom: none;
+      }
+    }
+  }
+
+  .flash {
+    @include position-center;
+    position: absolute;
+    text-align: center;
+    width: 50vw;
+    height: 14vh;
+    top: 50%;
+    left: 50%;
+    z-index: -1;
+
+    .notice {
+      @include position-center;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      text-align: center;
+      color: $link-hover;
+    }
+
+    .alert {
+      @include position-center;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      text-align: center;
+      font-weight: normal;
+      color: #c0392b;
+    }
+  }
+
+  .right {
+    position: absolute;
+    @include position-y;
+    right: 2%;
+    top: 50%;
+  }
+  @include medium-viewport {
+    .left {
+      .title {
+        display: none;
+      }
+    }
+  }
+  @include mobile-viewport {
+    min-height: 80px;
+    .left {
+      position: relative;
+      left: 0;
+      .title {
+        display: none;
+      }
+      .drop-icon {
+        font-size: 2em;
+        position: absolute;
+        vertical-align: middle;
+        padding: 0.2em;
+        @include position-y;
+        right: 2%;
+        top: 50%;
+        color: $link;
+        &:hover {
+          cursor: pointer;
+          color: $link-hover;
+        }
+      }
+    }
+    .right {
+      display: none;
+      position: relative;
+      text-align: center;
+      right: 0;
+      margin: 4em 0 -2em 0;
+      font-weight: 400;
+      width: 100%;
+      a {
+        &:hover {
+          border-bottom: 0;
+        }
+      }
+      p {
+        margin: 0 auto;
+        width: 60%;
+      }
+    }
+  }
+}

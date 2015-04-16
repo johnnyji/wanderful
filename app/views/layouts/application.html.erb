@@ -14,13 +14,19 @@
 <body>
 <div class="main-container">
   <div class="main-header">
-    
+  
     <div class="left">
-      <p style="font-weight: normal"><%= link_to "Wanderful", root_path %><p>
+      <p class='title'><%= link_to "Wanderful", root_path %><p>
       <% if user_signed_in? %>
-      <%= link_to image_tag(current_user.image.url(:thumb)), user_path(current_user.id), class: "user-avatar" %>
-        <p><%= link_to "Edit Profile", edit_user_registration_path %></p>
+        <%= link_to image_tag(current_user.image.url(:thumb)), user_path(current_user.id), class: "user-avatar" %>
+        <%= link_to "Edit Profile", edit_user_registration_path, class: 'edit-profile' %>
+        <%= link_to edit_user_registration_path, class: "edit-profile-icon hidden" do %>
+          <i class="fa fa-pencil-square-o"></i>
+        <% end %>
       <% end %>
+      <div class="drop-icon">
+        <i class="fa fa-bars"></i>
+      </div>
     </div>
     
     <div class="flash">

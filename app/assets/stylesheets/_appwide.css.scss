@@ -51,6 +51,7 @@ $link-hover: #2980b9;
 $text-color: #333;
 $form-color: #ecf0f1;
 $confirm-color: #27ae60;
+$border-color: #DBDBDB;
 
 html, body {
   min-height: 100vh;
@@ -81,4 +82,14 @@ html, body {
 
 *, *:before, *:after {
   box-sizing: inherit;
+}
+
+.hidden {
+  display: none;
+}
+
+.border-bottom {
+  @include mobile-viewport {
+    border-bottom: 1px solid $border-color;
+  }
 }
