@@ -1,55 +1,5 @@
 @import "appwide";
 
-// SEARCH BAR LINE
-
-.search-bar {
-	display: inline-block;
-	text-align: center;
-	font-weight: lighter;
-	font-size: 1em;
-	margin: 1em 0.3em 1.5em 0.3em;
-	width: auto;
-	::-webkit-input-placeholder {
-		text-align: center;
-	}
-	:-moz-placeholder { /* Firefox 18- */
-   text-align: center;  
-	}
-	::-moz-placeholder {  /* Firefox 19+ */
-	  text-align: center;  
-	}
-	:-ms-input-placeholder {  
-	  text-align: center; 
-	}
-	form {
-		width: auto;
-	}
-	#search {		
-		margin-top: 1em;
-		background-color: $form-color;
-		width: 20vw;
-		color: $link-hover;
-		border: none;
-		padding: 0.2em;
-		&:focus {
-			outline: none;
-		}
-	}
-
-	.search-button {
-		border: none;
-		font-size: 1em;
-		padding: 0.2em;
-		font-weight: lighter;
-		color: $link-hover;
-		background-color: transparent;
-		&:hover {
-			color: #3498db;
-		}
-	}
-}
-
-
 // INDEX 	
 
 .welcome {
@@ -60,7 +10,12 @@
 	font-weight: lighter;
 	letter-spacing: -1px;
 	font-size: 2em;
-
+	@include mobile-viewport {
+		width: 90%;
+		border-bottom: 1px solid $border-color;
+		padding-bottom: 2.5em;
+		margin: 0 auto 2em auto;
+	}
 	.app-title {
 		color: $link-hover;
 		font-size: 2em;
@@ -95,6 +50,9 @@
 			&:hover, &:visited, &:active, &:focus {
 				color: $confirm-color;
 			}
+		}
+		@include mobile-viewport {
+			display: none;
 		}
 	}
 	
@@ -282,21 +240,23 @@
 	padding-bottom: 5vh;
 	border-bottom: 1px solid #dbdbdb;
 	width: 60vw;
-
+	min-width: 370px;
+	@include mobile-viewport {
+		top: -40px;
+		font-size: 1.1em;
+		margin-bottom: 0;
+	}
 	h1 {
 		font-size: 3em;
 		letter-spacing: 1px;
 	}
-
 	.show-subtitle {
 		font-size: 0.5em;
 		margin-left: 1em;
 		color: $link;
-
 		.show-edit-delete {
 			font-size: 0.7em;
 		}
-
 		.visit-link {
 			@include transition;
 			background-color: $link-hover;
@@ -306,14 +266,11 @@
 			font-size: 0.8em;
 			margin-right: 1em;
 			font-weight: normal;
-
 			&:hover {
 				background-color: #3498db;
 			}
-
 			a {
 				color: #fff;
-
 				&:hover {
 					border-bottom: none;
 				}
@@ -325,15 +282,16 @@
 		font-size: 1.2em;
 		color: $link;
 	}
-
 	p {
 		color: $text-color;
 		font-size: 1.2em;
 	}
-
 	img {
 		margin-top: 1em;
 		width: 90%;
+		@include mobile-viewport {
+			width: 95%;
+		}
 	}
 
 	.show-likes-comments {
@@ -358,6 +316,9 @@
 
 // RANDOM SIDEBAR POST
 .show-sidebar {
+	@include mobile-viewport {
+		display: none;
+	}
 	display: inline-block;
 	position: relative;
 	float: right;
@@ -373,12 +334,10 @@
 		opacity: 1;
 		text-decoration: none;
 	}
-
 	.sidebar-title {
 		font-weight: normal;
 		margin-bottom: 2em;
 	}
-
 	.sidebar-post-title {
 		a {
 			&:hover {
@@ -386,12 +345,10 @@
 			}
 		}
 	}
-
 	img {
 		height: 50%;
 		width: 80%;
 	}
-	
 	.sidebar-post-info {
 		a {
 			font-size: 1em;

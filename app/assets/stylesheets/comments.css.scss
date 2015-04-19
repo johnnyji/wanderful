@@ -12,12 +12,11 @@
 	margin-bottom: 10em;
 	display: block;
 	max-width: 90vw;
-
+	min-width: 370px;	
 	h2 {
 		color: $link-hover;
 		margin-bottom: 1em;
 	}
-
 	.user {
 		font-size: 1.2em;
 		color: $text-color;
@@ -32,18 +31,17 @@
 				width: 70%;
 			}
 		}
-
 		.name {
 			display: inline-block;
 			margin-left: -0.5em;
 		}
 	}
-
 	.content {
 		margin: 1em 0 3em 0;
 		padding-bottom: 2em;
 		border-bottom: 1px solid #dbdbdb;
 		width: 40vw;
+		min-width: 370px;
 	}
 
 	.delete {
@@ -54,6 +52,10 @@
 		&:hover {
 			border-bottom: none;
 		}
+		@include mobile-viewport {
+			font-size: 1.2em;
+			margin-left: 1em;
+		}
 	}
 }
 
@@ -62,18 +64,22 @@
 	max-width: 90vw;
 	position: relative;
 	left: 5%;
-
+	min-width: 370px;
+	@include mobile-viewport {
+		font-size: 1.2em;
+		margin-top: 0;
+	}
 	label {
 		display: block;
 		font-size: 1.3em;
 		color: $link-hover;
 		margin-bottom: 0.5em;
 	}
-
 	textarea {
 		border: none;
-		height: 35vh;
-		width: 35vw;
+		height: 200px;
+		width: 40vw;
+		min-width: 350px;
 		resize: none;
 		margin-bottom: 2em;
 		border-bottom: 1px solid #dbdbdb;
@@ -81,13 +87,11 @@
 		outline: none;
 		@include transition;
 	}
-
-	input[type="submit"] {
+	input[type=submit] {
 		border-radius: 0;
 		background-color: $link-hover;
 		color: #fff;
 		@include transition;
-
 		&:hover {
 			background-color: #3498db;
 		}
@@ -96,8 +100,4 @@
 	abbr {
 		display: none;
 	}
-}
-
-.comment-counter {
-	max-width: 100vw;
 }

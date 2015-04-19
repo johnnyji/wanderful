@@ -1,5 +1,64 @@
 @import "appwide";
 
+// SEARCH BAR LINE 
+
+.search-bar {
+	display: inline-block;
+	text-align: center;
+	font-weight: lighter;
+	font-size: 1em;
+	margin: 1em 0.3em 1.5em 0.3em;
+	width: auto;
+	::-webkit-input-placeholder {	
+		text-align: center;
+	}
+	:-moz-placeholder { /* Firefox 18- */
+   text-align: center;  
+	}
+	::-moz-placeholder {  /* Firefox 19+ */
+	  text-align: center;  
+	}
+	:-ms-input-placeholder {  
+	  text-align: center; 
+	}
+	form {
+		width: auto;
+	}
+	input#search {		
+		margin-top: 1em;
+		background-color: $form-color;
+		width: 20vw;
+		color: $link-hover;
+		border: none;
+		padding: 0.2em;
+		&:focus {
+			outline: none;
+		}
+		@include mobile-viewport {
+			width: 70%;
+		}
+	}
+
+	.search-button {
+		border: none;
+		font-size: 1em;
+		padding: 0.2em;
+		font-weight: lighter;
+		color: $link-hover;
+		background-color: transparent;
+		&:hover {
+			color: #3498db;
+		}
+	}
+}
+
+.search-intro {
+	@include mobile-viewport {
+		display: none;
+	}
+}
+
+
 // SEARCH RESULTS PAGE
 
 .query-title {

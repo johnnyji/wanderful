@@ -27,15 +27,6 @@ class Post < ActiveRecord::Base
   #search field input
   scope :search, lambda { |search_terms| where(["lower(title) like ?", "%#{search_terms.downcase}%"]) }
 
- #  def link_valid?
-	#   uri = URI.parse(self.link)
-	#   uri.kind_of?(URI::HTTP)
-	#   binding.pry
-	# rescue URI::InvalidURIError
-	# 	errors.add(:link, "That link isn't valid!")
-	#   false
-	# end
-
   def check_url_existance
     begin
     	response = Net::HTTP.get_response(URI(self.link))
@@ -58,13 +49,12 @@ class Post < ActiveRecord::Base
 		begin
 			@page_link = MetaInspector.new(link)
 		rescue Faraday::ConnectionFailed => e
-			errors.add(:link, "Sorry, link could not be processed.")
+			errors.add(:link, "Oops, can't be processed ATM")
 		end
 	end
 
 	def get_image_from_link
 		page = @page_link
-    binding.pry
 		return unless page.images.best.present?
 
 		if page.images.owner_suggested.present?

@@ -4,10 +4,12 @@
 		<span class="welcome-user">Hello 
 			<span class="link-user"><%= link_to current_user.name, user_path(current_user) %></span>
 		</span><br>
-		What will you
+
+		<div class='search-intro'>What will you</div>
+
 			<div class="search-bar">
 				<%= form_tag(search_path, method: "get", remote: true) do %>
-					<%= text_field_tag :search, nil, placeholder: "discover today?", name: 'query', autofocus: true, required: true, class: "search-input" %>
+					<%= text_field_tag :search, nil, placeholder: "discover today", name: 'query', autofocus: true, required: true, class: "search-input" %>
 					<button class='search-button glyphicon glyphicon-search'></button>
 				<% end %>
 			</div>
