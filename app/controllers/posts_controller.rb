@@ -13,10 +13,10 @@ class PostsController < ApplicationController
 		@post = Post.find(params[:id])
 		@random_post = Post.where.not(id: @post).order("RANDOM()").first
 		@comments, @tags, @hashtags = ShowPostDependants.call(@post)
-		respond_to do |format|
-			format.html
-			format.json { render json: @post }
-		end
+		# respond_to do |format|
+		# 	format.html
+		# 	format.json { render json: @post }
+		# end
 	end
 
 	def new
