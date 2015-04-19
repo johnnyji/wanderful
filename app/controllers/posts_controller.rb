@@ -13,6 +13,10 @@ class PostsController < ApplicationController
 		@post = Post.find(params[:id])
 		@random_post = Post.where.not(id: @post).order("RANDOM()").first
 		@comments, @tags, @hashtags = ShowPostDependants.call(@post)
+		respond_to do |format|
+			format.html
+			format.json { render json: @post }
+		end
 	end
 
 	def new
@@ -28,7 +32,7 @@ class PostsController < ApplicationController
 				format.html { redirect_to @post, notice: 'Succesfully posted!' }
 				format.js
 			else
-				format.html { render 'new', alert: @post.errors.full_messages.to_sentence }
+				format.html { render 'new' }
 				format.js { render 'createError.js.erb' } #make this create file
 			end
 		end

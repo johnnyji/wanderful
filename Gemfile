@@ -8,6 +8,7 @@ gem 'coffee-rails', '~> 4.0.0'
 gem 'jquery-rails'
 gem 'jbuilder', '~> 2.0'
 gem 'sdoc', '~> 0.4.0',          group: :doc
+gem 'active_model_serializers', '~> 0.9.3'
 
 gem 'devise', '~> 3.4.1'
 gem 'aws-sdk', '< 2.0'

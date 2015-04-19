@@ -165,13 +165,17 @@
 	}
 
 	.each-user-wrapper {
-		margin: 0;
-		padding: 1em 0.5em;
+		margin: 1em 0;
+		padding: 1em 0;
 		border-bottom: 1px solid #dbdbdb;
 		@include mobile-viewport {
 			padding: 1.6em 0.5em;
 		}
 		img {
+			@include position-y;
+			top: 50%;
+			margin-right: 0.5em;
+			width: 50px;
 			display: inline-block;
 			border-radius: 100%;
 			float: left;

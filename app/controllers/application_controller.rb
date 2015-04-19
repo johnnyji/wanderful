@@ -5,6 +5,10 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
   before_filter :configure_permitted_parameters, if: :devise_controller?
 
+  def default_serializer_options
+    { root: false }
+  end
+
   protected
   def configure_permitted_parameters #adds custom param to devise
   	devise_parameter_sanitizer.for(:sign_up) << :name << :image << :description << :username

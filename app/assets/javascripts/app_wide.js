@@ -28,7 +28,7 @@ $(document).ready(function() {
 
 	//CANNOT USER PREDETERMINED VARIABLES BECAUSE AJAX OVERRIDES THEM
 	$(document).on("focus", "#user_username", function() {
-		if ($("#user_username").val().match(/^\d*[a-zA-Z][a-zA-Z\d]*$/i)) {
+		if ($("#user_username").val().match(usernameFormat)) {
 			$(".unconfirm").slideUp(300);
 			$(".confirm").slideDown(300);
 		} else {
@@ -39,7 +39,7 @@ $(document).ready(function() {
 	});
 
 	$(document).on("blur", "#user_username", function() {
-		if ($("#user_username").val().match(/^\d*[a-zA-Z][a-zA-Z\d]*$/i)) {
+		if ($("#user_username").val().match(usernameFormat)) {
 			$(".unconfirm").slideUp(300);
 			$(".confirm").slideDown(300);
 		} else {
