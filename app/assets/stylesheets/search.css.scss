@@ -53,6 +53,7 @@
 }
 
 .search-intro {
+	display: inline-block;
 	@include mobile-viewport {
 		display: none;
 	}
